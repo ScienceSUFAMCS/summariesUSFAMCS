@@ -1,0 +1,62 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{cmap}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[normalem]{ulem}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\usepackage{wrapfig}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\begin{document}
+\section{Непрерывность ФКП в плоскости, вплоть до границы}
+$\quad \; \ $ Пусть $a, b$ --- внутренние или граничные точки области $D$. 
+\textbf{Расстоянием между} $a$ и $b$ будем называть величину $\rho_D(a, b) = \underset{\gamma}{inf} \text{дл.} \gamma$, где дл. $\gamma$ --- длина кривой $\gamma$, а инфимум берётся по всем кривым, соединяющим точки $a$ и $b$ и лежащим в области $D$.
+
+Очевидно, что $\rho_D(a, b) \geq |a - b|$ и $\rho_D(a, b) = |a - b|$, если отрезок $[a, b] \in D$.
+
+Отметим, что если $a$ и $b$ --- различные точки граничной кривой области $D$, то $\rho_D(a, b) > 0$ даже в том случае, если $a$ и $b$ совпадают как точки плоскости.
+
+\begin{wrapfigure}[14]{l}{0.5\linewidth} 
+    \vspace{0ex}
+    \includegraphics{49-50D.png}
+\end{wrapfigure}
+
+\textbf{Пример.} 
+
+$D = B(0; 5)$ с разрезом 
+
+$\rho_D(-i, i) = 2, $
+
+$\rho_D(1-i, 1+i) = 2 \sqrt{2}$.
+
+$a = 1$ --- точка на верхнем береге разреза;
+
+$b = 1$ --- точка на нижнем береге разреза.
+
+$\rho_D(a, b) = 2,$ 
+
+$\rho_D(a, 0) = 1,$
+
+$\rho_D(a, 1-i) = 1 + sqrt(2)$
+
+Пусть $D$ --- ограниченная область, граница которой $\partial D$ состоит из конечного числа замкнутых кривых $\gamma_1, \gamma_2, ..., \gamma_n$. Пусть функция $f$ определена на $D \cup \partial D$.
+
+Функцию $f(z)$ будем называть \textbf{непрерывной в области $D$ вплоть до границы $\partial D$}, если для каждой точки $a \in D \cup \partial D$ имеет место равенство $f(a) = \lim\limits_{\rho_D(z,a)\rightarrow 0}f(z)$.
+
+Если $a$ --- внутренняя точка, или $a$ не является точкой самопересечения граничной кривой, то $\lim\limits_{\rho_D(z,a)\rightarrow 0}f(z) = \lim\limits_{z\rightarrow a}f(z)$, т.е. понятие непрерывности в такой точки обычное.
+
+Таким образом, если граница $\partial D$ области $D$ состоит из простых кривых (замкнутых), то непрерывность $f$ вплоть до границы равносильна непрерывности $f$ в $\overline{D} = D \cup \partial D$. Но если $\partial D$ не является простой, то из непрерывности $f$ вплоть до границы не следует напрерывность $f$ на $\overline{D}$.
+
+\textbf{Пример.} $f(z) = \sqrt{z} = z^{\dfrac{1}{2}}e^{\dfrac{i\phi}{2}}$, где $z = \rho \cdot e^{i\phi}, 0 < \phi < 2\pi$.
+
+Доопределим $f$ в каждой граничной точке $a$ области как на рисунке вначале параграфа по формуле: $f(a) = \lim\limits_{\rho_D(z, a) \rightarrow 0}$. Эта функция непрерывна в $D$ вплоть до границы. В частности, если $z = x > 0$ на верхнем береге разреза, то $\lim\limits_{\rho_D(z,a)\rightarrow 0}f(z) = \lim\limits_{z\rightarrow x, Im(z) > 0}f(z) = f(x + 0\cdot i) = \sqrt{x}$.
+
+На нижнем береге разреза $z = x > 0$ получаем $\lim\limits_{\rho_D(z,a)\rightarrow 0}f(z) = \lim\limits_{z\rightarrow x, Im(z) < 0}f(z) = f(x - 0\cdot i) = -\sqrt{x}$.
+
+Отсюда следует, что $f(z)$ не является непрерывной в $\overline{D}$.
+\end{document}

@@ -1,0 +1,537 @@
+\chapter{Неопределенный интеграл.}
+\section{Неопределенный интеграл.}
+$\bullet$ \textit{Совокупность всех первообразных на промежутке $X$ называется \textbf{непределенным интегралом} от $f$ на $X$ и обозначается символом $\int f(x)dx$}
+$$\int f(x)dx = \{\mathcal{F}(x) + С\}.$$
+Неопределенный интеграл --- это множество функций.\\
+$\bullet$ \textit{$f$ --- \textbf{подынтегральная функция}. $f(x)dx$ --- \textbf{подынтегральное выражение}.}\\\\
+Чаще записывают $\int f(x)dx = \mathcal{F}(x) + C$, где $\mathcal{F}$ --- некоторая первообразная для $f$ на $X$ , $C$ --- произвольная постоянная.\\
+\begin{example}
+	$$\int \sin xdx = - \cos x +Cc, \int \cos xdx = \sin x + C.$$
+	$$\left.\begin{gathered}
+		\int \dfrac{dx}{x} = \ln x + C_1, x > 0\\\\
+		\int \dfrac{dx}{x} = \ln -x + C_2, x < 0
+	\end{gathered}\right\}
+	\text{нельзя} \int \frac{dx}{x} = \ln |x| + C.$$
+\end{example}
+\section{Простейшие свойства неопределенного интеграла.}
+\begin{enumerate}
+	\item \textit{Перестановочность операций интегрирования и дифференцирования.}\\\\
+	Пусть $\int f(x)dx = \mathcal{F}(x) + C$.\\\\
+	Сосчитаем дифференциалы от обеих частей этого равенства
+	$$d(\int f(x)dx) = d(\mathcal{F}(x)+C)=d\mathcal{F}(x) = f(x)dx.$$
+	То есть операция дифференцирования является обратной по отношению к операции интегрирования.
+	$$\int d \mathcal{F} = \int f(x)dx = \mathcal{F}(x) + C.$$
+	Операции интегрирования и дифференцирования перестановочны.\\\\
+	Эти же свойства можно записать с помощью производных.
+	$$\Big(\int f(x)dx\Big)' = f(x);\quad \int \mathcal{F}'(x)dx = \mathcal{F}(x) + C$$
+	Эти свойства используются для проверки правильности нахождения неопределенного интеграла. А именно, чтобы проверить правильность некоторого соотношения вида
+	$\int f(x)dx = A(x)$
+	нужно установить, что \begin{enumerate} 
+		\item $A'(x) = f(x)$
+		\item $A(x)$ содержит слагаемым произвольную постоянную.
+	\end{enumerate} 
+	\item \textit{Линейность неопределенного интеграла.} \\\\
+	\textit{Пусть $f$ и $g$ обладают первообразными на промежутке $X$ и $\alpha, \beta \in \Rm$, причём $\alpha^2 + \beta^2 \neq 0$. Тогда линейная комбинация $\alpha f + \beta g$ также обладает первообразной, причём}
+	$$\int (\alpha f(x) + \beta g(x))dx = \alpha \int f(x)dx + \beta \int g(x)dx.$$
+	\begin{Proof}
+		Пусть $\mathcal{F}$ --- первообразная для $f$, $\mathcal{G}$ --- первообразная для $g$. Докажем, что $\alpha \mathcal{F} + \beta \mathcal{G}$ является первообразной для $\alpha f + \beta g$.
+		$$(\alpha \mathcal{F} + \beta \mathcal{G})'= \alpha \mathcal{F}' + \beta \mathcal{G}'= \alpha f + \beta g.$$
+		А тогда $$\int (\alpha f + \beta g)dx = \alpha \mathcal{F} + \beta \mathcal{G} + c = \alpha (\mathcal{F} + C_1) + \beta(\mathcal{G} + C_2) = \alpha \int f(x)dx + \beta \int g(x)dx.$$
+		Итак, операция интегрирования является линейной операцией.
+	\end{Proof}
+	\begin{example}\begin{enumerate}
+			\item $\int (\cos x - \dfrac{1}{x^2} + 3)dx = \sin x + \dfrac{1}{x} + 3x + C.$
+			\item $\int 0dx = C.$
+			\item $\int \cos ^2 x dx = \int \dfrac{1 + \cos 2x}{2} dx = \dfrac{1}{2}x + \dfrac{1}{4} \sin 2x + C$.
+		\end{enumerate}
+	\end{example}
+\end{enumerate}
+\section{Таблица основных неопределенных интегралов.}
+\begin{itemize}
+	\item Эта таблица получена обращением таблицы производных.
+	\item Каждая из этих формул рассматривается на тех промежутках действительной оси $\Rm$, на которых определена соответствующая подынтегральная функция. Если таких промежутков несколько, то постоянная $c$ может меняться от промежутка к промежутку.\\\\
+\end{itemize}
+\begin{enumerate}
+	\item $\int 0d x=C$
+	\item $\int d x=x+C$
+	\item $\int xd x=\dfrac{x^2}{2}+C$
+	\item $\int \dfrac{dx}{\sqrt{x}}=2 \sqrt{x}+C$
+	\item  $\int \dfrac{dx}{\sqrt{x^2}}=-\dfrac{1}{x}+C$
+	\item $\int x^\alpha d x=\dfrac{x^{\alpha+1}}{\alpha+1}+c, \alpha \neq-1$
+	\item $\int \dfrac{d x}{x}=\ln |x|+C$
+	\item $\int e^x d x=e^x+C$
+	\item $\int \sin x d x=-\cos x+C$
+	\item $\int \cos x d x=\sin x+c$
+	\item $\int \dfrac{d x}{\cos ^2 x}=\operatorname{tg} x+C$
+	\item $\int \dfrac{d x}{\sin ^2 x}=-\operatorname{ctg} x+C$
+	\item$\int \dfrac{d x}{\sqrt{1-x^2}}=\arcsin x+C_1 = - \arcsin x+C_2$ 
+	\item $\int \dfrac{d x}{1+x^2}=\operatorname{arctg} x +C_1 = -\operatorname{arctg} x +C_2$
+	\item $\int a^x d x=\frac{a^x}{\ln a}+C$
+	\item $\int \operatorname{sh} x d x=\ch x+C$
+	\item $\int \operatorname{ch} x d x=\operatorname{sh} x+C$
+	\item $\int \dfrac{d x}{\operatorname{sh}^2 x}=-\cth x+C$
+	\item $\int \dfrac{d x}{\ch^2 x}=\th x+C$
+	\item $\int \dfrac{d x}{\sqrt{x^2 + 1}}=\ln (x+\sqrt{x^2 + 1})+C$
+	\item $\int \dfrac{d x}{\sqrt{x^2 \pm 1}}=\ln \left|x+\sqrt{x^2 \pm 1}\right|+C$
+	\item $\int \dfrac{d x}{1-x^2}=\dfrac{1}{2} \ln \left|\dfrac{1+x}{1-x}\right|+C$
+\end{enumerate}
+\section{Замена переменной в неопределенном интеграле.}
+Суть метода в том, что вычисление неопределенного интеграла от некоторой функции сводится к вычислению неопределенного интеграла от другой функции. \\
+Считаем далее, что известна первообразная $\mathcal{F}$ для функции $f$, то есть $\int f(x)dx = \mathcal{F}(x) + c $ и нужно вычислить $\int g(x)dx$.
+\begin{theorem}[Введение множителя под знак дифференциала]
+	Пусть существует такая дифференцируемая функция $\varphi$, что $g = (f \circ g)\varphi'$ и $\mathcal{F}$ --- первообразная для $f$.\\
+	Тогда $$\int g(x)dx = (\mathcal{F} \circ \varphi)(x) + C.$$
+\end{theorem}
+\begin{Proof}
+	\begin{enumerate}
+		\item произвольная постоянная в правой части есть
+		\item $((\mathcal{F} \circ \varphi) (x) + c)' = (\mathcal{F} \circ \varphi)'(x)) = \mathcal{F}'(\varphi(x)) \cdot \varphi'(x)=f(\varphi(x)) \cdot \varphi ' (x) = (f \circ \varphi) (x) \cdot \varphi ' (x) = g(x).$
+	\end{enumerate}
+\end{Proof}\\
+На практике действуют следующим образом.
+\begin{multline*}
+	\int g(x)dx = \int f(\varphi(x)) \cdot \varphi'(x)dx = \int f(\varphi(x))\cdot d(\varphi(x)) = \\
+	= \left[ \begin{cases}
+		\varphi(x) = t \\
+		d\varphi(x) = dt
+	\end{cases} \right] = \int f(t) dt = \mathcal{F}(t) + C = \mathcal{F}(\varphi(x)) + C.
+\end{multline*}
+Полученное правило подстановки является обращением правила для вычисления производной композиции. Этот прием называется приемом \textbf{подвведения множителя под знак дифференциала}.\\
+\begin{example}
+	$$\int \sin (2x + 1)dx = \frac{1}{2}\int \sin(2x + 1) d(2x+1)= - \frac{1}{2} \cos (2x + 1) + C.$$
+	$$\int \tan x dx = \int \frac{\sin xdx}{\cos x} = - \int \frac{d(\cos x)}{\cos x} = - ln \left| \cos x \right| + C.$$
+	$$\int (3x + 7)^3dx = \left[ \begin{cases}
+		3x + 7 = t \\
+		3dx) = dt
+	\end{cases} \right] = \frac{1}{3} \int t^3dt = \frac{1}{12} (3x + 7)^4 + C.$$
+	$$\int \frac{dx}{x^2 + a^2} = \frac{1}{a^2} \int \frac{dx}{\frac{x^2}{a^2} + 1} = \frac{1}{a}\int \frac{d(\frac{x}{a})}{1 + (\frac{x}{a})^2}= \frac{1}{a}\arctan \frac{x}{a} + C.$$
+\end{example}
+\begin{theorem}[Вынесение множителя из-под знака дифференциала]
+	Пусть функция $x = \varphi(t)$ обратима, то есть $\exists \varphi^{-1}$ $(t = \varphi^{-1}(x))$, дифференцируема и $\varphi^{-1} \neq 0$ и $(g \circ \varphi)\cdot\varphi' = f$.\\
+	Тогда, если $\mathcal{F}$ первообразная для $f$, то $$\int g(x)dx = (\mathcal{F}\circ \varphi^{-1})(x) + C.$$
+\end{theorem}
+\begin{Proof}
+	\begin{enumerate}
+		\item произвольная постоянная есть;
+		\item \begin{multline*}
+			((\mathcal{F}\circ \varphi^{-1})(x) + c)' = (\mathcal{F}\circ \varphi^{-1})'(x) = \mathcal{F}'(\varphi^{-1}(x))\cdot (\varphi^{-1}(x))' = \\
+			= f(\varphi^{-1}(x))\cdot\frac{1}{\varphi'(\varphi^{-1})} =
+			\left[ \varphi^{-1}(x) = t \right] = \frac{f(t)}{\varphi'(t)} = \frac{g(\varphi(t))\cdot\varphi'(t)}{\varphi'(t)} = g(x).
+		\end{multline*}
+	\end{enumerate}
+\end{Proof}\\
+На практике 
+$$\int g(x)dx = \left[ x = \varphi(t) \right] = \int g(\varphi(t))\cdot \varphi '(t)dt = \int f(t)dt = \mathcal{F}(t) + C= \mathcal{F}( \varphi^{-1}(x)) + C.$$
+\begin{example}
+	\begin{multline*}
+		\int \sqrt{a^2 - x^2}dx =
+		\left[ \begin{cases}
+			x = a \sin t \\
+			dx = a \cos tdt
+		\end{cases} \right] = 
+		\int \sqrt{a^2 - a^2 \sin ^2 t} \cdot a \cos t dt =
+		a^2 \int \left| \cos t \right| \cdot \cos t dt = \\
+		= \left[ \begin{cases}
+			x^2 = a^2 \Rightarrow |x| \leqslant a \Rightarrow -a \leqslant x \leqslant a \Rightarrow -1 \leqslant \sin t \leqslant 1 \Ra\\
+			\Ra -\frac{\pi}{2} \leqslant t \leqslant \frac{\pi}{2} \Rightarrow \cos x \geqslant 0
+		\end{cases} \right] = \\
+		= a^2 \int \cos ^2 t dt = a^2 \int \frac{1 + \cos 2t}{2}dt = a^2 (\frac{1}{2}t + \frac{1}{4}\sin 2t) + C = \\
+		= \left[ t = \arcsin \frac{x}{a} \right] = a^2 (\frac{1}{2}\arcsin \frac{x}{a} + \frac{1}{4}\sin 2(\arcsin \frac{x}{a})) + C = \\
+		= \frac{a^2}{2} \arcsin \frac{x}{a} + \frac{a^2}{4} \cdot 2\sin(\arcsin\frac{x}{a})\cdot \sqrt{1 - \sin^2(\arcsin\frac{x}{a})} + C = \\
+		= \frac{a^2}{2} \arcsin \frac{x}{a} + \frac{a^2}{2} \cdot \frac{x}{a} \cdot \sqrt{1 - \frac{x^2}{a^2}} + C = \\
+		= \frac{a}{2}\cdot\sqrt{a^2 - x^2} + \frac{a^2}{2}\arcsin\frac{x}{a} + C.
+	\end{multline*}
+\end{example}
+\section{Интегрирование по частям.}
+Каждая из формул для производных или дифференциалов может быть использована для вывода формулы интегрирования.\\\\
+В частности, формула для вычисления производной произведения приводит нас к формуле интегрирования по частям.
+\begin{theorem}
+	Пусть функции $u$ и $v$ дифференцируемы на интервале $X$, то есть $u, v \in D(x)$. Если существует $\int u'(x)v(x)\dx$, то существует и интеграл $\int u(x)v'(x)\dx$, при этом $$\int u(x)v'(x)\dx = u(x)v(x) -  u'(x)v(x)\dx.$$
+\end{theorem}
+$\bullet$ \textit{Эту формулу называют\textbf{ формулой интегрирования по частям}.}\\\\
+Её иногда записывают в таком виде:\\
+\[
+\boxed{\int\limits udv\ = uv - \int\limits vdu } \qquad
+\]\\
+На практике:\\
+Предположим, что при вычислении $\int\limits f(x)\ dx $ удалось представить $f$ в виде $f = \upvarphi \cdot \uppsi$, причем таким образом, что для $\uppsi$ видим первообразную $\Psi$. Тогда\\
+$$\int\limits f(x)\ dx = \int\limits \varphi(x)\uppsi(x)\dx = \begin{bmatrix}  u = \upphi(x) \ dv = \varphi(x) dx  \\ du = \varphi '(x)dx \ v = \Psi (x)  \end{bmatrix} = \varphi (x) \Psi (x) - \int\limits \Psi(x) \varphi '(x).$$ И теперь вычисляем последний интеграл.
+\begin{example}
+	\begin{enumerate}
+		\item  $\int \limits \ln(x)\dx =  \begin{bmatrix}   u  = \ln(x) & dv = \dx \\ du = 
+			\frac{dx}{x}&   v = x  
+		\end{bmatrix}  = x\ln x - \int\limits \dx = x\ln x - x + C$.
+		\item  $\int\limits \arctg{x} \dx = x \arctg{x} - \int\limits x 
+		\dfrac{1}{1 + x^2}\dx= x \arctg{x} - \dfrac{1}{2}\ln(1 + x^2) + C.$
+		\item  $J::=  \int e^{a^x} \sin{bx}\dx= \begin{bmatrix} u = e^{a^x}; & dv = \sin{bx}\dx; \\ du = ae^{a^x}\dx; & v = - 
+			\frac{1}{b}\cos bx. \end{bmatrix} =  -  
+		\frac{1}{b} 
+		e^{a^x} \cos{bx} + 
+		\frac{a}{b} \int e^{a^x} \cos{bx} \dx =   \begin{bmatrix} u = e^{a^x} & dv = \cos{bx}dx \\ du = ae^{a^x}\dx & v =  \frac{1}{b} \sin{bx} \end{bmatrix}  =  -  \frac{1}{b}  e^{a^x} \cos{bx} +  \frac{a}{b} (   \frac{1}{b}   e^{a^x} \sin{bx} -  \frac{a}{b}  \int e^{a^x} \sin{bx} dx ) $ \\\\
+		$ J = -  \frac{1}{b} e^{a^x}
+		\cos{bx} + \ \frac{a}{b^2} e^{a^x} \sin{bx} -  \frac{a^2}{b^2}J;$ \\\\
+		$(1 +   \frac{a^2}{b^2}  ) J  = -  \frac{1}{b}   e^{a^x} \cos{bx} + \frac{a}{b^2} e^{a^x} \sin{bx}  \Rightarrow$
+		$$J = \frac{a \sin{bx} - b \cos{bx}}{a^2 + b^2} e^{xa} + C.$$
+	\end{enumerate}
+\end{example}
+\section{Вычисление $ \int \frac{dx}{(x^2 + a^2)^n} $ , $ n \in {\N}$.}
+$$ J_n :: =  \int \frac{\dx}{(x^2 + 1)^n},\ n\in {\N}.$$
+$$ J_1 = \int\limits \frac{\dx}{x^2 + 1} = \arctg{x} + C. $$
+Пусть $n > 1$. Тогда 
+\begin{multline*}
+	J_n = \int\limits \frac{dx}{(x^2 + 1)^n} = \int\limits \frac{1 + x^2 - x^2}{(x^2 + 1)^n} dx  = \int\limits \frac{x^2dx}{(x^2 + 1)^n } = \begin{bmatrix} u = x & \frac{xdx}{(1 + x^2)^n} = dv \\ du = dx & v = \frac{1}{2(-n - 1)(1 + x^2)^{n-1}} \end{bmatrix}=\\ = J_{n - 1} - \Big( - \frac{x}{2(n - 1)(1 + x^2)^{n - 1}} + \frac{1}{2(n - 1)} \int\limits \frac{dx}{(1 + x^2)^{n - 1}}\Big) =\\ = \frac{x}{2(n - 1)(1 + x^2)^{n - 1}} - \frac{1}{2(n - 1)} J_{n-1} = \Big(1 - \frac{1}{2(n - 1)}\Big)J_{n - 1} + \frac{1}{2(n - 1)} \frac{x}{(x^2 + 1)^{n - 1}}.
+\end{multline*}
+\[
+\boxed{ J_n = \frac{2n - 3}{2n -2}J_{n - 1} + \frac{1}{2(n - 1)} \frac{x}{(x^2 + 1)^{n - 1} }} \qquad
+\]
+Получена рекурентная формула для вычисления $ J_n $. Займёмся теперь исходным интегралом.
+\begin{multline*}
+	K_n :: =  \int\limits \frac{dx}{(x^2 + a^2)^n} ;\quad  \ K_1 =  \int\limits \frac{dx}{x^2 + a^2} = \frac{1}{a} \arctg \frac{x}{a} + C. \\
+	K_n = \int\limits \frac{dx}{x^2 + a^2} = \frac{1}{a^{2n - 1}} \int\limits \frac{d( \frac{x}{a})}{( \frac{x^2}{a^2} + 1)^n} = \frac{1}{a^{2n-1}} J_{n} \frac{x}{a}=\\ = \frac{1}{2(n - 1)a^{2n - 1}}\cdot \frac{\frac{x}{a}}{((\frac{x}{a})^2 + 1)^{n - 1}} + \frac{2n - 3}{(2n - 1)} J_{n-1} \Big(\frac{x}{a}\Big) = \frac{1}{2(n - 1)} \cdot\frac{x}{a^2(x^2 + a^2)^{n - 1}} + \frac{1}{a^2}\cdot \frac{2n - 3}{2n - 2} K_{n - 1}(x)
+\end{multline*}
+\[
+\boxed{  K_n = \frac{1}{2n - 2} \cdot \frac{x}{a^2(x^2 + a^2)^{n - 1}} + \frac{1}{a^2}\cdot \frac{2n - 3}{2n - 2} K_{n - 1}  } \qquad
+\]\\
+\[
+\boxed{ K_1 = \frac{1}{a} \arctg{\frac{x}{a}} + C } \qquad
+\]\\
+В результате $ K_n $ оказывается суммой правильных рациональных функций со знаменателями $ (x^2 + a^2)^{n - 1}, (x^2 + a^2)^{n - 2}, \dots, (x^2 + a^2) $ и арктангенса, то есть
+\[
+\boxed{ K_n = \sum\limits_{k = 1}^{n - 1}  \frac{A_k x}{(a^2 + x^2)^k} + A_0 \arctg{\frac{x}{a}} + C. } \qquad
+\]
+\section{Неберущиеся интегралы.}
+Как мы уже знаем, операция дифференцирования элементарных функций не выводит нас из класса элементарных функций, то есть производная от элементарной функции является опять элементарной функцией.\\\\
+По-другому обстоит дело с интегрированием. Интеграл от элементарной функции может оказаться уже не элементарной функцией, то есть операция интегрирования уже выводит нас из класса элементарных функций. Интегралы от элементарных функций, сами не являющиеся элементарными, носят название $"$неберущиеся$"$. Это означает, что мы не можем выразить их через элементарные функции, хотя интегралы и существуют. Позже будет показано, что любая непрерывная функция обладает первообразной. \\
+\begin{example}
+	\begin{enumerate}
+		\item \item $ \int\limits e^{-x^2} dx = \Phi(x) + C $ --- интеграл вероятности;
+		\item $ \int\limits \frac{\sin{x}}{x} dx = six + C $ --- синус интегральный;
+		\item $ \int\limits \frac{\cos{x}}{x} dx = cis + C $ --- косинус интегральный;
+		\item $ \int\limits \frac{x}{lnx} dx = lix + C $ --- логарифм интегральный.
+	\end{enumerate}
+\end{example}\\\\
+Отметим, что эта комбинация $"$неберущихся$"$ интегралов может оказаться берущейся.\\\\
+Например:\\
+$$\underbrace{\int\limits xe^{-x^2} dx}_{\text{берущийся}} = \underbrace{\int\limits e^{-x^2} dx}_{\text{неберущийся}} + \underbrace{\int\limits (x - 1)e^{-x^2} dx}_{\text{неберущийся}}.$$
+\section{Разложение рациональной функции на простейшие.}
+Из курса алгебры известен такой результат.\\\\
+\textit{Многочлен степени n с действительными коэффициентами $$ P(x) = a_0 x^n + a_1 x^{n - 1} + ... + a_n, a_n \in {\Rm}, x \in {\Rm} $$ можно представить в виде $$ P(x) = a_0 (x - \alpha_1)^{k_1} (x - \alpha_2)^{k_2} \ldots (x -\alpha_m)^{k_m} (x^2 + p_1x + q_1)^{l_1}\ldots (x^2 + p_rx + q_r)^{l_r},$$ где $ \alpha_1, \alpha_2,\ldots, \alpha_m $ --- действительные различные корни, а $ (P_j)^2 - 4q_j < 0 .$}\\\\
+Из этого представления нетрудно получить следующий результат.
+$$ P(\alpha_1) = P'(\alpha_1) = \ldots = P^{(k_1 - 1)}(\alpha_1) = 0,\quad P^{(k_1)}(\alpha_1) \neq 0.$$
+То есть если $ \alpha_1 $ --- корень кратности $ k_1 $ многочлена, что он будет корнем всех производных порядков до $ k_1 - 1 $ включтельно, и не является корнем $ k-ой $ производной. Обратное тоже верно. \\\\
+$\bullet$ \textit{Функцию $ f = \frac{Q(x)}{P(x)} $, где P и Q многочлены, называют \textbf{рациональной функцией}.} \\\\
+$ P(x) \neq 0 $, то есть хотя бы один из коэффициентов отличен от нуля. В дальнейшем также считаем, что старший коэффициент $ a_0 $ многочлена P(x) равен 1, ибо в противном случае, можно разделить на $ a_0 $ числитель и знаменатель. \\\\
+$\bullet$ \textit{Если $ deg Q(x) < deg P(x) $, то рациональную функцию называем \textbf{правильной}.} \\\\
+$\bullet$\textit{ \textbf{Простейшими} рациональными функциями будем, называть функции:}
+$$1. A x^m, \quad 2. \frac{A}{(x - \alpha)^k}, \quad 3. \frac{Mx + N}{(x^2 + px + q)^l},\quad k,l \in {\Rm},\ p^2 - 4q < 0. $$
+\begin{theorem}
+	Каждую рациональную функцию можно представить в виде суммы простейших рациональных функций. Это представление единственно с точностью до порядка слагаемых.
+\end{theorem}
+\begin{Proof}
+	\begin{enumerate}
+		\item $ f(x) =  \dfrac{Q(x)}{P(x)} $ , где $\deg Q(x) \geqslant \deg P(x).$ \\
+		Тогда  \[ \frac{Q(x)}{P(x)} = S(x) + \frac{Q_1(x)}{P(x)}, \] где $S(x)$ --- многочлен, т.е. сумма простейших вида $1$, $\deg Q_1(x) < \deg P(x)$.
+		\item Значит, можно рассматривать только правильную рациональную функцию \\
+		\[
+		f(x) = 
+		\frac{Q(x)}{P(x)},\quad \deg Q(x) < \deg P(x).
+		\]	Тогда $$ \frac{Q(x)}{P(x)} = \frac{A_m}{(x - \alpha)^m} + \Big( \frac{Q(x)}{P(x)} - \frac{A_m}{(x - \alpha)^m}\Big) = \frac{A_m}{(x - \alpha)^m} + \frac{Q(x) - A_m P_1(x)}{P(x)}.$$
+		Подберём число $A_m$ так, чтобы $\alpha$ было корнем многочлена $ Q(x) - A_m P_1(x) $, т.е. потребуем, чтобы $ Q(x) - A_m P_1(\alpha) = 0 \Rightarrow A_m = \dfrac{Q(\alpha)}{P_1(\alpha)} $. \\\\
+		Тогда $ Q(x) -  A_m P_1(x) = (x - \alpha) Q_1(x) $, где $\deg Q = \deg Q_1$.\\\\
+		Получим $$  \frac{Q(x)}{P(x)} = \frac{A_m}{(x - \alpha)^m} + \frac{Q_1(x)}{(x - \alpha)^{m - 1} P(x)}.$$
+		Описанный выше процесс опять применяем ко второму слагаемому, а потом опять, и так до тех пор, пока не исчерпаем все степени $ (x - \alpha) $, т.е. пока не получим нулевую степень. Это приводит нас к такому представлению:
+		$$ \frac{Q(x)}{P(x)} = \frac{A_m}{(x - \alpha)^{m - 1}} + \ldots + \frac{A_1}{x - \alpha} + \frac{\widetilde{Q_1}}{P_1(x)}, \quad P_1(x) \neq 0.$$
+		Затем берём следующий действительный корень многочлена $P(x)$ и описанный процесс повторяем для этого корня и дроби $ \dfrac{\widetilde{Q_1}}{P_1(x)}$ и так до тех пор, пока не исчерпаем все действительные корни.\\\\
+		В результате получим:\\
+		$$ \frac{Q(x)}{P(x)} = \sum\limits_{k, m} \frac{A_{km}}{(x - \alpha)^{mk}} + \frac{\widetilde{Q(x)}}{\widetilde{P(x)}}, $$ где $ \widetilde{P(x)} $ имеет лишь комплексные корни и не имеет действительных.
+		\item  Рассмотрим правильную рациональную границу функцию, в предположении, что $ \widetilde{P(x)} $ не имеет действительных корней, а только комплексные.\\\\
+		Если $ \gamma $ --- комплексный корнь кратности l знаменателя, то и $ \overline{\gamma} $ - тоже комплексный корнь, знаменателя и при этом тоже кратноти l. Тогда $ \widetilde{P(x)} $ представим в виде: 
+		$$ \widetilde{P(x)} = (x^2 + px + q)^l \widetilde{P(x)}, $$ где $ p^2 - 4q < 0 $.\\\\
+		В этом случае $ \frac{\widetilde{Q(x)}}{\widetilde{P(x)}} $ можно разложить на простейшие вида 3. Рассуждения при этом аналогичные предыдущим, т.е. тем, что были в 2.
+		$$ \frac{\widetilde{Q(x)}}{\widetilde{P(x)}} = \frac{Mx + N}{(x^2 + px + q)^l} + \Big(\frac{\widetilde{Q(x)}}{\widetilde{P(x)}} - \frac{Mx - N}{(x^2 + px + q)^l} \Big) = \frac{Mx + N}{(x^2 + px + q)^l} + \frac{\widetilde{Q(x)} - (Mx + N) \widetilde{P_1(x)}}{(x^2 + px +q)^l \widetilde{P_1(x)}} $$
+		Теперь подберём $M$ и $N$ так, чтобы $ \gamma $ было корнем числителя второй дроби, тогда и $ \overline{\gamma}$ --- корень, и можно сократить $ (x -  \gamma)(x - \overline{\gamma}) = x^2 + px + q $.\\
+		Далее повторяем этот приём для второй дроби до тех пор, пока не придём к нужному виду. \\
+		В этом случае $$ \frac{\widetilde{Q{x}}}{\widetilde{P(x)}} = \sum\limits_{r = 1}^{e} \sum\limits_{k = 1}^{e} \frac{M_{k_{r}}x + N_{k_{r}}}{(x^2 + P_{kr}x + q_{kr})^k}$$
+		Объединяя всё и имеем утверждение теоремы.
+	\end{enumerate} 
+\end{Proof}\\
+\textbf{Вывод}.
+Пусть $ \dfrac{Q(x)}{P(x)} $ --- правильная рациональная дробь, при чём знаменатель имеет следующее разложение:
+$$ P(x) = (x - \alpha_1)^{m_1} (x - \alpha_2)^{m_2}\ldots(x - \alpha_j)^{m_j} (x^2 + p_1x + q_1)^{l_1} \ldots (x^2 + p_rx + q_r)^{l_r}.$$
+Тогда $$ \frac{Q(x)}{P(x)} = \frac{A_{m_1}}{(x - \alpha_1)^{m_1 - 1}} + \ldots + \frac{A_1}{(x - \alpha_1)} + \ldots + \frac{M_{l_1}x + N_{l_1}}{(x^2 + p_1x + q_1)^{l_1}} + \ldots$$
+\section{Интегрирование простейших рациональных функций.}
+\begin{enumerate}
+	\item $ Ax^m,\ m \geqslant 0,\ m \in {\N}.$
+	$$\int\limits Ax^m dx = \frac{A}{m + 1} x^{m + 1} + C.$$
+	\item $ \dfrac{A}{(x - \alpha)^m},\ m \in {\N},\ m \geqslant 1.$
+	\begin{enumerate}
+		\item $ m = 1\Rightarrow \int\limits \dfrac{A}{x - \alpha} dx = ln|x - \alpha| + C;$
+		\item $ m > 1\Rightarrow \int\limits \dfrac{A}{(x - \alpha)^m} dx = \dfrac{A}{1 - m} \dfrac{1}{(x - \alpha)^{m - 1}} + C.$
+	\end{enumerate}
+	\item $ \dfrac{Mx + N}{(x^2 + px + q)^l},\ l \in {\N},\ p^2 - 4q < 0.$
+	\begin{enumerate}
+		\item  $ l = 1\Ra \int\limits \dfrac{Mx + N}{(x^2 + px + q)} dx = \int\limits \dfrac{(Mx + N)dx}{(x + \dfrac{p}{x})^2 + q - \dfrac{p^2}{4}} = \begin{bmatrix} \dfrac{x + \frac{p}{2}}{\sqrt{q - \dfrac{p^2}{4}}} = t \end{bmatrix} = \int\limits \dfrac{M_1 t + N_1}{t^2 + 1} dt = M_1 \int\limits \dfrac{tdt}{t^2 + 1} + N_1 \int\limits \dfrac{dt}{t^2 + 1} = \dfrac{M_1}{2} ln(t^2 + 1) + N_1\arctg{t} + C $, где $ t = \dfrac{x + \dfrac{p}{2}}{\sqrt{q - \dfrac{p^2}{4}}} $
+		\item $ l < 1\Ra \int\limits \dfrac{Mx + N}{(x^2 + px +q)^l}dx = \begin{bmatrix} \dfrac{x + \dfrac{}p{2}}{\sqrt{q - \dfrac{p^2}{4}}} = t \end{bmatrix} = \int\limits \dfrac{M_1t + N_1}{(t^2 + 1)^l} dt =\\= \dfrac{M_1}{2} \int\limits \dfrac{q(t^2 + 1)}{(t^2 + 1)^l + N_1 \int\limits \dfrac{dt}{(t^2 + 1)^l}} = \dfrac{M_1}{2(1 - l)} (t^2 +1)^{-l + 1} + N_1 J_l$, где $ J_l $ --- интеграл, который мы можем вычислить по рекуррентной формуле.
+	\end{enumerate}
+\end{enumerate}
+\textbf{Вывод.}
+Интегралы от простейших рациональных функций всегда существуют и могут представлять собой сумму рациональных функций, логарифмов и арктангенсов, причём логарифмы и арктангенсы получаются тогда, когда множетели в знаменателе имеют первую степень. \\\\
+В общем случае рациональную функцию можно представить в виде суммы простейших и, поэтому, интеграл от рациональной функции всегда выражается через элементарные функции. В результате получаем:
+$$ \int\limits \frac{Q(x)}{P(x)} dx = \frac{Q_1(x)}{P_1(x)} + \int\limits \frac{Q_2(x)}{P_2(x)} dx, $$
+где $ P_2(x)$ содержит все множетели из $P(x)$, но только каждый из них в первой степени, а $\dfrac{Q_1(x)}{P_1(x)} $ --- рациональная функции.
+\section{Метод неопределённых коэффициентов.}
+В предыдущем пункте мы выяснили, что рациональная функция всегда интегрируема, выяснили структуру интеграла и указали путь, с помощью которого можно можно вычислить интеграл от рациональной функции. На этом пути нам приходится строить разложение рациональной функции на простейшие. При этом сразу возникает вопрос, как это можно сделать практически ? Попробуем в этом разобраться.\\\\
+Пусть $ f(x) = \dfrac{Q(x)}{P(x)}. $ Первым делом изучаем степени числителя и знаменателя. Если $ \deg Q \geqslant \deg P $, то сначала представляем $ Q(x) = P(x) S(x) + R(x) $ и тогда $$ f(x) = S(x) + \frac{R(x)}{P(x)} .$$
+На практике можно воспользоваться делением уголком.\\\\
+Далее ищем разложение $P(x)$ на множители.
+$$ P(x) = (x - \alpha)^m_1 \ldots (x - \alpha)^m_3(x^2 + p_1x + q_1)^{l_1} \ldots (x^2 + p_rx + q_r)^{l_r}. $$
+По виду $P(x)$ затем ищем представление $ \dfrac{Q(x)}{P(x)} $ в виде суммы простейших. Коэффициенты $ A, \ldots , M, N $ считаем пока неизвестными, подлежащими определению, т.е. ищем представление (*) прошлой лекции $$ \frac{Q}{P} = \frac{A_1^{(1)}}{x - \alpha_1} + \ldots + \frac{A_{m_1}^{(1)}}{(x - \alpha_1)^{m_1}} + \frac{A_1^{(2)}}{(x - \alpha_2)} + \ldots + \frac{Mx + N}{x^2 + px + q} + \ldots $$
+пока не исчерпаем все степени. 
+Для нахождения коэффициентов $A$, $M$, $N$ используют несколько способов.
+\begin{enumerate}
+	\item \textit{\textbf{Способ соответствующих коэффициентов}}.\\\\
+	Приведём правую часть к общему знаменателю (он равен $P(x)$) и приравняем числитель левой и правой частей. Получим равенство двух многочленов. Правую часть перераспределяем по степеням $x$. Чтобы многочлены совпадали, должны быть равны коэффициенты при одинаковых степенях $x$. Это позволяет построить систему линейных уравнений для определения неизвестных коэффициентов.\\
+	\begin{example} $$\frac{x^2+1}{x^3+1}=\frac{x^2+1}{(x+1)(x^2-x+1)}=\frac{A}{x+1}+\frac{Bx+C}{x^2-x+1}.$$
+		$x^2+1=A(x^2-x+1)+(Bx+C)(x+1)$\\
+		$$\left.\begin{gathered}
+			x^2:1=A+B\\
+			x:0=-A+B+C\\
+			x^0:1=A+C
+		\end{gathered}\right\}\Ra A=\dfrac{2}{3},B=C=\dfrac{1}{3}.$$
+		Поэтому $$\dfrac{x^2+1}{x^3+1}=\dfrac{2}{3(x+1)}+\dfrac{1}{3}\dfrac{x+1}{x^2-x+1}.$$
+	\end{example}\\
+	\item \textit{\textbf{Способ частных значений}}.\\\\
+	Начиная, как и в первом случае, приводим к равенству многочленов, причём это равенство должно выполняться для $\forall x$. Поэтому можно получить систему уравнений относительно искомых коэффициентов, придавая $x$ некоторые конкретные значения.\\
+	\begin{example} $$\frac{x-2}{(x-1)^2(x^2+1)}=\frac{A}{x-1}+\frac{B}{(x-1)^2}+\frac{Cx+D}{x^2+1}$$
+		$x-2=A(x-1)(x^2+1)+B(x^2+1)+(Cx+D)(x-1)^2$.\\\\
+		$x=1:-1=2B\Rightarrow B=-\frac{1}{2}$;\\
+		$x=i:i-2=(Ci+D)(i-1)^2=(Ci+D)(-2i)=2C-2Di\Rightarrow 2C=-2, C=-1,$ и $1=-2D, D=-\frac{1}{2}$;\\
+		$x=0:-2=-A+B+D\Rightarrow A=1$.\\\\
+		Имеем $$\frac{x-2}{(x-1)^2(x^2+1)}=\frac{1}{x-1}-\frac{1}{2(x-1)^2}+\frac{-x-\frac{1}{2}}{x^2+1}.$$
+	\end{example}\\\\
+	Можно и комбинировать эти два способа. В последнем методе ещё используют и дифференцирование.
+	\begin{example} $$\frac{2x+1}{x^2(x^2+2)}=\frac{A}{x}+\frac{B}{x^2}+\frac{Cx+D}{x^2+2}.$$
+		$2x+1=Ax(x^2+2)+B(x^2+2)+x^2(Cx+D)$\\\\
+		$1)$ $x=0 \Rightarrow 1=2B\Rightarrow B=\frac{1}{2}$\\
+		$2)$ Продифференцируем 
+		$$2=A(3x^2+2)+2Bx+3Cx^2+2Dx$$
+		и положим $x=0$\\
+		$$2=2A\Rightarrow A=1$$\\
+		Далее, в первом соотношении приравняем коэффициенты при $x^3:0=A+C\Rightarrow C=-1$. Во втором соотношении приравняем коэффициенты при $x:$\\
+		$0=2B+2D\Rightarrow D=-\frac{1}{2}$\\
+		Итак $$\frac{2x+1}{x^2(x^2+2)}=\frac{1}{x}+\frac{1}{2x^2}+\frac{-x-\frac{1}{2}}{x^2+2}.$$
+	\end{example}
+	\item \textit{\textbf{Способ домножения}}.\\\\
+	Используют основное тождество. Умножают его на подходящий многочлен и придают $x$ удобные значения.\\
+	\begin{example} $$\frac{x^2+x-1}{x(x-1)(x-2)(x-3)(x-4)}=\frac{A}{x}+\frac{B}{x-1}+\frac{C}{x-2}+\frac{D}{x-3}+\frac{E}{x-4}.$$
+		Умножаем на $x$ и полагаем $x=0:$
+		$$-\frac{1}{24}=A$$
+		Умножаем на $x-1$ и полагаем $x=1:$
+		$$-\frac{1}{6}=B$$
+		Умножаем на $x-2$ и полагаем $x=2:$
+		$$C=\frac{5}{4}$$
+		Умножаем на $x-3$ и $x=3:$
+		$$D=-\frac{11}{6}$$
+		Умножаем на $x-4$ и $x=4:$\\
+		$$E=\frac{19}{24}$$
+		Окончательно имеем
+		$$\frac{x^2+x-1}{x(x-1)(x-2)(x-3)(x-4)}=-\frac{1}{24x}-\frac{1}{6(x-1)}+\frac{5}{4(x-2)}-\frac{11}{6(x-3)}+\frac{19}{24(x-4)}.$$
+	\end{example}\\\\
+	Если корни знаменателя просты, $x_j=\alpha_j$, то для нахождения коэффициентов используют и такой метод\\
+	$$\frac{Q(x)}{P(x)}=\frac{A_1}{x-\alpha_1}+\frac{A_2}{x-\alpha_2}+\dots+\frac{A_n}{x-\alpha_n}$$\\
+	Умножим обе части на $x-\alpha_j$\\
+	$$\frac{Q(x)(x-\alpha_j)}{P(x)}=\sum\limits_{k=1}^n\frac{A_k(x-\alpha_j)}{x-x_k}$$\\
+	или\\
+	$$\frac{Q(x)}{\frac{P(x)-P(\alpha_j)}{x-\alpha_j}}=\sum\limits_{k=1}^n\frac{A_k(x-\alpha_j)}{x-\alpha_k}$$\\
+	Перейдём к пределу при $x\rightarrow \alpha_j$\\
+	$$\frac{Q(\alpha_j)}{P'(\alpha_j)}=A_j$$\\
+	\begin{example} $$\frac{3x-5}{(x+2)(x-1)(x+4)}=\frac{A}{x+2}+\frac{B}{x-1}+\frac{C}{x+4}$$
+		$1)$ $x=-2:$ $\frac{-11}{-3\cdot2}=A\Rightarrow A=\frac{11}{6}$\\
+		$2)$ $x=1:$ $\frac{-2}{3\cdot5}=B\Rightarrow B=-\frac{2}{15}$\\
+		$3)$ $x=-4:$ $\frac{-17}{-2\cdot(-5)}=C\Rightarrow C=-\frac{17}{10}$\\
+		Тогда получаем,
+		$$\frac{3x-5}{(x+2)(x-1)(x+4)}=\frac{11}{6(x+2)}-\frac{2}{15(x-1)}-\frac{17}{10(x+4)}.$$
+	\end{example}
+\end{enumerate}
+\section{Метод Остроградского.}
+Как мы уже выяснили, структура интеграла от рациональной функции следующая:\\
+$$\int \frac{Q(x)}{P(x)}dx=\frac{Q_1(x)}{P_1(x)}+\int\frac{Q_2(x)}{P_2(x)}dx\eqno{(**)}$$\\
+При этом мы заранее предполагаем для простоты, что $\deg Q < \deg P$.\\\\
+Если разложить $P(x)$ на множители, то $P_1(x)$ --- произведение тех же множителей, но степени их на 1 меньше, чем у $P(x)$, $P_2(x)$ --- произведение первых степеней всех множителей. Другими словами, $P_1(x)$ --- наибольший общий делитель многочлениа и его производной, а $P_2=\frac{P}{P_1}$.\\\\
+На этом и основан \textbf{метод Остроградского} вычисления интеграла от рациональной функции. $\int\dfrac{Q(x)}{P(x)}dx$ записывают в виде (*), где $Q_1(x)$ и $Q_2(x)$ --- многочлены с неопределенными коэффициентами, причём $\deg Q_1=\deg P_1-1$, $\deg Q_2=\deg P_2-1$.\\\\
+После этого определяют коэффициенты многочленов $Q_1$ и $Q_2$. Для этого выражение (**) диффиренцируют, приводят к общему знаменателю и приравнивая числители, приходят к равенству многочленов, откуда и определяют требуемые коэффициенты:
+$$\frac{Q(x)}{P(x)}=\frac{Q_1'P_1-Q_1P_1'}{P_1^2}+\frac{Q_2}{P_2}$$\\
+Т.к. $P=P_1P_2$, то
+$$\frac{Q(x)}{P(x)}=\frac{Q_1'P_2-\frac{Q_1P_1'P_2}{P_1}}{P(x)}+\frac{Q_1(x)P_2(x)}{P(x)}$$\\
+Очевидно, что $\dfrac{Q_1P_1'P_2}{P_1}$ --- многочлен.\\
+\begin{example} $$\int\frac{dx}{(x^3+1)^2}=\frac{Ax^2+Bx+C}{x^3+1}+\int(\frac{D}{x+1}+\frac{Ex+F}{x^2-x+1})dx.$$
+	$$\frac{1}{(x^3+1)^2}=\frac{(2Ax+B)(x^3+1)-3x^2(Ax^2+Bx+C)}{(x^2+1)^2}+\frac{D}{x+1}+\frac{Ex+F}{x^2-x+1}$$
+	$$1=(2Ax+B)(x^3+1)-3x^2(Ax^2+Bx+C)+D(x^3+1)(x^2-x+1)+(Ex+F)(x+1)(x^3+1)$$
+	$$\left.\begin{gathered}
+		x^5: 0=D+E\\
+		x^4: 0=2A-3A-D+F+E\\
+		x^3: 0=B-3B+D+F\\
+		x^2: 0=-3C+D+E\\
+		x: 0=2A-D+E+F\\
+		x^0: 1=B+D+F
+	\end{gathered}\right\}\Rightarrow A=0,B=\frac{1}{3},C=0,D=\frac{2}{9}, E=-\frac{2}{9}, F=\frac{4}{9}$$
+	Таким образом,
+	\begin{multline*}
+		\int\frac{dx}{(x^3+1)^2}=\frac{\frac{1}{3}x}{x^3+1}+\int\Big(\frac{\frac{2}{9}}{x+1}+\frac{-\frac{2}{9}x+\frac{4}{9}}{x^2-x+1}\Big)dx=\frac{x}{3(x^3+1)}+\frac{2}{9}\ln{|x+1|}-\frac{2}{9}\int\frac{(x-2)dx}{(x-\frac{1}{2})^2+\frac{3}{4}}=\\=\frac{x}{3(x^3+1)}+\frac{2}{9}\ln{|x+1|}-\frac{2}{9}\int\frac{(x-\frac{1}{2})dx}{(x-\frac{1}{2})^2+\frac{3}{4}}+\frac{1}{3}\int\frac{dx}{(x-\frac{1}{2})^2+\frac{3}{4}}=\\=\frac{x}{3(x^3+1)}+\frac{2}{9}\ln{|x+1|}-\frac{1}{9}\ln{|x^2-x+1|}+\frac{2}{3\sqrt{3}}\arctan{\frac{2x-1}{\sqrt{3}}}+C.
+	\end{multline*}
+\end{example}
+\section{Рационализация подынтегрального выражения.}
+Совсем не просто так мы уделили так много внимания анализу интегралов от рациональной функции. Кроме того, что они имеют важное самостоятельное значение, есть много видов интегралов от других функций, которые сводятся к интегралам от рациональных функций. Чаще всего это достигается заменой переменной, т.е. подстановкой.\\\\
+$\bullet$ \textit{Говорят, что подстановка $x=\phi(x)$ \textbf{рационализирует} подынтегральное выражение $J=\int f(x)dx$, если в результате этой подстановки приходим к интегралу от рациональной функции, т.е. $(f\circ\phi)(x)\phi'(x)$ оказывается рациональной.}\\
+\begin{example} $\int x\sqrt{1-x^2}dx$
+	$$\int
+	x\sqrt{1-x^2}dx=\left[
+	\begin{array}{ccc}
+		1-x^2 & = & t^2 \\
+		-xdx & = & tdt \\
+	\end{array}
+	\right]=-\int t^2dt,$$ т.е. рационализировали.
+\end{example}\\\\
+В дальнейшем нам часто будут встречаться интегралы вида $\int R(x,y)dx$, где $y=\phi(x)$, а $R(x,y)$ --- рациональная функция двух переменных, т.е. частное двух многочленов от двух переменных, т.е. $R(x,y)=\dfrac{P(x,y)}{Q(x,y)}$, где $P$ и $Q$ --- выражения вида $a_{00}+a_{10}x+a_{01}y+a_{20}x^2+a_{11}xy+a_{12}y^2x+\dots$
+\section{Интегрирование иррациональностей от дробнолинейной функции.}
+Рассматриваем интерграл вида $\int R\Big(x, \dfrac{\sqrt[n]{\alpha x+\beta}}{\gamma x+\delta}\Big)dx$ при условии $\alpha\delta-\gamma\beta\neq0$. Функцию $y=\dfrac{\sqrt[n]{\alpha x+\beta}}{\gamma x+\delta}$ называют \textbf{дробно-линейной}. Иррациональности рассматривают только там, где они определены.\\\\
+Делаем подстановку $\dfrac{\alpha x+\beta}{\gamma x+\delta}=t^n\Rightarrow\alpha x+\beta=\gamma xt^n+\delta t^n\Rightarrow x(\gamma t^n-\alpha)=\beta-\delta t^n\Rightarrow x=\dfrac{\beta-\delta t^n}{\gamma t^n-\alpha}$\\
+Тогда $$dx=\dfrac{-\delta nt^{n-1}(\gamma t^n-\alpha)-n\gamma t^{n-1}(\beta-\delta t^n)}{(\gamma t^n-\alpha)^2}dt=R_1(t)dt,$$ где $R_1$ --- рациональная функция.\\\\
+Тогда $\int R\Big(x, \dfrac{\sqrt[n]{\alpha x+\beta}}{\gamma x+\delta}\Big)dx=\int R\Big(\dfrac{\beta-\delta t^n}{\gamma t^n-\alpha},t\Big)R_1(t)dt$, т.е. получим интеграл от рациональной функции.\\\\
+Интегралы вида $\int R\Big(x, \Big(\dfrac{\alpha x+\beta}{\gamma x+\delta}\Big)^{\dfrac{1}{n_1}},\dots,\Big(\frac{\alpha x+\beta}{\gamma x+\delta}\Big)^{\dfrac{1}{n_m}}\Big)dx$ рационализируются подстановкой $\dfrac{\alpha x+\beta}{\gamma x+\delta}=t^n$, где $n$ --- наименьшее обшее кратное чисел $n_1, \dots, n_m$(т.е. наибольший общий знаменатель дробей $\dfrac{1}{n_1},\dfrac{1}{n_2},\dots,\dfrac{1}{n_m}$).\\
+\begin{example} $$\int\frac{dx}{1+\sqrt{x}}=\left[
+	\begin{array}{ccc}
+		x & = & t^2 \\
+		dx & = & 2tdt \\
+	\end{array}
+	\right]=2\int\frac{tdt}{1+t}=2t-2\ln{|1+t|}+C=2\sqrt{x}-2\ln{(1+\sqrt{x})}+C.$$
+\end{example}\\
+\begin{example} $$\int\frac{(2+\sqrt[3]{x+1})dx}{x^4-\sqrt[5]{x+1}}=\left[
+	\begin{array}{ccc}
+		x+1 & = & t^{15} \\
+		dx & = & 15t^{14}dt \\
+	\end{array}
+	\right]=\int\frac{(2+t^5)dt}{(t^{15}-1)^4-t^3}=\dots$$
+\end{example}\\
+\begin{example} $$\int\frac{\sqrt[3]{(x+2)}-\sqrt[3]{(x-2)}}{\sqrt[3]{(x+2)}+\sqrt[3]{(x-2)}}dx=\int\frac{\sqrt[3]{\frac{x+2}{x-2}}-1}{\sqrt[3]{\frac{x+2}{x-2}}+1}dx=\left[
+	\frac{x+2}{x-2} = t \rightarrow x= \frac{t^3+1}{t^3-1} \rightarrow dx  = \frac{-6t^2dt}{(t^3-1)^2} \\
+	\right]=$$ $$-6\int\frac{t^2(t-1)}{(t+1)(t^3-1)^2}dt.$$
+\end{example}
+\section{Подстановки Эйлера.}
+$$J=\int R(x, \sqrt{ax^2+bx+c})dx,\ b^2-4ac\neq0,\ a\neq0.$$
+Подынтегральное выражение можно рационализовать с помощью следующих подстановок:
+\begin{enumerate}
+	\item \textit{$a>0:\pm\sqrt{a}x\pm t=\sqrt{ax^2+bx+c}$}.\\\\
+	Изучим $\sqrt{a}x+t=\sqrt{ax^2+bx+c}$.
+	$$ax^2+2\sqrt{a}xt+t^2=ax^2+bx+c\Rightarrow 2\sqrt{a}xt+t^2=bx+c;$$
+	$$x=\frac{t^2-c}{b-2\sqrt{a}t}=R_1(t)\Rightarrow dx=R_2(t)dt.$$
+	Тогда $J=\int R(R_1(t),t)R_2(t)dt$ --- интеграл от рациональной функции.\\\\
+	Можно выбирать любую из 4-x возможных комбинаций знаков. Это диктуется видом подынтегральной функции.
+	\item \textit{$c>0,\ \sqrt{ax^2+bx+c}=\pm\sqrt{c}\pm tx$}.\\\\
+	$$ax^2+bx+c=c+2\sqrt{c}tx+t^2x^2\Ra ax^2+bx=2\sqrt{c}tx+t^2x^2$$
+	$$ax+b=2\sqrt{c}t+t^2x\Rightarrow x=\frac{b-2\sqrt{c}t}{t^2-a}.$$
+	Далее, поступая, как и в случае 1, видим, что рационализуется.
+	\item \textit{Квадратный трёхчлен $ax^2+bx+c$ имеет действительные корни, т.е. $ax^2+bx+c=a(x-x_1)(x_0-x_2),\ \sqrt{ax^2+bx+c}=t(x-x_1)$}\\\\
+	$a(x-x_1)(x-x_2)=t^2(x-x_1)^2\Rightarrow x=R_1(t)\Rightarrow dx=R_2(t)dt$ и рационализуется.
+\end{enumerate}
+$\bullet$ \textit{Подстановки Эйлера являются \textbf{универсальными}, т.е. они охватывают все возможные случаи.}\\\\
+Действительно, что осталось нерасмотренным?\\
+$a<0,\ c<0$ и комплексные корни. Т.к. корни комплексные, то $ax^2+bx+c$ сохраняет знак.\\\\
+Если $x=0\Rightarrow c<0$, т.е. $ax^2+bx+c<0$ для $\forall x$. Поэтому множество значений, при которых
+$\sqrt{ax^2+bx+c}\in\Rm$ --- пусто.\\
+\begin{example} $\int\sqrt{x^2-1}dx$\\
+	1 подстановка: $\sqrt{x^2-1}=x+t$\\
+	$\sqrt{x^2-1}=t+x\Rightarrow x^2-1=t^2+2xt+x^2\Rightarrow x=-\dfrac{1+t^2}{2t}\Rightarrow dx=-\dfrac{2t^2-1-t^2}{2t^2}dt=\dfrac{1-t^2}{2t^2}dt$\\
+	$J=\int(t-\dfrac{1-t^2}{2t})\cdot\dfrac{1-t^2}{2t^2}dt=\int\dfrac{(t^2-1)(1-t^2)}{4t^3}dt.$\\\\
+	3 подстановка: $\sqrt{x^2-1}=t(x-1)\Rightarrow(x-1)(x+1)=t^2(x-1)^2\Rightarrow x+1=t^2x-t^2\Rightarrow x(t^2-1)=t^2+1\Rightarrow x= \dfrac{t^2+1}{t^2-1}.$
+\end{example}\\
+\begin{example} $\int\sqrt{x^2+1}dx$\\
+	1 подстановка: $\sqrt{x^2+1}=x+t\dots$\\
+	3 подстановка: $\sqrt{x^2+1}=1+xt\dots$
+\end{example}\\
+\begin{example} $\int\sqrt{1-x^2}dx$\\
+	2 и 3 подстановки: $\dots$
+\end{example}
+\begin{enumerate}
+	\item \textit{Обычно более удобной оказывается подстановка с большим номером.}
+	\item \textit{Разные подстановки могут привести к разным выражениям для одного и того же интеграла.}
+	\item \textit{Громоздкие выражения.}\\\\
+	Иногда удобнее выделить под знаком корня полный квадрат и с помощью линейной замены свести интеграл к интегралу вида:\\
+	$$\int R(x, \sqrt{1-x^2})dx, \int R(x, \sqrt{1+x^2})dx, \int R(x, \sqrt{x^2-1})dx$$\\
+	а затем $|x|=\sin{t}, \cos{t},\sh{t},\ch{t},\tg{t}$ и т.д.
+\end{enumerate}
+\section{Интегрирование дифференциального бинома (биномиального дифференциала).}
+$\bullet$ \textit{Это выражения вида $x^m(a+bx^n)^p d x$, где $m, n, p \in \Q$, $a \neq 0$, $b \neq 0$, $m = \frac{m_1}{\mu}$, $n = \frac{ n_1}{\nu}$, $p= \frac{p_1}{k}$.}\\\\
+Рассматриваем $\int x^m(a+bx^n)^p d x$.\\\\
+\textit{\textbf{Возможные случаи:}}
+\begin{enumerate}
+	\item \textit{ $p$ --- целое,  $x=t^r$, где $r =  \text{НОК} (\mu,\nu)$, т.е. $\eta$ --- общий знаменатель дробей $m$ и $n$.}\\\\
+	$dx=xt^{x-1}dt \Rightarrow \int x^m(a+bx^n)^p d x \ =\ \int t^{mr }(a=bt^{nr})r t^{r - 1} d t$, \ $mr \in \Z$, $nr \in \Z$, \ т.е. получим интеграл от рациональной функции.\\\\
+	Иногда не прибегают к подстановке, а при $p$ целом положительном возводят в степень $p$.
+	\item \textit{ $\dfrac{m+1}{n}$ --- целое\ $\Rightarrow$ \ $a+bt^n = t^k$, где $k$ --- знаменатель дроби $p$. }\\\\
+	$$x^n=\frac{t^k-a}{b},\ x=\frac{1}{\sqrt[n]{b}}(t^k-a)^{1/n} \Rightarrow \ dx = \frac{k}{n\sqrt[n]{b}} t^{k-1} (t^k-a)^{\frac{1}{n}-1} dt$$
+	$x^m =\dfrac{1}{(\sqrt[n]{b})^m}(t^k-a)^{\frac{m}{n}}$.
+	$$\mathcal{J}= \int \frac{(t^k-a)^{\frac{m}{n}}}{b^{\frac{m}{n}}} t^{kp} \frac{k}{nb^{\frac{1}{n}}} t^{k-1} (t^k-a)^{\frac{1}{n} -1} dt = A \int t^{kp+k-1} (t^k-a)^{\frac{m}{n}+\frac{1}{n} -1} dt$$ получаем интеграл от рациональной функции.
+	\item \textit{ $\dfrac{m+1}{n}+p$ --- целое\ $\Rightarrow \  \dfrac{a+bx^n}{x}  = t^k$, где $k$ --- знаменатель дроби $p$. }\\\\
+	$$ax^{-n}+b = t^k \ \Rightarrow \ x = (\frac{t^k-b}{a})^{-\frac{1}{n}}\ \Rightarrow \ dx = A t^{k-1}(t^k-b)^{-\frac{1}{n}-1}dt $$
+	$$\mathcal{J}= \int x^{m + np} (\frac{a+bx^n}{x^n})^p dx = B \int (t^k -b)^{-\frac{m+mp}{n}} t^{kp} t^{k-1} (t^k - b)^{-\frac{1}{n}-1} dt =$$ $$= B \int t^{kp+k-1} (t^k-b)^{-(\frac{m+1}{n}+p)-1} dt$$ рационализовался.
+\end{enumerate}
+\begin{theorem}[Чебышева]
+	Интеграл от биномиального дифференциала выражается через элементарные функции только в рассмотренных трех случаях. Во всех  остальных --- интеграл неберущийся.
+\end{theorem}
+
+\begin{example}
+	\begin{enumerate}
+		\item $\mathcal{J}= \int \sqrt{x} (1+\sqrt[3]{x})^2 dx =[x = t^6; dx = 6t^5 dt] = \int t^3(1+t^2)^2 6t^5 d $
+		\item $\int \dfrac{\sqrt[3]{x} dx}{\sqrt[3]{x^2}-\sqrt{x}} = \int x^\frac{1}{3} (x^\frac{2}{3}-x^\frac{1}{2})^{-1} dx = \int x^\frac{1}{3} x^{-\frac{1}{2}} (x^\frac{1}{6}-1)^{-1} dx = \int x^{-\frac{1}{6}} (x^\frac{1}{6}-1)^{-1} dx= [x = t^6;\quad dx=6t^5dt] = \int \dfrac{1}{t} \dfrac{6t^5}{t-1} dt = 6\int \dfrac{t^4}{t-1} dt  $
+		\item $\int \dfrac{dx}{x \sqrt{ax+b^2}}= \int x^{-1} (ax+b^2)^{-\frac{1}{2}} dx = \Big[\dfrac{m+1}{n} $ --- целое$\ \Rightarrow \ ax+b^2 = t^2\ \Rightarrow \ x = \dfrac{t^2-b^2}{a};\quad dx = \dfrac{2t}{a}dt\Big]= \int \dfrac{a}{t^2-b^2} \dfrac{1}{b} \dfrac{2t}{a} dt = \int \dfrac{dt}{t^2-b^2}$
+		\item $\int \dfrac{dx}{x^2 \sqrt{1-x^2} } = \int x^{-2}(1-x^2)^{-\frac{1}{2}} dx = \Big[\dfrac{m+1}{n}+p \in \Z \Rightarrow \ x^{-2} -1 = t^2; x^{-2} = 1 + t^2;\quad x = (1+t^2)^{-\frac{1}{2}};\quad dx = t(1+t^2)^{-\frac{3}{2}}\Big]= \int x^{-2-1} \Big(\dfrac{1-x^2}{x^2}\Big)^{-\frac{1}{2}} dx = - \int (1+t^2)^{\frac{3}{2}} t^{-1} (1+t^2)^{-\frac{3}{2}} dt = -\int \dfrac{dt}{t} .$
+	\end{enumerate}
+\end{example}
+\section{Вычисление интегралов от тригонометрических функций.}
+Будем рассматривать интеграл вида:\\
+$$\int R(\sinx, \cos x) dx$$\\
+Где $R$ --- рациональная функция двух переменных. 
+Попробуем осуществить подстановку:
+$$\tg\frac{x}{2}=t;$$
+$$\sinx=\frac{2\sin\frac{x}{2}\cos\frac{x}{2}}{\sin^2\frac{x}{2}+\cos^2\frac{x}{2}} = \frac{2\tg\frac{x}{2}}{1+\tg^2\frac{x}{2}} = \frac{2t}{1+t^2}$$
+$$\cos x=\frac{\cos^2\frac{x}{2}-sin^2\frac{x}{2}}{\cos^2\frac{x}{2}+\sin^2\frac{x}{2}} = \frac{1-t^2}{1+t^2}$$
+$$x = 2\arctg \Rightarrow \ dx = \dfrac{2dt}{1+t^2}  $$
+Поэтому $$\int R(\sin x, \cos x) dx = \int R\Big(\frac{2t}{1+t^2}, \frac{1-t^2}{1+t^2}\Big) \frac{2dt}{1+t^2}  $$
+Поскольку рациональная функция от рациональной функции опять представляет собой рациональную функцию, то в результате получаем интеграл от рациональной функции. Таким образом подстановка $t=tg\frac{x}{2}$ всегда рационализует выражение $\int R(\sin x, \cos x) dx$ и с этой точки зрения является \textbf{универсальной}.\\\\
+Эта подстановка всегда рационализует, но зачастую приводит к громоздким вычислениям. Поэтому ее применяют, когда другие, более простые подстановки, не ведут к цели. А какие же еще возможны подстановки?\\\\
+\textbf{Специальные подстановки:}
+\begin{enumerate}
+	\item Пусть $R(u, v)$ такова, что $R(-u, v) = -R(u, v)$, т.е. $$R(-\sinx, \cos x) = -R(\sinx, \cos x).$$
+	Тогда $R(\sinx, \cos x)dx = R_1(\sin^2x, \cos x)\sin xdx = -R_1(1 - \cos^2x, \cos x)d(\cos x)$. И в этом случае рационализует подстановка $$t = \cos x.$$
+	\item Пусть $R(u,v)$ такова, что $R(u,-v) = -R(u,v)$, т.е. $$R(\sinx, -\cos x) = -R(\sinx, \cos x)$$
+	Тогда $R(\sinx, \cos x)dx = R_1(\sinx, \cos^2x)\cos xdx = R_1(\sinx, 1 - \sin^2x)d(\sinx)$. И в этом случае рационализует подстановка $t = \sin x.$
+	\item Пусть $R(u,v)$ такова, что $R(-u, -v) = -R(u,v)$, т.е. $$R(-\sinx, -\cos x) = R(\sinx, \cos x).$$
+	Тогда $R(\sinx, \cos x)dx = R_1(\tg x, \cos^2x)\frac{1}{\cos^2x} dx = R_1(\tg x, \frac{1}{1+\tg^2x})d(\tg x)$. И в этом случае рационализует подстановка $$t = \tg x.$$
+\end{enumerate}
+\begin{example}
+	\begin{enumerate}
+		\item $\int \dfrac{\sinx dx}{1+\sin^2x} = [\cos x=t] = -\int \dfrac{dt}{2-t^2} = -\dfrac{1}{2\sqrt{2}}\ln\Big|\dfrac{\sqrt{2}+t}{\sqrt{2}-t}\Big| + C.$
+		\item $\int \dfrac{\sinx\cos xdx}{\sin^4x+\cos^4x} = [\tg x = t] = \dfrac{\sinx \cos xdx}{\cos^4x(1+\tg^4x)} = \int \dfrac{\tg xd\tg x}{1+\tg^4x} = \int \dfrac{tdt}{1+t^4}.$
+		\item $\int \dfrac{dx}{\sinx+\cos x} = [\tg\frac{x}{2} = t] = \int \dfrac{dx}{2\sin\frac{x}{2}\cos\frac{x}{2}+\cos^2\frac{x}{2}-\sin^2\frac{x}{2}} = \int \dfrac{dx}{\cos^2\frac{x}{2}(2\tg\frac{x}{2}+1-\tg^2\frac{x}{2})} = 2 \int \dfrac{d(\tg\frac{x}{2})}{2\tg\frac{x}{2}+1-\tg^2\frac{x}{2}} = 2 \int \dfrac{dt}{1+2t-t^2} = 2 \int \dfrac{dt}{2-(t-1)^2}= \dfrac{1}{\sqrt{2}} \ln\Big|\dfrac{\sqrt{2}+t-1}{\sqrt{2}-t+1}\Big| + C.$
+	\end{enumerate}
+\end{example}
+\section{Интегрирование гиперболических функций.}
+Интегралы вида $$\int R(\sh x, \ch x)dx$$ получаются по предложенной схеме для тригонометрических функций.\\\\
+Универсальной является подстановка:
+$$\th\frac{x}{2} = t.$$
+При этом $\sh x = \dfrac{2t}{1-t^2},\  \ch x = \dfrac{1+t^2}{1-t^2},\  dx = \dfrac{2tdt}{1-t^2} $\\\\
+Используются и специальные подстановки:
+\begin{enumerate}
+	\item если $R(-\sh x, \ch x) = -R(\sh x, \ch x) \Rightarrow \ch x = t .$
+	\item если $R(\sh x, -\ch x) = -R(\sh x, \ch x) \Rightarrow \sh x = t .$
+	\item если $R(-\sh x, -\ch x) = R(\sh x, \ch x) \Rightarrow \th x = t .$
+\end{enumerate}
+\begin{example}
+	\begin{enumerate}
+		\item $\int \dfrac{\sh xdx}{(3\ch x+2)^2} \Rightarrow \ch x = t.$
+		\item $\int \dfrac{dx}{2\sh x+3\ch x-5} \Rightarrow \th\frac{x}{2} = t.$
+		\item $\int \dfrac{\sh2xdx}{3+4\sh^2x} \Rightarrow [\tg x = t$, но лучше $\sh^2x = t].$
+	\end{enumerate}
+	и т. д.
+\end{example}

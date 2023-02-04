@@ -1,0 +1,66 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{cmap}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[normalem]{ulem}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\usepackage{wrapfig}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\begin{document}
+\section{Теорема Лиувилля}
+$\quad \; \ $ \textbf{Теорема}
+
+\textit{Если $f$ ограничена по модулю и регулярна во всей плоскости комплексного переменного, то f(z) = const, $\forall z$}
+
+$\blacklozenge$ Поскольку $f$ регулярна во всей плоскости комплексного переменного, то она дифференцируема при $\forall z$ и производную можно вычистить по формуле:
+
+\begin{center}
+    $f'(z) = \dfrac{1}{2\pi i}\int\limits_{\gamma_{\rho}}\dfrac{f(\xi)}{(\xi - z)^2}d\xi$; $\gamma_{\rho} = S(z_0; \rho), \rho > 0$
+\end{center}
+
+Оценим $f'(z)$ по модулю, учитывая, что $\forall z: |f(z)| \leq M$:
+
+\begin{center}
+    $|f'(z)| \leq \dfrac{1}{2\pi}\int\limits_{\gamma_{\rho}}\dfrac{|f(\xi)|}{\rho^2}d\xi \leq \dfrac{M}{2\pi\rho^2}\cdot2\pi\rho = \dfrac{M}{\rho}$
+\end{center}
+
+Т.к. интеграл не зависит от $\rho$, то $\rho$ можно выбрать сколь угодно большим $\Rightarrow$ $|f'(z)| = 0$
+
+В силу произвола в выборе точки $z$ получаем $|f'(z)| = 0, \forall z \Rightarrow f'(z) = 0 \Rightarrow f(z) = const.$ $\blacksquare$
+
+\textit{\textbf{Следствие (Основная теорема алгебры):} Пусть $P_n(z) = c_nz^n + c_{n-1}z^{n-1} + ... + c_1z + c_0, n \geq 1, c_k \in C, c_n \ne 0$} - некоторый многочлен степени n с комплексными коэффициентами. Тогда $P_n(z)$ имеет по крайней мере 1 комплексный корень.
+
+$\blacklozenge$ Докажем от противного. Пусть $P_n(z) \ne 0, \forall z$.
+
+Функция $f(z) = \dfrac{1}{P_n(z)}$ будет голоморфной во всей комплексной плоскости. $P_n(z) \rightarrow \infty$ при $z \rightarrow \infty \Rightarrow f(z) \rightarrow 0$ при $z \rightarrow \infty \Rightarrow \exists M: |f(z)| \leq M, \forall z$. По теореме Лиувилля $\Rightarrow f(z) = const \Rigtharrow P_n(z) = const$. Это противоречит тому, что $c_n \ne 0$. $\blacksquare$
+
+\textit{Пример: } $sinz, cosz$ в силу теоремы Лиувилля не ограничены в плоскости комплексных чисел. $\blacksquare$
+
+\section{Теорема Мореры}
+
+\textbf{Теорема: }
+
+\textit{Если $f$ непрерывна в одгосвязной области $D$ и интеграл от $f$ по любому замкнутому контуру, лежащему в $D$, равен 0 ($\int\limits_{l}f(z)dz = 0$), то функция $f$ регулярна в области $D$}.
+
+$\blacklozenge$ Как известно, непрерывная в области $D$ функция, интграл от которой по любому замкнутому контуру равен нулю, обладает в этой области первообразной, т.е. $\exists F(z)$ такая, что $F'(z) = f(z)$. По критерию регулярности $F(z)$ - регулярна в $D$ и, следовательно, её производная регулярна в $D$, т.е. $F'(z) = f(z)$ - регулярна в $D$. $\blacksquare$
+
+\textbf{Замечание: } Эта теорема в некотором смысле является обратной к интегральной теореме Коши. Она даёт достаточные условия регулярности функции.
+
+\textbf{Примеры: }
+
+\textit{1) Вычислить $J = \int\limits_{|z+1|=1}\dfrac{z^2}{z^2 + 4z + 3}dz$}
+
+\begin{wrapfigure}[4]{r}{0.5\linewidth}
+    \includegraphics{primer1Morera.png}
+\end{wrapfigure}
+\begin{center}
+    $J = \int\limits_{|z+1|=1}\dfrac{z^2}{(z + 1)(z + 3)}dz = \int\limits_{|z+1|=1}\dfrac{\dfrac{z^2}{z + 3}}{(z + 1)}dz = 2\pi i \dfrac{z^2}{z + 3}\bigg|_{z = -1} = 2\pi i \dfrac{1}{2} = \pi i$
+\end{center}
+
+\end{document}

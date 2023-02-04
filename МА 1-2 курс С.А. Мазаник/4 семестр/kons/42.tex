@@ -1,0 +1,55 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{cmap}
+\usepackage{amssymb}
+\usepackage[intlimits]{amsmath}
+\usepackage{amsthm}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[normalem]{ulem}
+\usepackage[left=2cm,right=2cm,
+    top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[english,russian]{babel}
+
+\DeclareMathOperator*{\res}{res}
+\DeclareMathOperator{\sgn}{sgn}
+
+\theoremstyle{definition}
+\newtheorem*{remark}{Замечание}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Пример}
+
+\begin{document}
+\section{Вычисление интегралов вида $\displaystyle \int_0^{2\pi}R(\sin t, \cos t) dt$}
+$R(u, v)$~--- рациональная функция своих переменных, причём предполагается, что на отрезке $[0, 2\pi]$ функция $R(\sin t, \cos t)$ не имеет особых точек. \\
+Сделаем замену переменных, полагая $z = e^{it}$, то есть вводим комплексный аргумент.
+Тогда 
+\begin{gather*}
+    \cos t = \frac{e^{it} + e^{-it}}{2} = \frac{z + \frac{1}{z}}{2} = \frac{z^2 + 1}{2z} \\
+    \sin t = \frac{e^{iz} - e^{-iz}}{2i} = \frac{z - \frac{1}{z}}{2i} = \frac{z^2 - 1}{2iz} \\
+    dz = ie^{it}dt \Rightarrow dt = \frac{dz}{iz}
+\end{gather*}
+И в результате получим
+\[ \int_0^{2\pi}R (\sin t, \cos t) dt = \frac{1}{i} \int_{|z| = 1} R \left(\frac{z^2 + 1}{2z}, \frac{z^2 - 1}{2iz} \right)\frac{dz}{z} \]
+Подынтегральная функция является рациональной функцией $z$, значит, в круге $B(0,1)$ она голоморфна, за исключением, может быть, конечного числа изолированных особых точек, являющихся полюсами, либо УОТ.
+Поэтому интеграл может быть вычислен с помощью теоремы о вычетах.
+
+\begin{remark}
+    Интеграл $\displaystyle \int_{-\pi}^{\pi} R(\sin t, \cos t) dt$ вычисляется по той же формуле.
+    Указанным методом может быть вычислен и интеграл $\displaystyle \int_0^{\pi} R(\sin t, \cos t) dt = \frac{1}{2} \int_{-\pi}^{\pi} R(\sin t, \cos t) dt$
+\end{remark}
+
+\begin{example}
+    $\displaystyle I = \int_0^\pi \frac{dt}{a + \cos t}, \quad |a| > 1$ \\
+    $\displaystyle I = \frac{1}{2} \int_{-\pi}^{\pi} \frac{dt}{a + \cos t} = \frac{1}{2i} \int_{|z|=1} \frac{dz}{z \left( a + \frac{z^2 + 1}{2z} \right)} = \frac{1}{i} \int_{|z|=1} \frac{dz}{z^2+2az+1}$
+    $\displaystyle z_{1,2}=-a \pm \sqrt{a^2-1}$ \\
+    \begin{enumerate}
+        \item $a > 1$. В круге $B(0,1)$ лежит корень $z_1 = -a+\sqrt{a^2-1}$, поэтому \\
+            $\displaystyle I = \frac{1}{i}2\pi i \res_{z=z_1}{\frac{1}{z^2+2az+1}} = 2 \pi \frac{1}{2\left(-a+\sqrt{a^2-1}\right) +2a} = \frac{\pi}{\sqrt{a^2-1}}$
+        \item $a<-1$. В круге $B(0,1)$ лежит корень $z_2 = -a-\sqrt{a^2-1}$ \\
+            $\displaystyle I = \frac{2\pi}{2\left(-a-\sqrt{a^2-1}\right) +2a} = -\frac{\pi}{\sqrt{a^2-1}}$
+    \end{enumerate}
+    \textit{Ответ}: $\displaystyle I = \frac{\pi \sgn a}{\sqrt{a^2-1}}$
+\end{example}
+\end{document}

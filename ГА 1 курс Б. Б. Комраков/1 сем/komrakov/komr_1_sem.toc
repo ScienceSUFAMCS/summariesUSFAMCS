@@ -1,0 +1,25 @@
+\babel@toc {russian}{}\relax 
+\contentsline {part}{I\hspace {1em}Аналитическая геометрия}{2}{part.1}%
+\contentsline {chapter}{\numberline {1}Уравнение плоскости и прямой в пространстве.}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Уравнение плоскости.}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Уравнение прямой в пространстве.}{5}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Линии и поверхности второго порядка}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Эллипс.}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Гипербола.}{10}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Эксцентриситет и директрисы эллипса и гиперболы.}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Парабола.}{14}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Линии второго порядка.}{15}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Поверхности второго порядка.}{19}{section.2.6}%
+\contentsline {part}{II\hspace {1em}Основы высшей алгебры}{21}{part.2}%
+\contentsline {chapter}{\numberline {3}Комплексные числа.}{22}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Понятие комплексного числа. Арифметические операции с комплексными числами.}{22}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Извлечение корня из комлпексного числа.}{23}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Алгебраические структуры}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Бинарные отношения.}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Отображения.}{26}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Бинарная алгебраическая операция.}{28}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Многочлены}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Кольцо многочленов.}{30}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Матрицы и определители}{32}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Определитель матрицы.}{32}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Алгоритм Евклида. Основная теорема арифметики. Китайская теорема об остатках.}{34}{section.6.2}%

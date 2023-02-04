@@ -1,0 +1,77 @@
+\documentclass[a4paper, 12pt]{report} % стиль документа
+\usepackage[T2A]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{upgreek}
+\usepackage{graphicx}
+\usepackage[normalem]{ulem}
+% поддержка русского языка в документе
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % библиотеки AMS
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry} % выравнивание по краям
+
+\usepackage[unicode]{hyperref}
+
+\newenvironment{Proof} % имя окружения для доказательства
+{\par\noindent{$\blacklozenge$}} % символ рядом с \begin
+{\hfill$\scriptstyle\boxtimes$} % символ рядом с \end
+
+\newenvironment{example} % имя окружения для примеров
+{\par\noindent{\textsc{\textbf{Пример}.}}} % символ рядом с \begin
+{\hfill$\scriptstyle\Box$} % символ рядом с \end
+
+\newenvironment{exercise}
+{\par\noindent{\textsc{\textbf{Упражнение}.}}}
+{\hfill}
+
+\newtheorem*{theorem}{Теорема} % окружение для теорем
+\newtheorem*{corollary}{Следствие} % окружение для следствий
+\newtheorem*{lemma}{Лемма} % окружение для лемм
+\newtheorem*{mlemma}{M-лемма}
+\newtheorem*{theoremp}{Теорема о представлении колебаний}
+\newtheorem*{theoremk}{Теорема Кантора}
+\newtheorem*{theoremk1}{Теорема Коши}
+\newtheorem*{thbv}{Теорема Больцано-Вейерштрасса}
+\newtheorem*{cor}{Следствие} % окружение для следствий
+\newtheorem*{lem}{Лемма}
+
+\newcommand{\Rm}{\mathbb{R}}
+\newcommand{\Cm}{\mathbb{C}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\sinx}{\sin x}
+% команды для множеств 
+
+\newcommand{\fa}{\forall}
+\newcommand{\eps}{\upvarepsilon}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\Longleftrightarrow}
+\newcommand{\inRim}{\in\mathcal{R}([a; b])}
+
+\newcommand{\dx}{\text{dx}}
+\newcommand{\sgn}{\operatorname{sgn}}
+
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\leq}{\leqslant}
+
+\renewcommand{\omega}{\upomega}
+\renewcommand{\tau}{\uptau}
+\renewcommand{\beta}{\upbeta}
+\renewcommand{\alpha}{\upalpha}
+\renewcommand{\nu}{\upnu}
+\renewcommand{\mu}{\upmu}
+\renewcommand{\psi}{\uppsi}
+\renewcommand{\theta}{\Uptheta}
+\renewcommand{\phi}{\upvarphi}
+\renewcommand{\varphi}{\upvarphi}
+\renewcommand{\epsilon}{\upvarepsilon}
+\renewcommand{\varepsilon}{\upvarepsilon}
+% дополнительные команды

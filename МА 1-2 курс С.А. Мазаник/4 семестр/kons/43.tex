@@ -1,0 +1,141 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{cmap}
+\usepackage{amssymb}
+\usepackage[intlimits]{amsmath}
+\usepackage{amsthm}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[normalem]{ulem}
+\usepackage[left=2cm,right=2cm,
+    top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[english,russian]{babel}
+
+\DeclareMathOperator*{\res}{res}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ImR}{Im}
+\DeclareMathOperator{\ReR}{Re}
+
+\theoremstyle{definition}
+\newtheorem*{remark}{Замечание}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Пример}
+
+\theoremstyle{plain}
+\newtheorem*{lemma}{Лемма}
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Теорема}
+
+\theoremstyle{plain}
+\newtheorem*{corollary}{Следствие}
+
+\begin{document}
+\section{Вычисление интегралов вида $\displaystyle \int_{-\infty}^{+\infty}f(x) dx$}
+Здесь будем рассматривать НИ-1, то есть предполагается, что $f(x)$ не имеет конечных особых точек на действительной оси.
+
+Введем в рассмотрение функцию комплексного аргумента $f(z)$, которая совпадает с $f(x)$ при $z=x$ 
+и предположим, что в верхней полуплоскости $f(z)$ имеет конечное число изолированных особых точек $z_1,\dotsc,z_n$.
+
+\begin{lemma}
+    Если существуют такие положительные постоянные $R_0, M, \delta$, что для всех точек верхней полуплоскости $\ImR z>0$,
+    удовлетворяющих условию $\displaystyle |z|>R_0 \quad (z\in B(0, R_0, \infty)\;\cap\;\{z \;|\; \ImR z>0\})$ имеет место неравенство
+    $\displaystyle |f(z)| \leqslant \frac{M}{|z|^{1+\delta}}$, то
+    \begin{equation} \label{lemma:1}
+        \int_{C_\rho} f(z)dz \xrightarrow[\rho \to \infty]{} 0,
+    \end{equation}
+    где $ C_\rho $~--- полуокружность $|z|<\rho, \ImR z>0, \rho>R_0$
+\end{lemma}
+\begin{proof}
+    $\displaystyle \bigg\lvert\int_{C_\rho} f(z)dz \bigg\rvert \leqslant \int_{C_\rho} |f(z)||dz| \leqslant \int_{C_\rho} \frac{M}{\rho^{1+\delta}}|dz| = \frac{M}{\rho^{1+\delta}} \int_{C_\rho} |dz| = \frac{M}{\rho^{1+\delta}} \; \pi \rho = \frac{M\pi}{\rho^\delta} \xrightarrow[\rho \to \infty]{} 0 $
+\end{proof}
+\begin{remark}
+    Если условия леммы выполнены в секторе $\varphi_1<\arg z < \varphi_2$, то формула \eqref{lemma:1} имеет место, но в \eqref{lemma:1} $C_\rho$ - дуга окружности $S(0, \rho)$, лежащая в секторе.
+\end{remark}
+\begin{remark}
+    Условия леммы заведомо выполняются, если $z=\infty$ есть нуль порядка 2 или выше, а в окрестности $z=\infty$ функция голоморфна.
+\end{remark}
+\begin{proof}
+    $\displaystyle f(z) = \frac{\psi(z)}{z^2}; \quad |\psi(z)|\leqslant M, \quad \delta=1$
+\end{proof}
+В частности, если $f(z)$ рациональная функция $\displaystyle f(z)=\frac{P_n(z)}{Q_m(z)}$, $P_n, Q_m$~--- многочлены, то для выполнения леммы нужно потребовать $m>n+1$
+\begin{theorem}
+    Если функция $f(z)$ не имеет особых точек на действительной оси и имеет лишь конечное число изолированных особых точек
+    $z_1, z_2, \dotsc, z_n$ в верхней полуплоскости, причём $f(z)$ удовлетворяет условиям леммы \eqref{lemma:1} и интеграл
+    $\displaystyle \int_{-\infty}^{+\infty}f(x)dx$ сходится, то
+    \begin{equation}
+        \int_{-\infty}^{+\infty}f(x)dx = 2\pi i \sum_{k=1}^n \res_{z_k} f(z)
+    \end{equation}
+\end{theorem}
+\pagebreak
+\begin{proof}
+    Построим контур $C_R$, состоящий из полуокружности $\gamma_R$ в верхней полуплоскости и отрезка $[-R, R]$ действительной оси
+    так, чтобы все особые точки попали в область ограниченную этим контуром. \\
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (0, 0) node[below]{$-R$} -- (3, 0) node[below]{$R$};
+            \draw (3, 0) arc(0:180:1.5);
+            \draw [->] (1,-0.1) -- (2,-0.1); 
+        %   \draw (2,1) -- ++(30:2cm) (2,1) -- ++(60:2cm);
+            \draw [->] ([shift=(80:1.5cm)]1.5,0.1) arc (80:100:1.5cm);
+            \node[] at (0, 1.5) {$C_R$};
+            \node[] at (3, 1) {$\gamma_R$};
+            \node[circle, fill, inner sep=0.7pt] at (1, 0.3) {};
+            \node[circle, fill, inner sep=0.7pt] at (2, 0.5) {};
+            \node[circle, fill, inner sep=0.7pt] at (1.4, 1) {};
+        \end{tikzpicture}
+    \end{center}
+    По основной теореме о вычетах
+    $\displaystyle \int_{C_R} f(z)dz = 2\pi i \sum_{k=1}^n \res_{z_k} f(z)$ \\
+    Но $\displaystyle \int_{C_R} f(z)dz = \int_{\gamma_R} f(z)dz + \int_{[-R, R]} f(z)dz$ \\
+    Перейдем к пределу при $R \to \infty$. Используя лемму, получим \\
+    $\displaystyle \int_{-\infty}^{+\infty}f(x)dx = 2\pi i \sum_{k=1}^n \res_{z_k} f(z)$
+\end{proof}
+\begin{corollary}
+    Если $\displaystyle f(x)=\frac{P_n(x)}{Q_m(x)}$ и на оси нет особых точек, то для сходимости интеграла необходимо и достаточно, чтобы
+    $\displaystyle \frac{P_n(x)}{Q_m(x)} \underset{x \to \infty}{\sim} \frac{A}{x^{m-n}} \Rightarrow m-n>1$ и тогда автоматически выполняются условия леммы, а, значит, и теоремы. \\
+    Другими словами сходящийся НИ-1 от рациональной функции может быть всегда вычислен указанным методом.
+\end{corollary}
+\begin{remark}
+    Аналогично доказывается
+    \begin{equation*}
+        \int_{-\infty}^{+\infty} f(x)dx = -2\pi i \sum_{k=1}^n \res_{z_k} f(z),
+    \end{equation*}
+    где $z_k$ - особые точки функции $f(z)$ в нижней полуплоскости.
+\end{remark}
+\begin{example}
+    $\displaystyle I=\int_0^{+\infty} \frac{dx}{x^4+1}=\frac{1}{2}\int_{-\infty}^{+\infty} \frac{dx}{x^4+1}$ \\
+    
+    В силу следствия можно воспользоваться формулой теоремы. \\
+    Особые точки: $\displaystyle z_k=\sqrt[4]{-1} = e^{\frac{i\pi+2k\pi i}{4}} = e^{i \left(\frac{\pi}{4}+\frac{k\pi}{2}\right)}$ \\
+    То есть: $z_1=e^{i {\pi \over 4}}, \quad z_2=e^{i \left(\frac{\pi}{4} + \frac{\pi}{2}\right)}, \quad
+    z_3=e^{i \left(\frac{\pi}{4} + \pi\right)}, \quad z_4=e^{i \left(\frac{\pi}{4} + \frac{3\pi}{2}\right)}$ \\
+    В верхней полуплоскости 2 особые точки: $z_1$ и $z_2$.\\
+    Поэтому $\displaystyle I={1 \over 2} \, 2\pi i \left(\res_{z_1} \frac{1}{z^4+1} + \res_{z_2} \frac{1}{z^4+1}\right) = 
+    \pi i \left(\frac{1}{4z_1^3} + \frac{1}{4z_2^3}\right) = \pi i \left(\frac{z_1}{4z_1^4} + \frac{z_2}{4z_2^4}\right) = 
+    -\frac{\pi i}{4} \left(z_1 + z_2\right) = -\frac{\pi i}{4} \left(\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right) = 
+    -\frac{\pi i}{4} i \sqrt{2} = \frac{\pi \sqrt{2}}{4}$
+
+    Этот же интеграл можно вычислить по-другому. \\
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (0, 0) -- (3, 0);
+            \draw (1, -1) -- (1, 2);
+            \draw (3, 0) arc(0:90:2);
+            \draw [->] (1.6,-0.1) -- (2.4,-0.1); 
+            \draw [->] (0.9,1.4) -- (0.9, 0.6); 
+            \draw [->] ([shift=(30:2.1cm)]1,0) arc (30:60:2.1cm);
+            \node[] at (0, 1.5) {$C_R$};
+            \node[] at (3.2, 0.9) {$\gamma_R$};
+        \end{tikzpicture}
+    \end{center}
+    $\displaystyle \int_{\gamma_R} \to 0$ по лемме. \\
+    $\displaystyle \int_{C_R} = \int_{\gamma_R} + \int_0^R \frac{dx}{1+x^4} - \int_0^{iR} \frac{dz}{1+z^4} = 
+    2 \pi i \res_{z_1} \frac{1}{1+z^4} = 2\pi i \, \frac{z_1}{4z_1^4} = -\frac{2\pi i}{4} \left(\frac{\sqrt 2}{2} + i \, \frac{\sqrt 2}{2}\right)$ \\
+    $\displaystyle \int_0^{iR} \frac{dz}{1+z^4} = \left[x=0, y=y \quad z=iy\right] = \int_0^{iR} \frac{idy}{1+y^4};$ \\
+    Перейдя к пределу \\
+    $\displaystyle I-iI = -\frac{\pi i}{2} \left(\frac{\sqrt 2}{2} + i \, \frac{\sqrt 2}{2}\right) \quad \Rightarrow \quad I=\frac{\pi\sqrt 2}{4}$
+\end{example}
+\end{document}

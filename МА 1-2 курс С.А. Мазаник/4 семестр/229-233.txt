@@ -1,0 +1,119 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{cmap}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[normalem]{ulem}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\usepackage{wrapfig}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\begin{document}
+\begin{center}
+    \section{Вычисление интеграла Меллина}
+\end{center}
+$\quad$ \ Будем вести разговор о том, как вычислить интеграл Меллина в случае, если известно, что $F(p)$ --- изображение.
+
+\begin{center}
+    $f(t) = \dfrac{1}{2\pi i}\int\limits_{x-i\infty}^{x+i\infty}e^{pt}F(p)dp, x > \alpha_0, t > 0$
+\end{center}
+
+Во многих случаях интеграл Меллина, дающий выражение оригинала через известное изображение, может быть вычислен с помощью вычетов.
+
+Предположим, что функция $F(p)$, заданная первоначально в полуплоскости $Re(p) > \alpha_0$ аналитически продолжима на всю плоскость компактного переменного и имеет лишь конечное число изолированных особых точек.
+
+\begin{wrapfigure}[12]{l}{0.5\linewidth} 
+    \vspace{0ex}
+    \includegraphics{zamknytiyKontur.png}
+\end{wrapfigure}
+
+Рассмотрим замкнутый контур $C_R = \gamma_R \cup [x - iR, x + iR]$ так, чтобы все особые точки попали в область, ограниченную контуром. 
+
+Тогда $\dfrac{1}{2 \pi i} \int\limits_{C_R}e^{pt}F(p)dp = \dfrac{1}{2 \pi i}\int\limits_{\gamma_R}e^{pt}F(p)dp + \dfrac{1}{2 \pi i}\int\limits_{x - iR}^{x + iR}e^{pt}F(p)dp$.
+
+Т.к. особых точек конечное число, то можно так подобрать $R$, что все они попадут внутрь контура $C_R$ и тогда $\dfrac{1}{2 \pi i} \int\limits_{C_R}e^{pt}F(p)dp = \sum\limits_{x=1}^{n}res_{p_k}(F(p)e^{pt})$. 
+
+Переходя к пределу при $R \rightarrow \infty$ и учитывая, что при $F(p) \rightarrow 0$ к интегралу по $\gamma_R$ можно применить лемму Жордана ($t > 0$) и $\int\limits_{\gamma_R}e^{pt}F(p)dp \xrightarrow[R \rightarrow \infty]{} 0$ (см. следствие к лемме Жордана), получим:
+
+\begin{center}
+    $\dfrac{1}{2 \pi i}\int\limits_{x - i\infty}^{x + i\infty} e^{pt}F(p)dp = \sum\limits_{k=1}^n res_{p_k}e^{pt}F(p)$ или $f(t) = \sum\limits_{k=1}^n res_{p_k}e^{pt}F(p)$
+\end{center}
+
+Результат сформулируем в виде теоремы:
+
+\textbf{Теорема}
+
+\textit{Если функция $F(p)$ удовлетворяет усорвиям теоремы обращения, аналитически продолжима на всю плоскость (p), имеет при этом лишь конечное число изолированных особых точек $p_k, k = \overline{1, n}$ и $F(p) \rightarrow 0$ при $|p| \rightarrow \infty$ для $Re(p) < \alpha_0$, то для $t > 0$:}
+
+\begin{center}
+    $\dfrac{1}{2 \pi i}\int\limits_{x - i\infty}^{x + i\infty} e^{pt}F(p)dp = \sum\limits_{k=1}^n res_{p_k}e^{pt}F(p)$
+\end{center}
+
+\textbf{Пример:} Найти оригинал, если $F(p) \dfrac{1}{p^2(p^2 - 1)}$
+
+Функция удовлетворяет всем условиям теоремы, особые точки $p = 0, p = \pm1$.
+
+$f(t) = res_{p=0}\dfrac{e^{pt}}{p^2(p^2 - 1)} + res_{p=1}\dfrac{e^{pt}}{p^2(p^2 - 1)} + res_{p=-1}\dfrac{e^{pt}}{p^2(p^2 - 1)} = (\dfrac{e^{pt}}{p^2 - 1})_{p=0}^{'} + \dfrac{e^t}{2} + \dfrac{e^{-t}}{-2} = -t + sht$
+
+\section{Теоремы разложения}
+
+Будут рассмотрены частные случаи функции $F(p)$, когда определение оригинала по изображению производятся особенно просто.
+
+\textbf{I теорема разложения}
+
+\textit{Пусть $F(p)$ аналитически продолжима на всю плоскость комплексного переменного (p) и точка $p = \infty$ является правильной точкой для $F(p)$, т.е. $F(p) = \sum\limits_{n=0}^{\infty}\dfrac{C_n}{p^n}$. Тогда оригинал для $F(p)$ определяется формулой $f(t) = 1(t)\sum\limits_{n=0}^{\infty}C_{n+1}\dfrac{t^n}{n!} (*)$.}
+
+$\blacklozenge$ Т.к. $F(p) \xrightarrow[|p| \rightarrow \infty]{} 0 \Rightarrow C_0 = 0$ и $F(p) = \dfrac{1}{p}(C_1 + \dfrac{C_2}{p} + \dfrac{C_3}{p^2} + ...) = \dfrac{1}{p}\psi(p) \Rightarrow |F(p)| \leq \dfrac{M}{R}, $ для $ |p| \geq R, M - const.$
+
+Поэтому $|c_n| = |\dfrac{1}{2\pi i} \int\limits_{\gamma_R} F(p)p^{n-1}dp| \leq \dfrac{1}{2 \pi}\int\limits_{\gamma_R} |F(p)||p|^{n-1}dp \leq \dfrac{1}{2 \pi}\dfrac{M}{R} R^{n-1} 2 \pi R = M \cdot R^{n-1}, R - fix.$
+
+Из этой оценки следует сходимость ряда $(*)$.
+
+Действительно: $|\sum\limits_{n=0}^{\infty}C_{n+1}\dfrac{t^n}{n!}| \leq \sum\limits_{n=0}^{\infty}|C_{n+1}|\dfrac{|t|^n}{n!} \leq M \cdot \sum\limits_{n=0}^{\infty}R^{n}\dfrac{t^n}{n!} = M \cdot e^{R|t|}$.
+
+Отсюда вытекает абсолютная сходимость $\forall t$. Кроме того отсюда следует, что ряд $(*)$ представляет собой функцию с ограниченной степенью ряда и ряд $(*)$ сходится равномерно в любом круге конечного радиуса как степенной ряд, определяя тем самым непрерывную функцию.
+
+$\sum\limits_{n=0}^{\infty}C_{n+1}\dfrac{t^n}{n!} =:: \widetilde{f}(t), \forall t$
+
+\begin{equation*}
+\widetilde{f}(t) = 
+ \begin{cases}
+   \sum C_{n+1}\dfrac{t^n}{n!}&t < 0\\
+   f(t) &t > 0
+ \end{cases}
+\end{equation*}
+
+Осталось показать, что изображение $\widetilde{f}(t)\cdot 1(t)$ есть $F(p)$. Для этого умножим обе части на $e^{-pt}$ и проинтегрируем по $t$ в пределах от 0 до $+\infty$. Это можно сделать, т.к. ряд сходится равномерно (проинтегрировать почленно).
+
+Получим: $\int\limits_{0}^{+\infty}e^{-pt}f(t)dt = \sum\limits_{n=0}^{\infty}\dfrac{C_{n+1}}{n!}\int\limits_{0}^{+\infty}t^ne^{-pt}dt = \sum\limits_{n=0}^{\infty}\dfrac{C_{n+1}}{n!}\dfrac{n!}{p^{n+1}} = \sum\limits_{n=0}^{\infty}\dfrac{C_{n+1}}{p^{n+1}} = F(p) \Rightarrow f(t) = F(p)$ $\blacksquare$
+
+\textbf{II теорема разложения}
+
+Пусть $F(p) = \dfrac{F_1(p)}{F_2(p)}$ --- рациональная функция, т.е. частное двух многочленов, причём $degF_1 < degF_2$. В этом случае оригинал для $F(p)$ можно найти вычислив интеграл Меллина с помощью вычетов.
+
+Однако, ещё проще оригинал для $F(p)$ найти разложив дробь $F(p)$ на простейшие и воспользовавшись формулами, которые следуют из свойств оригиналов и изображений.
+
+\begin{center}
+    $\dfrac{A}{p - \alpha} \risingdotseq B \dfrac{t^{n-1}e^{\alpha t}}{(n - 1)!}$
+\end{center}
+
+Выделим два случая:
+
+\begin{enumerate}
+    \item Все корни знаменятеля простые: $p_1, ..., p_n \Rightarrow f(t) = \sum\limits_{k=1}^{n}res_{p_k}\dfrac{F_1(p)}{F_2(p)}e^{pt} = \sum\limits_{k=1}^{n}\dfrac{F_1(p_k)}{F_2(p_k)}e^{p_kt}$
+    \item Знаменатель имеет корни $p_k$ кратности $m_k, k = \overline{1, l}$ ($m_k$ все, либо некоторые могут быть равны и 1, т.е. пункт 1 выходит от сюда как частный случай). Тогда вычисляя интеграл Меллина с помощью вычетов приходим к формуле:
+    
+    $f(t) = \sum\limits_{k=1}^{l}res_{p_k}\dfrac{F_1(p)}{F_2(p)}e^{pt} = \sum\limits_{k=1}^{l}\dfrac{1}{(m_k - 1)!}\lim\limits_{p \rightarrow p_k}\dfrac{d^{m_k-1}}{dp^{m_k-1}}F(p)(p - p_k)^{m_k}e^{pt}$.
+    
+    Можно использовать и другую формулу:
+    
+    $f(t) = \sum\limits_{k=1}^{l}\sum\limits_{\nu=1}^{m_k}\dfrac{A_{k\nu}}{(m_k - \nu)!}t^{m_k - \nu}e^{p_kt}$, где $A_{k\nu} = \dfrac{1}{(\nu - 1)!}\lim\limits_{p \rightarrow p_k}\dfrac{d^{\nu-1}}{dp^{\nu-1}}F(p)(p - p_k)^{m_k}e^{pt}$
+\end{enumerate}
+
+
+\end{document}

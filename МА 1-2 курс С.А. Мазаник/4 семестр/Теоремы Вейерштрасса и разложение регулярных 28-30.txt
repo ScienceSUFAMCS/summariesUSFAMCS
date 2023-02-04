@@ -1,0 +1,154 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{cmap}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[normalem]{ulem}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\usepackage{wrapfig}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\begin{document}
+\section{Первая теорема Вейерштрасса}
+
+\textit{Как мы уже имели возможность убедиться, регулярные функции обладают свойствами, которым нет аналога у действительных функций. В частности, может быть значительно усилена и теорема о дифференцировании рядов функций по сравнению с соответствующей теоремой для действительных рядов. Напомним, что мы уже отмечали, что теорема о непрерывности суммы ряда функций и теоремы об интегрировании звучали так же.}
+\par\bigskip
+$\quad \; \ $ \textbf{Теорема (первая теорема Вейерштрасса)}
+
+\textit{Если $f_n$ регулярны в области $D$, а ряд $\sum\limits_{n=1}^{\infty} f_n(z) = f(z)$ сходится равномерно в любой замкнутой области $\overline{G}$, где $G \subset D$, то:
+\begin{enumerate}
+    \item $f = \sum f_n$ - есть функция регулярная в $D$;
+    \item Ряд можно дифференцировать почленно в $D$ любое число раз, т.е. $f^{(k)}(z) = \sum\limits_{n=1}^{\infty}f_n^{(k)}(z), k \in N$;
+    \item Ряд из производных $\sum f_n^{(k)}(z)$ сходится равномерно в любой замкнутой области $\overline{G} \subset D$ (сходится локально-равномерно в $D$).
+\end{enumerate}}
+
+$\blacklozenge$ 1) По теореме, являющейся аналогом теоремы Стокса-Зейделя, $f$ является функцией непрерывной в любой замкнутой области $\overline{G} \subset D$, откуда следует, что она непрерывна в $D$, поскольку любая точка $z \in D$ является внутренней и поэтому может быть заключена в некоторую $\overline{G} \in D$. На основании теоремы о почленном интегрировании ряд можно интегрировать почленно по любой спрямляемой прикой из $C$. В частности:
+
+\begin{center}
+    $\int\limits_l f(z)dz = \sum\limits_{n=1}^{\infty}\int\limits_l f_n(z)dz$,
+\end{center}
+
+где $l$ - замкнутый спрямляемый контур из $D$. Т.к. функции $f_n(z)$ регулярны в $D$, то $\int\limits_l f_n(z)dz = 0$ для $\forall n \in N$ и поэтому и $\int\limits_l f(z)dz = 0$. По теореме Мореры, $f(z)$ регулярна в $D$.
+\par\bigskip
+2) Зафиксируем любую точку $z \in D$ и построим круг $B(z; \rho)$ так, чтобы $\overline{B}(z; \rho) \subset D; \gamma_{\rho} ::= S(z; \rho)$, тогда на основании интегральной формулы Коши для производной поскольку все $f_n(z)$ и $f(z)$ регулярны в $\overline{B}(z; \rho)$, то:
+
+\begin{center}
+    $f^{(k)}(z) = \dfrac{k!}{2\pi i} \int\limits_{\gamma_{\rho}}\dfrac{f(\xi)}{(\xi - z)^{k+1}}d\xi$ (1)
+    \par\bigskip
+    $f_n^{(k)}(z) = \dfrac{k!}{2\pi i} \int\limits_{\gamma_{\rho}}\dfrac{f_n(\xi)}{(\xi - z)^{k+1}}d\xi$ (2)
+    \par\bigskip
+    $k \in N, k - fix$
+\end{center}
+\par\bigskip
+Поскольку ряд $\sum\limits_{n=1}^{\infty}f_n(\xi)$ сходится равномерно на $\gamma_{\rho}$, то на $\gamma_{\rho}$ сходится равномерно и ряд $\sum\limits_{n=1}^{\infty}\dfrac{f_n(\xi)}{(\xi - z)^{k+1}}$. Действительно, для остатка этого ряда, учитывая, что $|\xi - z| = \rho$ будем иметь следующую оценку ($r_n(\xi)$ - остаток первого ряда, $R_n(\xi)$ - остаток исследуемого ряда):
+
+\begin{center}
+    $|R_n(\xi)| = \dfrac{1}{|\xi - z|^{k+1}}|r_n(\xi)| = \dfrac{1}{\rho^{k+1}}|r_n(\xi)| \leq \dfrac{\epsilon}{\rho^{k+1}}$,
+\end{center}
+
+где $\rho, k$ - постоянные, $\forall \xi \in \gamma_{\rho}$.
+
+Следовательно, указанный ряд можно интегрировать почленно на $\gamma_{\rho}$. Проинтегрируем тождество
+
+\begin{center}
+    $\dfrac{f(\xi)}{(\xi - z)^{k+1}} = \sum\limits_{n=1}^{\infty}\dfrac{f_n(\xi)}{(\xi - z)^{k+1}}$
+\end{center}
+
+вдоль $\gamma_{\rho}$. Получим:
+
+\begin{center}
+    $\int\limits_{\gamma_{\rho}}\dfrac{f(\xi)}{(\xi - z)^{k+1}} = \sum\limits_{n=1}^{\infty}\int\limits_{\gamma_{\rho}}\dfrac{f_n(\xi)}{(\xi - z)^{k+1}}$
+\end{center}
+
+Учитывая (1) и (2) в итоге получаем:
+
+\begin{center}
+    $f^{(k)}(z) = \sum\limits_{n=1}^{\infty}f_n^{(k)}(z)$
+\end{center}
+
+3) Покажем, что $\sum\limits_{n=1}^{\infty}f_n^{(k)}(z)$ сходится равномерно $\forall \overline{G} \in D$. Действительно, поместим $\overline{G}$ в контур $l$ так, чтобы $l \in D$. 
+\par\bigskip\par\bigskip
+\begin{wrapfigure}[4]{l}{0.5\linewidth} 
+    \vspace{-5ex}
+    \includegraphics{GinDVeyerhtrass.png}
+\end{wrapfigure}
+
+Обозначим за $P$ область, ограниченную контуром $l$. Обозначим $d ::= \rho(\overline{G}, l) > 0$. Тогда $\forall \xi \in l, \forall z \in \overline{G}: |\xi - z| \geq d$. Т.к. $r_n(z)$ --- остаток ряда $\sum\limits_{n=1}^{\infty}f_n(z)$ есть функция регулярная (т.к. $r_n(z) = f(z) - \sum\limits_{p=1}^n f_p(z), f(z) регулярна по пункту 1 теоремы, а \sum\limits_{p=1}^n f_p(z) регулярна как сумма конечного числа регулярных функций$), то $\forall z \in \overline{G}$ имеет место равенство:
+
+\begin{center}
+    $r_n^{(k)}(z) = \dfrac{k!}{2\pi i}\int\limits_{l}\dfrac{r_n(\xi)}{(\xi - z)^{k+1}}d\xi$
+\end{center}
+
+По условию, ряд $\sum f_n(z)$ сходится равномерно в замкнутой области $\overline{D}$, ограниченной контуром $l$, поэтому $\forall \varepsilon > 0, \exists \nu(\varepsilon) > 0, \forall n \geq \nu(\varepsilon), \forall z \in \overline{D} \Rightarrow |r_n(z)| \leq \varepsilon$.
+
+Пусть теперь $n \geq \nu(\varepsilon)$. Тогда $|r_n^{(k)}| = \dfrac{k!}{2\pi}|\int\limits_l \dfrac{r_n(\xi)}{(\xi - z)^{k+1}}| \leq \dfrac{k!}{2\pi}\int\limits_l\dfrac{|r_n(\xi)|}{|\xi - z|^{k+1}} \leq \dfrac{k! \cdot \varepsilon}{2\pi \cdot d^{k+1}} \cdot$дл$l = k\cdot \varepsilon$, что и доказывает равномерную сходимость ряда $\sum f_n^{(k)}(z)$ в области $\overline{G}$. $\blacksquare$
+\par\bigskip
+\textbf{Замечание 1:} Теорема, очевидно, имеет место, если потребовать равномерную сходимость ряда $\sum f_n(z)$ в $\overline{D}$.
+\par\bigskip
+\textbf{Замечание 2:} Как показывает простой пример, из равномерной сходимости ряда $\sum f_n(z)$ в $\overline{D}$ не следует равномерная сходимость в $\overline{D}$ ряда из производных:
+
+$\sum\dfrac{z^n}{n^2}$ сходится равномерно в $\overline{B}(0; 1)$, а ряд $\sum\dfrac{z^{n-1}}{n}$ уже не будет равномерно сходящимся в круге $\overline{B}(0; 1)$, т.к. он и вовсе расходится при $z = 1$. Другими словами, заключение 3) теоремы не может быть, вообще говоря, расширено.    
+\par\bigskip
+\section{Первая теорема Вейерштрасса}
+
+$\quad \; \ $ \textbf{Теорема (вторая теорема Вейерштрасса)}
+
+\textit{Если $f_n(z)$ регулярны в $D$, непрерывны в $\overline{D}$ и $\sum\limits_{n=1}^{\infty}f_n(z)$ сходится равномерно на $\partial D$, то он сходится равномерно и в $\overline{D}$}.
+
+$\blacklozenge$ Воспользуемся критерием Коши равномерной сходимости. Т.к. $\sum f_n(z)$ сходится равномерно на $\partial D$, то $\forall \varepsilon > 0, \exists \nu(\varepsilon) > 0, \forall n \geq \nu(\varepsilon), \forall p \geq 0, \forall \xi \in \varepsilon D \Rightarrow |\sum\limits_{k=n+\xi}^{n+p}| \leq \varepsilon$.
+
+Рассмотрим функцию $g(z) = \sum\limits_{k=n}^{n+p}f_k(z)$. Эта функция регулярна в $D$ и непрерывна в $\overline{D}$ как сумма конечного числа функций, обладающих этими же свойствами. По теореме о максимуме модуля регулярной функции:
+
+\begin{center}
+    $|g(z)| = |\sum\limits_{k=n}^{n+p}f_k(z)| \leq \max\limits_{s \in \partial D}|\sum\limits_{k=n}^{n+p}f_k(z)| \leq \varepsilon$
+\end{center}
+
+Т.е. для $\sum f_n(z)$ в $\overline{D}$ выполняется критерий Коши равномерной сходимости.  $\blacksquare$ 
+
+\par\bigskip
+\section{Разложение регулярных функций в ряды Тейлора}
+\par\bigskip
+Как уже отмечалось, дифференцируемая в некоторой окрестности точки $z_0$ (включая саму $z_0$) функция $f$ может быть представлена рядом Тейлора:
+
+\begin{center}
+    $f(z) = \sum_{n=0}^{\infty}c_n(z - z_0)^n$,
+\end{center}
+
+где коэффициенты $c_n$ могут быть вычислены по формулам:
+
+\begin{center}
+    $c_n = \dfrac{f^{(n)}(z_0)}{n!}$,
+\end{center}
+
+либо
+
+\begin{center}
+    $c_n = \dfrac{1}{2\pi i}\int\limits_{\gamma_{\rho}}\dfrac{f(\xi)}{(\xi - z_0)^{n+1}}d\xi$,
+\end{center}
+
+$\gamma_{\rho} = S(z_0; \rho)$ лежит в области регулярности $f$. Радиус сходимости ряда может быть вычислен по формулам Коши-Адамара:
+
+\begin{center}
+    $R = \dfrac{1}{\overline{\lim}\sqrt[n]{|c_n|}}$, либо $R = \lim|\dfrac{c_n}{c_{n+1}}|$
+\end{center}
+
+Отметим, что на границе круга сходимости функция не может быть регулярной во всех точках, ибо допуская противное, окажется, что каждая точка окружности обдалает окрестностью, в которой функция регулярна, а тогда можно доказать, что $\exists r$, что $f$ будет регулярна в круге радиуса $R + r$ с центром в точке $z_0$, что противоречит тому, что $R$ - радиус сходимости. Кстати, это согласуется и с замечанием к теореме о связи регулярных и дифференцируемых функций, где утверждалось, что радиус сходимости равен расстоянию от точки $z_0$ до границы области дифференцируемости (до ближайшей точки недиффиренцируемости).
+
+Точку, в которой $f$ регулярна, называют \textbf{регулярной (обыкновенной, правильной)} точкой функции $f$. Все остальные точки будем называть \textbf{особыми}. Например, $w = \ln(z), z = 0$ --- особая, все остальные --- регулярные.
+
+Итак: \textit{Если $z_0$ --- правильная точка для $f$, то $f$ может быть представлена степенным рядом с центром в этой точке: $f(z) = \sum\limits_{n=0}^{\infty}c_n(z - z_0)^{n},$ причём радиус сходимости этого ряда равен расстоянию от точки $z_0$ до ближайшей особой точки функции $f$}.
+\par\bigskip
+\textbf{Примеры: }
+
+1) В области действительных чисел не совсем ясно было, почему ряд $\dfrac{1}{1 + x^2} = \sum\limits_{n=0}^{\infty}(-1)^n x^{2n}$ расходится вне интервала $]-1; 1[$, вто время как $\dfrac{1}{1 + x^2}$ определена, непрерывна и дифференцируема сколько угодно раз на всей действительной оси, причём точки $x = \pm 1$ для неё не являются особыми. Теперь картина ясна: у функции $\dfrac{1}{1 + x^2}$ точки $z = \pm i$ являются особыми, а поэтому радиус сходимости $R = 1$.
+
+2) $\sum\dfrac{z^n}{n^2}, R = 1$ и хотя в $\overline{B}(0; 1)$ ряд сходится равномерно, на $S(0; 1)$ лежит по крайней мере одна особая точка функции, являющейся суммой этого ряда.
+
+Отметим в заключение, что для элементарных функций $\sin(z), \cos(z), \ln(1 + z), \sh(z), \ch(z),$
+$ e^z, \dfrac{1}{1 + z}$ имеют место основные разложения в ряды Тейлора, знакомые нам с действительного анализа.
+
+\end{document}
