@@ -440,7 +440,7 @@ $$\includegraphics[scale=0.5]{images/img26.png}$$ $\forall$ прямая, $|| \ 
 	$\Delta x=x-x_0$, $\Delta y=f(x_0+ \Delta x)-f(x_0)$.
 	$$f(x)=f(x_0+\Delta x)=f(x_0)+\frac{f'(x_0)}{1!}\Delta x+\ldots+\frac{f^{(n)}(x_0)}{n!}\Delta x^n+R_n(x),$$
 	или $$\Delta f=f(x_0)+\frac{f'(x_0)}{1!}\Delta x+\ldots+\frac{f^{(n)}(x_0)}{n!}\Delta x^n+R_n(x),$$
-	или $$\Delta f=df(x_0)=\frac{d^2f(x_0)}{2!}+\ldots+\frac{d^nf(x_0)}{n!}+R_n(x).$$
+	или $$\Delta f=df(x_0) + \frac{d^2f(x_0)}{2!}+\ldots+\frac{d^nf(x_0)}{n!}+R_n(x).$$
 	Любопытно вспомнить сейчас прошлое, а именно, дифференциал и сравнить эту формулу с дифференциалом. Раньше мы заменяли приближенно приращение функции дифференциалом и говорили. что дифференциал выделяет в приращении ту его часть, которая линейно зависит от $\Delta x.$\\\\
 	Многочлен же Тейлора $$T_n(x)=\sum_{k=0}^n \frac{d^k f(x_0)}{k!}$$  в $U(x_0)$
 	выделяет из $\Delta f$ многочлен но $\Delta x$ степени не выше и, совпадающий с $f$ с точностью до
@@ -614,7 +614,7 @@ $$\includegraphics[scale=0.5]{images/img26.png}$$ $\forall$ прямая, $|| \ 
 	Поставим задачу о вычислении $f(x_1)$, $x_1 \in U(x_0)$ с заданной степенью точности $\epsilon$.\\\\ По формуле Тейлора
 	$$f(x) = f(x_0) + \frac{f\prime(x_0)}{1!} \cdot (x - x_0) + \dots + \frac{f^{(n)}(x_0)}{n!} \cdot (x - x_0)^n + R_n(x).$$
 	$$\left| R_n(x) \right| \leq \left| \frac{ f^{(n + 1)}(x_0 + \theta(x - x_0)) }{(n+1)!}\right| \cdot {\left| x - x_0 \right|} ^{n + 1} \le \frac{M \cdot {\left| x - x_0 \right|} ^{n + 1}}{(n+1)!}.$$
-	Поскольку $\left| R_n(x) \right| \rightarrow 0$  при $n \rightarrow 0$, то можно подобрать $n$ так, что $\left| R_n(x) \right| \le \epsilon$. Подставим найденное значение в формулу Тейлора и произведём вычисления. Иногда удобно оценивать остаточный член в форме Коши.\\
+	Поскольку $\left| R_n(x) \right| \rightarrow 0$  при $n \rightarrow \infty$, то можно подобрать $n$ так, что $\left| R_n(x) \right| \le \epsilon$. Подставим найденное значение в формулу Тейлора и произведём вычисления. Иногда удобно оценивать остаточный член в форме Коши.\\
 	\begin{example} 
 		Вычислить $e$  с точностью до $0,001$.\\
 		$$\left| R_n(x) \right| \le \frac{e}{(n + 1)!} \le \frac{3}{(n + 1)!} \le \frac{1}{1000} \Rightarrow n = 6.$$
@@ -627,7 +627,7 @@ $$\includegraphics[scale=0.5]{images/img26.png}$$ $\forall$ прямая, $|| \ 
 	Можно поступить так:
 	$f$ и $g$ в окресности точки $a$ представляют формулой Тейлора-Пеано (если это возможно), ограничиваясь в этом разложении только первыми, отличными от нуля членами, и находят предел.\\\\
 	\begin{example}\\ 
-		$$\lim\limits_{x \rightarrow 0}\frac{x - \sin x}{\ln{1 + x^3}} = \lim\limits_{x \rightarrow 0}\frac{x - (x - \frac{x^3}{6} + o(x^4))}{x^3 + o(x^3)} = \lim\limits_{x \rightarrow 0}\frac{\frac{x^3}{6} + o(x^4))}{x^3 + o(x^3)}
+		$$\lim\limits_{x \rightarrow 0}\frac{x - \sin x}{\ln{(1 + x^3)}} = \lim\limits_{x \rightarrow 0}\frac{x - (x - \frac{x^3}{6} + o(x^4))}{x^3 + o(x^3)} = \lim\limits_{x \rightarrow 0}\frac{\frac{x^3}{6} + o(x^4))}{x^3 + o(x^3)}
 		= \lim\limits_{x \rightarrow 0}\frac{x^3(\frac{1}{6} + \frac{o(x^4)}{x^3} )}{x^3(1 + \frac{o(x^3)}{x^3}} = \frac{1}{6}$$
 		\begin{multline*}
 			\lim\limits_{x \rightarrow 0}\frac{\ln{1 + x + x^2} + \ln{1 - x  - x^2}}{x\sin x} =\\= \lim\limits_{x \rightarrow 0}\frac{(x + x^2) - \frac{{(x + x^2)}^2}{2} + o({(x + x^2)}^3) + (-x - x^2) - \frac{{(x + x^2)}^2}{2} + o(\ldots)}{x^2 + o(x^2)} = -1.

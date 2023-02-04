@@ -79,7 +79,7 @@ $\bullet$ \textit{$f$ --- \textbf{подынтегральная функция}
 Суть метода в том, что вычисление неопределенного интеграла от некоторой функции сводится к вычислению неопределенного интеграла от другой функции. \\
 Считаем далее, что известна первообразная $\mathcal{F}$ для функции $f$, то есть $\int f(x)dx = \mathcal{F}(x) + c $ и нужно вычислить $\int g(x)dx$.
 \begin{theorem}[Введение множителя под знак дифференциала]
-	Пусть существует такая дифференцируемая функция $\varphi$, что $g = (f \circ g)\varphi'$ и $\mathcal{F}$ --- первообразная для $f$.\\
+	Пусть существует такая дифференцируемая функция $\varphi$, что $g = (f \circ \varphi)\varphi'$ и $\mathcal{F}$ --- первообразная для $f$.\\
 	Тогда $$\int g(x)dx = (\mathcal{F} \circ \varphi)(x) + C.$$
 \end{theorem}
 \begin{Proof}
@@ -146,7 +146,7 @@ $$\int g(x)dx = \left[ x = \varphi(t) \right] = \int g(\varphi(t))\cdot \varphi 
 Каждая из формул для производных или дифференциалов может быть использована для вывода формулы интегрирования.\\\\
 В частности, формула для вычисления производной произведения приводит нас к формуле интегрирования по частям.
 \begin{theorem}
-	Пусть функции $u$ и $v$ дифференцируемы на интервале $X$, то есть $u, v \in D(x)$. Если существует $\int u'(x)v(x)\dx$, то существует и интеграл $\int u(x)v'(x)\dx$, при этом $$\int u(x)v'(x)\dx = u(x)v(x) -  u'(x)v(x)\dx.$$
+	Пусть функции $u$ и $v$ дифференцируемы на интервале $X$, то есть $u, v \in D(x)$. Если существует $\int u'(x)v(x)\dx$, то существует и интеграл $\int u(x)v'(x)\dx$, при этом $$\int u(x)v'(x)\dx = u(x)v(x) - \int u'(x)v(x)\dx.$$
 \end{theorem}
 $\bullet$ \textit{Эту формулу называют\textbf{ формулой интегрирования по частям}.}\\\\
 Её иногда записывают в таком виде:\\
@@ -258,7 +258,7 @@ $$1. A x^m, \quad 2. \frac{A}{(x - \alpha)^k}, \quad 3. \frac{Mx + N}{(x^2 + px 
 \textbf{Вывод}.
 Пусть $ \dfrac{Q(x)}{P(x)} $ --- правильная рациональная дробь, при чём знаменатель имеет следующее разложение:
 $$ P(x) = (x - \alpha_1)^{m_1} (x - \alpha_2)^{m_2}\ldots(x - \alpha_j)^{m_j} (x^2 + p_1x + q_1)^{l_1} \ldots (x^2 + p_rx + q_r)^{l_r}.$$
-Тогда $$ \frac{Q(x)}{P(x)} = \frac{A_{m_1}}{(x - \alpha_1)^{m_1 - 1}} + \ldots + \frac{A_1}{(x - \alpha_1)} + \ldots + \frac{M_{l_1}x + N_{l_1}}{(x^2 + p_1x + q_1)^{l_1}} + \ldots$$
+Тогда $$ \frac{Q(x)}{P(x)} = \frac{A_{m_1}}{(x - \alpha_1)^{m_1}} + \frac{A_{m_1 - 1}}{(x - \alpha_1)^{m_1 - 1}} + \ldots + \frac{A_1}{(x - \alpha_1)} + \ldots + \frac{M_{l_1}x + N_{l_1}}{(x^2 + p_1x + q_1)^{l_1}} + \ldots$$
 \section{Интегрирование простейших рациональных функций.}
 \begin{enumerate}
 	\item $ Ax^m,\ m \geqslant 0,\ m \in {\N}.$
@@ -271,7 +271,7 @@ $$ P(x) = (x - \alpha_1)^{m_1} (x - \alpha_2)^{m_2}\ldots(x - \alpha_j)^{m_j} (x
 	\item $ \dfrac{Mx + N}{(x^2 + px + q)^l},\ l \in {\N},\ p^2 - 4q < 0.$
 	\begin{enumerate}
 		\item  $ l = 1\Ra \int\limits \dfrac{Mx + N}{(x^2 + px + q)} dx = \int\limits \dfrac{(Mx + N)dx}{(x + \dfrac{p}{x})^2 + q - \dfrac{p^2}{4}} = \begin{bmatrix} \dfrac{x + \frac{p}{2}}{\sqrt{q - \dfrac{p^2}{4}}} = t \end{bmatrix} = \int\limits \dfrac{M_1 t + N_1}{t^2 + 1} dt = M_1 \int\limits \dfrac{tdt}{t^2 + 1} + N_1 \int\limits \dfrac{dt}{t^2 + 1} = \dfrac{M_1}{2} ln(t^2 + 1) + N_1\arctg{t} + C $, где $ t = \dfrac{x + \dfrac{p}{2}}{\sqrt{q - \dfrac{p^2}{4}}} $
-		\item $ l < 1\Ra \int\limits \dfrac{Mx + N}{(x^2 + px +q)^l}dx = \begin{bmatrix} \dfrac{x + \dfrac{}p{2}}{\sqrt{q - \dfrac{p^2}{4}}} = t \end{bmatrix} = \int\limits \dfrac{M_1t + N_1}{(t^2 + 1)^l} dt =\\= \dfrac{M_1}{2} \int\limits \dfrac{q(t^2 + 1)}{(t^2 + 1)^l + N_1 \int\limits \dfrac{dt}{(t^2 + 1)^l}} = \dfrac{M_1}{2(1 - l)} (t^2 +1)^{-l + 1} + N_1 J_l$, где $ J_l $ --- интеграл, который мы можем вычислить по рекуррентной формуле.
+		\item $ l > 1\Ra \int\limits \dfrac{Mx + N}{(x^2 + px +q)^l}dx = \begin{bmatrix} \dfrac{x + \dfrac{}p{2}}{\sqrt{q - \dfrac{p^2}{4}}} = t \end{bmatrix} = \int\limits \dfrac{M_1t + N_1}{(t^2 + 1)^l} dt =\\= \dfrac{M_1}{2} \int\limits \dfrac{q(t^2 + 1)}{(t^2 + 1)^l + N_1 \int\limits \dfrac{dt}{(t^2 + 1)^l}} = \dfrac{M_1}{2(1 - l)} (t^2 +1)^{-l + 1} + N_1 J_l$, где $ J_l $ --- интеграл, который мы можем вычислить по рекуррентной формуле.
 	\end{enumerate}
 \end{enumerate}
 \textbf{Вывод.}
@@ -466,9 +466,9 @@ $\bullet$ \textit{Это выражения вида $x^m(a+bx^n)^p d x$, где
 \textit{\textbf{Возможные случаи:}}
 \begin{enumerate}
 	\item \textit{ $p$ --- целое,  $x=t^r$, где $r =  \text{НОК} (\mu,\nu)$, т.е. $\eta$ --- общий знаменатель дробей $m$ и $n$.}\\\\
-	$dx=xt^{x-1}dt \Rightarrow \int x^m(a+bx^n)^p d x \ =\ \int t^{mr }(a=bt^{nr})r t^{r - 1} d t$, \ $mr \in \Z$, $nr \in \Z$, \ т.е. получим интеграл от рациональной функции.\\\\
+	$dx=rt^{r-1}dt \Rightarrow \int x^m(a+bx^n)^p d x \ =\ \int t^{mr }(a=bt^{nr})r t^{r - 1} d t$, \ $mr \in \Z$, $nr \in \Z$, \ т.е. получим интеграл от рациональной функции.\\\\
 	Иногда не прибегают к подстановке, а при $p$ целом положительном возводят в степень $p$.
-	\item \textit{ $\dfrac{m+1}{n}$ --- целое\ $\Rightarrow$ \ $a+bt^n = t^k$, где $k$ --- знаменатель дроби $p$. }\\\\
+	\item \textit{ $\dfrac{m+1}{n}$ --- целое\ $\Rightarrow$ \ $a+bx^n = t^k$, где $k$ --- знаменатель дроби $p$. }\\\\
 	$$x^n=\frac{t^k-a}{b},\ x=\frac{1}{\sqrt[n]{b}}(t^k-a)^{1/n} \Rightarrow \ dx = \frac{k}{n\sqrt[n]{b}} t^{k-1} (t^k-a)^{\frac{1}{n}-1} dt$$
 	$x^m =\dfrac{1}{(\sqrt[n]{b})^m}(t^k-a)^{\frac{m}{n}}$.
 	$$\mathcal{J}= \int \frac{(t^k-a)^{\frac{m}{n}}}{b^{\frac{m}{n}}} t^{kp} \frac{k}{nb^{\frac{1}{n}}} t^{k-1} (t^k-a)^{\frac{1}{n} -1} dt = A \int t^{kp+k-1} (t^k-a)^{\frac{m}{n}+\frac{1}{n} -1} dt$$ получаем интеграл от рациональной функции.
