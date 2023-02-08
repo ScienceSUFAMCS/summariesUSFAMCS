@@ -55,3 +55,15 @@ git config --global user.name "<your_email>"
 После всех совершенных действий введите `git push`, чтобы сделать pull request. В случае, если все было сделано правильно, будет подобная запись 
 
 ![image](https://user-images.githubusercontent.com/124377916/217632912-7f141fff-c1ba-40c3-9143-7ccdca2828b1.png)
+  
+Теперь перейдите в Вашу копию репозитория summariesFAMCS на GitHub и нажмите **Contribute -> Open pull request**
+  
+<img width="647" alt="image_2023-02-08_22-36-16" src="https://user-images.githubusercontent.com/124377916/217633994-599957e3-a0be-4c92-8501-8558cd08053b.png">
+  
+В открывшемся меню можете пояснить в области для комментариев, что вы конкретно добавили или изменили. Затем нажмите **Create pull request**
+  
+<img width="713" alt="image_2023-02-08_22-36-16 (2)" src="https://user-images.githubusercontent.com/124377916/217634175-ec78024b-b7f1-44b4-a42a-09a8a81f6c7e.png">
+  
+Вот и все!
+
+
