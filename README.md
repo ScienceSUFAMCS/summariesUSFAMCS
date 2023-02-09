@@ -60,7 +60,7 @@ git config --global user.name "<your_email>"
 
 ![image](https://user-images.githubusercontent.com/124377916/217632912-7f141fff-c1ba-40c3-9143-7ccdca2828b1.png)
   
-Теперь перейдите в Вашу копию репозитория summariesFAMCS на GitHub и нажмите **Contribute -> Open pull request**
+Теперь перейдите в Вашу копию репозитория summariesUSFAMCS на GitHub и нажмите **Contribute -> Open pull request**
   
 <img width="647" alt="image_2023-02-08_22-36-16" src="https://user-images.githubusercontent.com/124377916/217633994-599957e3-a0be-4c92-8501-8558cd08053b.png">
   
