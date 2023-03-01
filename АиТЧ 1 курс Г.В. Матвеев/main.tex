@@ -156,20 +156,20 @@ $$x=\alpha_1e_1+\alpha_2e_2+ ... + \alpha_ne_n$$
     \item Отбрасываем все небазисные строки.
     \item Базисные неизвестные оставляем слева, а свободные переносим вправо.
 \end{enumerate}
-\begin{equation}
-    \begin{cases}
-    $$a_{11}x_1+a_{12}x_2+ \\dots + a_{1r}x_r = b_1-a_{1, r+1}x_{r+1}- \\dots -a_{1n}x_n$$\\
-    $$\dotfill$$\\
-    $$a_{n1}x_1+a_{n2}x_2+ \\dots + a_{nr}x_r = b_n-a_{n, r+1}x_{r+1}- \\dots -a_{nn}x_n$$
-    \end{cases}
-\end{equation}
+
+   $$ \begin{cases}
+    a_{11}x_1+a_{12}x_2+ \dots + a_{1r}x_r = b_1-a_{1, r+1}x_{r+1}- \dots -a_{1n}x_n\\
+    \dotfill\\
+    a_{n1}x_1+a_{n2}x_2+ \dots + a_{nr}x_r = b_n-a_{n, r+1}x_{r+1}- \dots -a_{nn}x_n
+    \end{cases}$$
+
 Полученную систему рассматриваем как крамеровскую.\\
-$M=
+$$M=
 \begin{vmatrix}
 a_{11} & \dots & a_{1r}\\
 \dots & \ddots & \dots\\
 a_{r1} & \dots & a_{rr}
-\end{vmatrix} \neq 0$
+\end{vmatrix} \neq 0$$\\
 \begin{equation*}
     \begin{cases}
     $$x_1=f_1(x_{r+1},\dots,x_n)$$\\
@@ -184,7 +184,7 @@ a_{r1} & \dots & a_{rr}
     a_{21}x_1+a_{22}x_2+\dots+a_{2n}x_n=0\\
     \dotfill\\
     a_{m1}x_1+a_{m2}x_2+\dots+a_{mn}x_n=0
-    \end{cases}\eqno(2)$$
+    \end{cases}\eqno(1)$$
 Где
  $A=
 \begin{pmatrix}
@@ -210,7 +210,7 @@ $0=
 0
 \end{pmatrix}$ --- столбец нулей.
 \end{center}
-Тогда систему (2) можно записать в матричном виде как
+Тогда систему (1) можно записать в матричном виде как
 $$\textbf{AX=0}$$
 \begin{theorem}
     Решения однородной системы линейных уравнений образуют векторное пространство, размерность которого $\dim W=n-r$ ($n$ --- число неизвестных, $r$ --- ранг системы, $r=\rank A=\rank(A|0)$.
@@ -262,7 +262,7 @@ $$(\gamma_1,\dots,\gamma_r,\gamma_{r+1},\dots,\gamma_n)-\gamma_{r+1}c_1-\ldots-\
 \end{Proof}\\\\
 $\bullet$ \textit{Базисные решения ОСЛУ называются \textbf{фундаментальной системой решений}.}
 \subsection*{Решение неоднородной системы через однородную}
-Будем обозначать $AX=B$ --- неоднородная система, $AX=0$ --- однородная система.
+Будем обозначать $AX=B$ --- \textbf{неоднородная система}, $AX=0$ --- \textbf{однородная система}.
 $$\left.
   \begin{array}{ccc}
     AX=B \\
@@ -349,7 +349,7 @@ $\bullet$ \textit{Отображение $\varphi: V \rightarrow V$ (само в
 \end{enumerate}
 \section{Ранг и дефект линейного преобразования}
 Пусть $\varphi:V\rightarrow V$ --- линейное преобразование.\\\\
-$\bullet$ \textit{Множество $\ker \varphi = \{x\ |\ \varphi(x)=\vec 0\}$ --- \textbf{ядро (деффект)} линейного преобразования.}\\\\
+$\bullet$ \textit{Множество $\ker \varphi = \{x\ |\ \varphi(x)=\vec 0\}$ --- \textbf{ядро (дефект)} линейного преобразования.}\\\\
 $\bullet$ \textit{Множество $\Im \varphi = \varphi(v)=\{\varphi(x)\ |\ x \in V\}$ --- \textbf{образ (ранг)} линейного преобразования.}\\\\
 \textbf{Пример 1}\\
 Рассмотрим функцию $\sin(x)$. Функция синуса не является линейной, в чем легко убедиться ($\sin(a+b) \neq \sin a + \sin b$), однако для нее можно определить ядро и образ. Таким образомб
