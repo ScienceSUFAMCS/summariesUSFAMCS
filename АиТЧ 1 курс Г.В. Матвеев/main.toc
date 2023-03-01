@@ -1,7 +1,0 @@
-\babel@toc {russian}{}\relax 
-\contentsline {section}{\numberline {1}Прямая сумма подпространств}{3}{section.1}%
-\contentsline {section}{\numberline {2}Критерий совместности системы линейных уравнений}{4}{section.2}%
-\contentsline {section}{\numberline {3}Однородные системы линейных уравнений}{5}{section.3}%
-\contentsline {section}{\numberline {4}Линейные преобразования векторных пространств}{7}{section.4}%
-\contentsline {section}{\numberline {5}Операции над линейными преобразованиями}{8}{section.5}%
-\contentsline {section}{\numberline {6}Ранг и дефект линейного преобразования}{9}{section.6}%
