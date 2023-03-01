@@ -1,0 +1,366 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[T2A]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} 
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+\newtheorem*{theorem}{Теорема}
+\newenvironment{Proof}
+{\par\noindent{$\blacklozenge$}}
+{\hfill$\scriptstyle\boxtimes$}
+
+\begin{document}
+\section{Прямая сумма подпространств}
+Пусть $W_1$, $W_2$ - подпространства.\\
+$W_1 \oplus W_2$ - сумма называется прямой, если $W_1 \cap W_2 = \vec0$\\
+Справедливо и следующее: $W_1 \oplus W_2 \oplus ... \oplus W_k$ называется прямой, если $W_i \cap \sum\limits_{i \neq j} W_j = \vec 0$
+\begin{theorem}
+    $$dim(W_1 \oplus W_2) = dimW_1 + dimW_2$$
+\end{theorem}
+\begin{Proof}
+    По теореме о сумме подпространств $$dim(W_1+W_2)=dimW_1+dimW_2-dim(W_1 \cap W_2)$$
+    А так как $W_1 \cap W_2 = \vec0$, то $dim(W_1 \cap W_2)=0$.
+\end{Proof}\\
+\textbf{Следствие:}
+    $$dim(W_1 \oplus W_2 \oplus ... \oplus W_k) = dimW_1 + dimW_2 + ... + dimW_k$$
+\begin{theorem}
+    Если $W \subset V_n \Rightarrow V_n = W \oplus U$, где $U$ - подпространство.
+\end{theorem} 
+\begin{Proof}
+    \begin{enumerate}
+        \item $W = \vec0 \Rightarrow U = V_n, V_n = \vec0 \oplus V_n$
+        \item $W = V_n \Rightarrow U = \vec0, V_n = V_n + \vec0$\\
+        Оба равенства справедливы, так как $\vec0 \cap V_n = \vec0$
+        \item Рассмотрим нетривиальный случай:
+        $$W = L(v_1, v_2,...,v_r), \quad 0<r<n$$
+        $$U = L(v_{r+1},v_{r+2},...,v_n)$$
+        Возьмем произвольный вектор $x$, не нарушая общности:
+        $$x=(\alpha_1v_1+...+\alpha_rv_r)+(\alpha_{r+1}v_{r+1}+...+\alpha_nv_n) \Rightarrow x=W+U$$
+        Докажем, что $W \cap U = \vec0$.\\
+        Пусть $x \in W \cap U$.
+        $$x=\alpha_1v_1+...+\alpha_rv_r=\alpha_{r+1}v_{r+1}+...+\alpha_nv_n \Rightarrow \forall \alpha_i = 0 \Rightarrow x = 0 \Rightarrow W \cap U = \vec0$$
+    \end{enumerate}
+\end{Proof}\\
+\textbf{Следствие}\\
+Каждое пространство раскладывается в прямую сумму $n$ одномерных подпространств.
+$$V_n=L(e_1) \oplus L(e_2) \oplus ... \oplus L(e_n)$$ 
+$e_1,e_2, ... ,e_n$-базис.\\
+То есть любой вектор раскладываетя по базису:
+$$x=\alpha_1e_1+\alpha_2e_2+ ... + \alpha_ne_n$$
+
+\section{Критерий совместности системы линейных уравнений}
+Система линейных алгебраических уравнений совместна тогда и только тогда, когда ранг матрицы коэффицентов равен рангу расширенной матрицы.
+\begin{Proof}
+   $$ \begin{cases}
+        a_{11}x_1+a_{12}x_2+...+a_{1n}x_n=b_1\\
+        a_{21}x_1+a_{22}x_2+...+a_{2n}x_n=b_2\\
+        \dotfill\\
+        a_{m1}x_1+a_{m2}x_2+...+a_{mn}x_n=b_m
+    \end{cases}$$
+    \begin{center}
+    $\begin{pmatrix}
+    a_{11} & a_{12} & \dots & a_{1n}\\
+    a_{21} & a_{22} & \dots & a_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    a_{m1} & a_{m2} & \dots & a_{mn}
+    \end{pmatrix}$
+    Матрица коэффицентов А.\\
+    \end{center}
+    \begin{center}
+     $\begin{pmatrix}
+    a_{11} & a_{12} & \dots & a_{1n} & \vline & b_1\\
+    a_{21} & a_{22} & \dots & a_{2n} & \vline & b_2\\
+    \vdots & \vdots & \ddots & \vdots & \vline & \vdots\\
+    a_{m1} & a_{m2} & \dots & a_{mn} & \vline & b_m
+    \end{pmatrix}$
+    $\widetilde{A} = (A/B)$ расширенная матрица.   
+    \end{center}
+    Система совместна $\Leftrightarrow rankA=rank\widetilde{A}$. \\
+    $\Rightarrow$ Пусть система совместна с решением $(j_1,j_2, \dots, j_n)$\\
+    $$\begin{pmatrix}
+    a_{11}\\
+    a_{21}\\
+    \vdots\\
+    a_{n1}
+    \end{pmatrix} \cdot j_1+
+    \begin{pmatrix}
+    a_{12}\\
+    a_{22}\\
+    \vdots\\
+    a_{n2}
+    \end{pmatrix} \cdot j_2
+    + \dots +
+    \begin{pmatrix}
+    a_{1n}\\
+    a_{2n}\\
+    \vdots\\
+    a_{nn}
+    \end{pmatrix} \cdot j_n = 
+    \begin{pmatrix}
+    b_1\\
+    b_2\\
+    \vdots\\
+    b_n
+    \end{pmatrix} \eqno (1)$$
+    Это значит, что при добавлении столбца свободных членов базис не изменился, так как новый столбец выражается через старый. Следовательно $rankA=rank\widetilde{A}$.\\
+    $\Leftarrow$ Базисный минор  матрицы $A$ есть базисный минор матрицы $\widetilde{A}$, так как $rankA=rank\widetilde{A}$. Следовательно столбец свободных членов 
+    $ \begin{pmatrix}
+    b_1\\
+    b_2\\
+    \vdots\\
+    b_n
+    \end{pmatrix}$ выражается через базисные столбцы по принципу (1). Коэффиценты остальных столбцов равны 0. И тогда полученные коэффиценты будут являться решением системы.
+\end{Proof}
+
+\subsection*{Решение системы линейных алгебраических уравнений с помощью критерия}
+\begin{enumerate}
+    \item Нахождение базисного минора матрицы $A$ методом окаямления минора.
+    \item Проверяем условие $rankA=rank\widetilde{A}$ методом окаямления миноров.
+    \item Отбрасываем все небазисные строки.
+    \item Базисные неизвестные оставляем слева, а свободные переносим вправо.
+\end{enumerate}
+\begin{equation}
+    \begin{cases}
+    $$a_{11}x_1+a_{12}x_2+ \dots + a_{1r}x_r = b_1-a_{1, r+1}x_{r+1}- \dots -a_{1n}x_n$$\\
+    $$\dotfill$$\\
+    $$a_{n1}x_1+a_{n2}x_2+ \dots + a_{nr}x_r = b_n-a_{n, r+1}x_{r+1}- \dots -a_{nn}x_n$$
+    \end{cases}
+\end{equation}
+Полученную систему рассматриваем как крамеровскую.\\
+$M=
+\begin{vmatrix}
+a_{11} & \dots & a_{1r}\\
+\dots & \ddots & \dots\\
+a_{r1} & \dots & a_{rr}
+\end{vmatrix} \neq 0$
+\begin{equation*}
+    \begin{cases}
+    $$x_1=f_1(x_{r+1},\dots,x_n)$$\\
+    \dotfill\\
+    $$x_r=f_r(x_{r+1},\dots,x_n)$$
+    \end{cases}
+\end{equation*}
+\section{Однородные системы линейных уравнений}
+\begin{equation}
+    \begin{cases}
+    $$a_{11}x_1+a_{12}x_2+\dots+a_{1n}x_n=0$$\\
+    $$a_{21}x_1+a_{22}x_2+\dots+a_{2n}x_n=0$$\\
+    \dotfill\\
+    $$a_{m1}x_1+a_{m2}x_2+\dots+a_{mn}x_n=0$$
+    \end{cases}
+\end{equation}
+ $A=
+\begin{pmatrix}
+a_{11} & a_{12} & \dots & a_{1n}\\
+a_{21} & a_{22} & \dots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \dots & a_{mn}
+\end{pmatrix}$ - матрица системы.
+$X=
+\begin{pmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_n
+\end{pmatrix}
+$ - столбец неизвестных.\\
+\begin{center}
+$0=
+\begin{pmatrix}
+0\\
+0\\
+\vdots\\
+0
+\end{pmatrix}$ - столбец нулей.
+\end{center}
+$$\textbf{AX=0}$$
+\begin{theorem}
+    Решения однородной системы линейных уравнений образуют векторное пространство, размерность которого $dimW=n-r$ ($n$-число неизвестных, $r$- ранг системы, $r=rankA=rank(A|0)$
+\end{theorem}
+\begin{Proof}
+   Докажем, что это пространство. Вспомним необходимые критерии:
+   $$W_1, W_2  \in W \Rightarrow W_1+W_2 \in W$$
+   $$W_1 \in W \Rightarrow \lambda W_1 \in W$$
+   $X_1$ - конкретный набор, $X_1=
+\begin{pmatrix}
+x_1\prime\\
+x_2\prime\\
+\vdots\\
+x_n\prime
+\end{pmatrix}$\\
+$$AX_1=0, AX_2=0 \Rightarrow A(X_1+X_2)=0$$
+$$AX_1=0 \Rightarrow \lambda AX_1=0$$
+Перенесем свободные неизвестные в системе в левую сторону.
+\begin{equation}
+    \begin{cases}
+    $$a_{11}x_1+a_{12}x_2+ \dots + a_{1r}x_r = b_1-a_{1, r+1}x_{r+1}- \dots -a_{1n}x_n$$\\
+    $$\dotfill$$\\
+    $$a_{n1}x_1+a_{n2}x_2+ \dots + a_{nr}x_r = b_n-a_{n, r+1}x_{r+1}- \dots -a_{nn}x_n$$
+    \end{cases}
+\end{equation}
+Базисный минор $M=
+\begin{vmatrix}
+a_{11} & \dots & a_{1r}\\
+\dots & \ddots & \dots\\
+a_{r1} & \dots & a_{rr}
+\end{vmatrix} \neq 0$\\
+$x_1,\dots,x_n$-базисные.\\
+$x_{r+1},\dots,x_n$-свободные.\\
+Выражаем базисные неизвестные через свободные по правилу Крамера или Гаусса:
+\begin{equation*}
+    \begin{cases}
+    $$x_1=f_1(x_{r+1},\dots,x_n)$$\\
+    \dotfill\\
+    $$x_r=f_r(x_{r+1},\dots,x_n)$$
+    \end{cases}
+\end{equation*}
+Найдем базисные решения:\\
+Передадим значения 
+$$c_1=(c_{11},c_{12},\dots,c_{1r},1,0,\dots,0)$$
+$$c_2=(c_{21},c_{22},\dots,c_{2r},0,1,\dots,0)$$
+$$c_{n-r}=(c_{n-r,1},c_{n-r,2},\dots,c_{n-r,r},0,0,\dots,1)$$
+Переменные, которым были переданы значения 0 и 1 являются базисными. Векторы являются линейно независимыми благодаря этим переменным.\\
+Докажем, что любое решение выражается через базис.\\
+$$(\gamma_1,\dots,\gamma_r,\gamma_{r+1},\dots,\gamma_n)-\gamma_{r+1}c_1-\dots-\gamma_nc_{n-r}=(\gamma_1c_1,\gamma_2c_2,\dots,\gamma_nc_{n-r})$$
+Значит все решения выражаются через базис.\\
+\textit{Базисные решения ОСЛУ называются фундаментальной системой решений.}
+\end{Proof}
+\subsection*{Решение неоднородной системы через однородную}
+$AX=B$ - неоднородная, $AX=0$ - однородная.
+$$\left.
+  \begin{array}{ccc}
+    AX=B \\
+    AY=0 \\
+  \end{array}
+\right\}=A(X+Y)=AX+AY=B+0=B$$
+\begin{enumerate}
+    \item Разность 2-ух решений неоднородной будет решением однородной.
+    \item Если от решения неоднородной отнять фиксированное решение неоднородной, то получится решение однородной.
+    $$AX-AX_0=B-B=0$$
+    \item Произвольное решение неоднородной можно получить, добавляя к фиксированному решению некоторые решения однородной.
+\end{enumerate}
+
+\section{Линейные преобразования векторных пространств}
+Отображение $\varphi$ $V \rightarrow V$ (само в себя) называется линейным, если
+\begin{enumerate}
+    \item Образ суммы равен сумме образов:
+    $$\varphi(a+b)=\varphi(a)+\varphi(b)$$
+    \item При умножении вектора на скаляр его образ умножается на этот же скаляр:
+    $$\varphi(\lambda a)=\lambda \varphi(a)$$
+\end{enumerate}
+Если $\varphi: V \rightarrow W$, то $\varphi$ - линейное отображение.\\
+Свойства:
+\begin{enumerate}
+    \item Образ линейной комбинации равен такой же линейной комбинации образов (под действием линейного преобразования)
+    $$\varphi(\lambda_1a_1+\lambda_2a_2+\dots+\lambda_na_n=\lambda_1\varphi(a_1)+\lambda_2\varphi(a_2)+\dots+\lambda_n\varphi(a_n)$$
+    \item Преобразование $\vec0$
+    $$\varphi(\vec0)=\vec0$$
+    $$\varphi(\vec0)=\varphi(\vec0\cdot\vec a)=0\varphi(\vec a)=\vec0$$
+    \item Вынесение минуса
+    $$\varphi(-\vec a)=-\varphi(\vec a)$$
+    \item Линейное преобразование переводит линейно зависимые в линейно зависимые с такими же скалярами.
+\end{enumerate}
+\begin{theorem}
+    Любое линейное преобразование вполне определяется своими значениями на базисных векторах и эти значения могут быть любыми.
+    \begin{Proof}
+       Пусть $e_1,e_2,\dots,e_n$ - базис, $a_1,a_2,\dots,a_n$- системы векторов.\\
+       Возьмем функцию $\varphi$ такую, что:
+       \begin{equation*}
+           \begin{cases}
+                  $$\varphi(e_1)=a_1$$\\
+                  $$\varphi(e_2)=a_2$$\\
+                  \dotfill\\
+                  $$\varphi(e_n)=a_n$$
+           \end{cases}
+       \end{equation*}
+       Докажем, что такое пространство существует:
+       $$x=x_1e_1+x_2e_2+\dots+x_ne_n$$
+       $$\varphi(x)=x_1a_1+x_2a_2+\dots+x_na_n$$
+       Докажем, что оно линейное:
+       $$y=y_1e_1+y_2e_2+\dots+y_ne_n$$
+       \begin{itemize}
+           \item $\varphi(x+y)=(x_1+y_1)a_1+(x_2+y_2)a_2+\dots+(x_n+y_n)a_n=x_1a_1+y_1a_1+\dots+x_na_n+y_na_n=(x_1a_1+x_2a_2+\dots+x_na_n)+(y_1a_1+y_2a_2+\dots+y_na_n)=\varphi(x)+\varphi(y)$
+           \item $\varphi(\lambda x)=\lambda x_1a_1+\lambda x_2a_2+\dots+\lambda x_na_n = \lambda \varphi(x)$
+       \end{itemize}
+       Докажем, что единственное:\\
+       Пусть существует 
+       \begin{equation*}
+       \begin{cases}
+              $$\psi(e_1)=a_1$$\\
+              $$\psi(e_2)=a_2$$\\
+              \dotfill\\
+              $$\psi(e_n)=a_n$$
+       \end{cases}    
+       \end{equation*} с такими же свойствами.
+       $$\psi(x)=\psi(x_1e_1+x_2e_2+\dots+x_ne_n)=x_1\psi(e1)+x_2\psi(e_2)+\dots+x_n\psi(e_n)=x_1a_1+x_2a_2+\dots+x_na_n=\varphi(x)$$
+    \end{Proof}
+\end{theorem}
+\section{Операции над линейными преобразованиями}
+$f, \varphi$ - линейные преобразования векторного пространства $V$.
+\begin{enumerate}
+    \item $(f+\varphi)(\lambda_1 x_1 + \lambda_2 x_2)=f(\lambda_1 x_1 + \lambda_2 x_2) + \varphi(\lambda_1 x_1 + \lambda_2 x_2)=f(\lambda_1 x_1) + f(\lambda_2 x_2) + \varphi(\lambda_1 x_1) + \varphi(\lambda_2 x_2) = \lambda_1f(x_1)+\lambda_2f(x_2)+\lambda_1\varphi(x_1)+\lambda_2\varphi(x_2)=\lambda_1(f(x_1)+\varphi(x_1))+\lambda_2(f(x_2)+\varphi(x_2))=\lambda_1(f+\varphi)(x_1)+\lambda(f+\varphi)(x_2)$
+    \item $(\lambda f)(\lambda_1 x_1 + \lambda_2 x_2)=(\lambda f)(\lambda_1 x_1)+(\lambda f)(\lambda_2 x_2)=\lambda f(\lambda_1 x_1)+\lambda f(\lambda_2 x_2)=\lambda(f(\lambda_1 x_1)+\lambda(f(\lambda_2 x_2))=\lambda f(\lambda_1x_1+\lambda_2x_2)$
+    \item $(f\varphi)(\lambda_1x_1+\lambda_2x_2)=f(\varphi(\lambda_1x_1+\lambda_2x_2))=f(\varphi(\lambda_1x_1)+\varphi(\lambda_2x_2))=f)\lambda_1\varphi(x_1)+\lambda_2\varphi(x_2))=\lambda_1f(\varphi(x_1))+\lambda_2f(\varphi(x_2))=\lambda_1(f\varphi)(x_1)+\lambda_2(f\varphi)(x_2)$
+\end{enumerate}
+\section{Ранг и дефект линейного преобразования}
+$\varphi:V\rightarrow V$\\
+$ker \varphi = \{x|\varphi(x)=\vec 0\}$ - ядро (деффект).\\
+$Im \varphi = \varphi(v)=\{\varphi(x)|x \in V\}$ - образ (ранг).\\
+\textbf{Пример1}\\
+Рассмотрим функцию $\sin(x)$. Функция синуса не является линейной, в чем легко убедиться ($\sin(a+b) \neq \sin a + \sin b$), однако для нее можно определить ядро и образ. Таким образом
+$$ker \sin = {\pi n}$$
+$$Im \sin = [-1,1]$$
+\textbf{Пример2}\\
+Тождественное преобразование - $\varphi(v)=v \quad \forall v \in V$
+$$ker \varphi = \vec 0$$
+$$Im \varphi = V$$
+\textbf{Пример3}\\
+Возьмем прямую $l$ и плоскость $P$, где $l \perp P$.
+$$\varphi(\vec a)=\vec pr a$$
+$$Im \varphi = l = V_1$$
+$$ker \varphi = P = V_2$$
+\begin{theorem}
+    Ядро и образ линейного преобразования - подпространства исходного векторного пространства.
+\end{theorem}
+\begin{Proof}
+   \begin{enumerate}
+       \item $w_1,w_2 \in ker \varphi \Rightarrow \varphi(w_1)=\varphi(w_2)=\vec 0$
+       $\varphi(w_1+w_2)=\varphi(w_1)+\varphi(w_2)=\vec 0+ \vec 0=\vec 0 \Rightarrow w_1+w_2 \in ker \varphi$
+       \item $\lambda \varphi(w)=\lambda \vec 0=\vec 0 \Rightarrow \lambda \varphi \in ker \varphi$
+       \item $\varphi(w_1),\varphi(w_2) \in Im \varphi$\\
+       $\varphi(w_1)+\varphi(w_2)=\varphi(w_1+w_2) \in Im \varphi$
+       \item $\lambda \varphi(w_1)=\varphi(\lambda w_1) \in Im \varphi$
+   \end{enumerate}
+\end{Proof}
+$$d = dim \; ker \varphi$$
+$$r = rank \varphi = dim \; Im \varphi$$
+$\varphi$ - нулевое преобразование:
+$$d=n, \quad r=0$$
+$\varphi$ - тождественное преобразование:
+$$d=0, \quad r=n$$
+$\varphi$ - проектирование векторов:
+$$d=2, \quad r=1$$
+\begin{theorem}
+    Сумма ранга и дефекта равняется размерности пространства.
+\end{theorem}
+\begin{Proof}
+   Рассмотрим образ $\varphi(V)$. Пусть базис $\varphi(V):\varphi(\varphi(l_1),\varphi(l_2),\dots,\varphi(l_r))$\\
+   Докажем, что $$V_n=L(l_1,l_2,\dots,l_r) \oplus ker\varphi$$
+   $$n=r+d$$
+   \begin{enumerate}
+       \item $l_1,l_2,\dots,l_r$ - линейно независимы.\\
+       По свойству линейное преобразование сохраняет зависимость. Если бы $l_1,l_2,\dots,l_r$ были зависимы, то и $\varphi(l_1),\varphi(l_2),\dots,\varphi(l_r)$ были бы зависимы, но это базис, значит не зависимы.
+       \item $\vec v \in V_n = \vec x \in L(l_1,l_2,\dots,l_r) + \vec y \in ker \varphi$\\
+       $$\varphi(V) = \alpha_1\varphi(l_1)+\alpha_2\varphi(l_2)+\dots+\alpha_r\varphi(l_r)$$
+       $$\varphi(v-\alpha_1 l_1-\dots-\alpha_r l_r)=\vec 0 \Rightarrow v-\alpha_1 l_1-\dots-\alpha_r l_r = y \in ker \varphi$$
+       $$v = \alpha_1 l_1-\dots-\alpha_r l_r + y = x + y$$
+       \item $L \cap ker \varphi = \vec 0$\\
+       Пусть $x \in L \cap ker \varphi$.\\
+       $x = \alpha_1 l_1+\dots+\alpha_r l_r$\\
+       $\varphi(x) = \vec 0, \quad \varphi(x) = \varphi(\alpha_1 l_1+\dots+\alpha_r l_r) = \varphi(\alpha_1 l_1)+\varphi(\alpha_2 l_2)+\dots+\varphi(\alpha_r l_r)=\alpha_1\varphi(l_1)+\alpha_2\varphi(l_2)+\dots+\alpha_r\varphi(l_r) = \vec 0 \Rightarrow \alpha_1=\alpha_2=\dots=\alpha_r=0 \Rightarrow x=\vec 0$
+   \end{enumerate}
+\end{Proof}
+\end{document}
