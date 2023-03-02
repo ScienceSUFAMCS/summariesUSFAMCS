@@ -40,9 +40,9 @@
 
 Если Вы не делали этого ранее, то введите последовательно данные команды
 ```
-git config --global uesr.name "<your_name>"
+git config --global user.name "<your_name>"
 
-git config --global user.name "<your_email>"
+git config --global user.email "<your_email>"
 ```
 причем вместо <your_name> введите Ваше "погоняло", а вместо <your_email> введите адрес почты, на которую зарегистрирован GitHub аккаунт. 
 
