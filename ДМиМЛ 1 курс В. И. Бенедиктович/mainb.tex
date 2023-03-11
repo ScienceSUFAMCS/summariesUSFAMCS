@@ -1,0 +1,162 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[T2A]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools, tipa}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{ upgreek, mathrsfs, cancel}
+\usepackage[unicode]{hyperref}
+
+
+\newcommand{\RomanNumeralCaps}[1]
+    {\MakeUppercase{\romannumeral #1}}
+
+\newenvironment{Proof} % имя окружения для доказательства
+{\par\noindent{$\blacklozenge$}} % символ рядом с \begin
+{\hfill$\scriptstyle\boxtimes$} % символ рядом с \end
+
+\newenvironment{example} % имя окружения для примеров
+{\par\noindent{\textsc{\textbf{Пример}.}}} % символ рядом с \begin
+%{\hfill$\scriptstyle\Box$} % символ рядом с \end
+
+\newenvironment{exercise}
+{\par\noindent{\textsc{\textbf{Упражнение}.}}}
+{\hfill}
+
+\newtheorem*{theorem}{Теорема} % окружение для теорем
+\newtheorem*{corollary}{Следствия} % окружение для следствий
+\newtheorem*{lemma}{Лемма} % окружение для лемм
+
+\newcommand{\Rm}{\mathbb{R}}
+\newcommand{\Cm}{\mathbb{C}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+% команды для множеств 
+
+
+\title{\textbf{\Huge{Дискретная математика и математическая логика}}\\Конспект по 2 семестру 
+	специальностей «экономическая кибернетика» и «компьютерная безопасность»\\(лектор В. И. Бенедиктович)} % оформление титульного листа
+\date{} % отключение даты в титульнике
+\begin{document}
+	\maketitle % отображение титульного листа в документе
+	\tableofcontents{}
+	\chapter{Булевы функции} % новая глава
+	\section*{Замкнутые классы булевых функций}
+
+Пусть $A \subseteq P$\\
+$\bullet$ \textbf{Замыканием} $A$ называется множество функций из $P_2$, которые можно выразить в виде формул над $A$ и обозначается $[A]$ .\\\\
+Свойства замыкания:
+\begin{enumerate}
+    \item $A \subseteq [A]$
+    \item $A \subseteq B \Rightarrow [A] \subseteq [B]$
+    \item $\big[[A]\big] = [A]$
+    \item $[A] \cup [B] \subseteq [A \cup B]$
+    \end{enumerate}
+$\bullet$ 
+$A$ - \textbf{полная система} булевой функции, если $[A] = P_2$.\\
+$\bullet$ 
+Система буевых функций $A$ \textbf{замкнутая}, если $[A] = A$.\\
+\begin{example}
+$A = \{1, x_1 \oplus x_2\}$ не замкнута, так как $1 \oplus 1 = 0 \notin A$\\
+\end{example}
+
+Пусть $A$ - замкнутый неполный класс системы булевых функций. Тогда если $A \subseteq B$, то $B$ - неполная система.\\
+\begin{Proof}
+$B \subseteq A \Rightarrow [B] \subseteq [A] \neq P_2 \Rightarrow [B] \neq P_2 \Rightarrow B$ - неполная система.
+\end{Proof}\\
+\begin{center}
+    \textbf{Примеры замкнутых классов булевых функций}
+    \end{center}
+\RomanNumeralCaps{1}) Класс $T_0 = \{f(x_1, \dots , x_n) | f(0, \dots, 0) = 0\}$\\\\
+Например:\\
+$0,~ x, ~x_1 \cdot x_2, ~x_1 \vee x_2, ~x_1 \oplus x_2 \in T_0$\\
+$1, ~\bar x, ~ x_1 \Rightarrow x_2, ~ x_1 | x_2, ~ x_1 \downarrow x_2, ~ x_1 \Leftrightarrow x_2 \notin T_0$\\\\
+Мощность класса: $2^n-1$ ненулевых строк $\Rightarrow |T_0| = 2^2-1 = \frac12 2^{2^n}$
+\begin{theorem}
+Класс $T_0$ замкнут.
+\end{theorem}
+\begin{Proof}
+    Поскольку $x \in T_0$, то достаточно показать, что если $f_1, f_2, \dots, f_n \in T_0$, то $f(f_1, \dots, f_n) \in T_0$. Действительно, $f(f_1(0, \dots, 0), \dots, f_n(0, \dots, 0)) = f(0, \dots, 0)=0$ 
+\end{Proof}\\\\
+\RomanNumeralCaps{2}) Класс $T_1 = \{f(x_1, \dots, x_n) \in P_2 | f(1, \dots, 1) = 1\}$\\\\
+Например:\\
+$1, x, x_1 \cdot x_2, x_1 \vee x_2, x_1 \Rightarrow x_2, x_1 \Leftrightarrow x_2 \in T_1$\\
+$0, \bar x, x_1|x_2, x_1 \downarrow x_2, x_1 \oplus x_2 \notin T_1$
+\begin{theorem}
+Класс Класс $T_1$ замкнут.
+\end{theorem}
+\begin{Proof}
+Доказательство аналогично доказательству предыдущей теоремы 
+\end{Proof}\\\\
+\RomanNumeralCaps{3}) Класс $M$ монотонных функций.\\\\
+Введём \textbf{частичный булевый порядок} на $E^n_2$: $\bar \alpha = (\alpha_1, \alpha_2, \dots, \alpha_n)$, $\bar \beta = (\beta_1, \beta_2, \dots, \beta_n) \in E^n_2$\\
+Говорят, что $\bar \alpha \leqslant \bar \beta \Leftrightarrow  \alpha_{i} \leqslant \beta_{i}$ для $\forall i$\\\\
+$\bullet$ Функция $f(x_1, \dots, x_n)$ называется \textbf{монотонной}, если $\forall \bar \alpha, \bar \beta: \bar \alpha \leqslant \bar \beta \Rightarrow f(\bar \alpha) \leqslant f(\bar \beta)$\\
+Множество всех монотонных функций обозначают $M$.\\\\
+Например:\\
+$0, 1, x, x_1 \cdot x_2, x_1 \vee x_2 \in M$\\
+$0, \bar x, x_1 \Rightarrow x_2 \notin M$
+\begin{theorem}
+Класс $M$ замкнут.
+\end{theorem}
+\begin{Proof}
+Достаточно показать, что если $f_1, f_2, \dots, f_m \in M$, то $f(f_1, \dots, f_m) \in M = \Phi$\\
+Пусть $\bar \alpha \leqslant \bar \beta$ , тогда $f_1(\bar \alpha) \leqslant f_1(\bar \beta), \dots, f_m(\bar \alpha) \leqslant f_m(\bar \beta) \Rightarrow (f_1(\bar \alpha), \dots , f_m(\bar \alpha)) \leqslant (f_1(\bar \beta), \dots, f_m(\bar \alpha)) \Rightarrow f(f_1(\bar \alpha), \dots , f_m(\bar \alpha)) \leqslant f(f_1(\bar \beta), \dots, f_m(\bar \alpha))$, то есть $\Phi(\bar \alpha) \leqslant \Phi (\bar \beta)$
+\end{Proof}\\
+\begin{lemma}
+О немонотонной функции\\
+Если $f(x_1, \dots, x_n)$ - немонотонная функция, то $\bar x \in [\{0, 1, f\}]$ 
+\end{lemma}
+\begin{Proof}
+Пусть $f(x_1, \dots, x_n)$ - немонотонная функция, то есть $\exists \bar \alpha < \bar \beta \Rightarrow f(\bar \alpha) = 1, f(\bar \beta) = 0 (1 > 0)$. $\bar \alpha < \bar \beta$ означает, что $\exists 1 \leqslant i_1 < i_2 < \dots < i_k \leqslant n$:\\
+$\gamma_0 = \bar \alpha = (\alpha_1, \dots, \alpha_{i_1-1}, 0, \alpha_{i_1+1}, \dots, \alpha_{i_{2}-1}, 0, \alpha_{i_2 +1}, \dots, \alpha_{i_k -1}, 0, \alpha_{i_k +1},\dots,  \alpha_n)$  \\
+$\gamma_1 = (\alpha_1, \dots, \alpha_{i_1-1}, 1, \alpha_{i_1+1}, \dots, \alpha_{i_{2}-1}, 0, \alpha_{i_2 +1}, \dots, \alpha_{i_k -1}, 0, \alpha_{i_k +1}, \dots,  \alpha_n)$  \\
+$\gamma_2 = (\alpha_2, \dots, \alpha_{i_1-1}, 1, \alpha_{i_1+1}, \dots, \alpha_{i_{2}-1}, 1, \alpha_{i_2 +1}, \dots, \alpha_{i_k -1}, 0, \alpha_{i_k +1}, \dots,  \alpha_n)$  \\
+$\dots$\\
+$\gamma_k = \bar \beta = (\alpha_1, \dots, \alpha_{i_1-1}, 1, \alpha_{i_1+1}, \dots, \alpha_{i_{2}-1}, 1, \alpha_{i_2 +1}, \dots, \alpha_{i_k -1}, 1, \alpha_{i_k +1}, \dots,  \alpha_n)$  \\
+$\gamma_0 < \gamma_1 < \gamma_2 < \gamma_3 < \dots < \gamma_k = \bar \beta$\\
+Так как $f(\gamma_0) = 1, f(\gamma_k) = 0, f(\gamma_e) = 1, f(\gamma_{e+1}) = 0$, то $\exists l: 0 \leqslant l \leqslant k-1$, то есть $\alpha_e = 0, \beta_e = 1, \forall i \neq l,$  $\alpha_i = \beta_i$\\
+Построим функцию $h(x) = f(\alpha_1, \dots, \alpha_{e-1}, x, \alpha_{e+1}, \dots, \alpha_n)$\\
+$\begin{cases}
+    h(0)  =  f(\bar \alpha) = 1 \\
+    h(1) = f(\bar \beta) = 0
+  \end{cases}$ $\Rightarrow h(x) \equiv \bar x$
+\end{Proof}\\\\\\
+\RomanNumeralCaps{4}) Класс $S$ самодвойственных функций.\\\\
+$\bullet$ Функция $f^*(x_1, \dots, x_n) = \bar f( \bar x_1, \dots, \bar x_n)$ называется двойственной для функции $f(x_1, \dots, x_n)$\\
+$\bullet$ Функция $f(x_1, \dots, x_n)$ называется самодвойственной, если $f(x_1, \dots, x_n) = f^*(x_1, \dots, x_n)$\\
+Другими словами:\\
+$$\bar f( x_1, \dots, x_n) = f( \bar x_1, \dots, \bar x_n) \eqno (1)$$
+$\bullet$ Наборы $\bar \alpha = (\alpha_1, \dots, \alpha_n)$ и $\bar \beta = (\bar \alpha_1, \dots, \bar \alpha_n)$ называются противоположными наборами.\\\\
+Например:\\
+$x, \bar x \in S$\\
+$x_1 \cdot x_2 \notin S$, то есть $(x_1 \cdot x_2)^* = \overline{\overline{x}_1 \cdot \overline{x}_2} = x_1 \vee x_2 \neq x_1 \cdot x_2$
+\begin{theorem}
+    Класс $S$ замкнут.
+\end{theorem}
+\begin{Proof}
+   Достаточно показать, что $f_1, f_2, \dots, f_n \in S$, то $\Phi = f(f_1, \dots, f_n) \in S$\\
+   $\Phi^* (x_1, \dots, x_n) = \bar \Phi (\bar x_1, \dots, \bar x_n) = \bar f(f_1(\bar x_1, \dots, \bar x_n), \dots, f_n(\bar x_1, \dots, \bar x_n))  \stackrel{(1)}{=}$ \\
+   $\stackrel{(1)}{=} \bar f(\bar f_1(x_1, \dots, x_n), \dots, \bar f_n(x_1, \dots, x_n)) = f(f_1(x_1, \dots, x_n), \dots, f_n(x_1, \dots, x_n)) = \Phi(x_1, \dots, x_n)$
+\end{Proof}
+\begin{lemma}
+    О несамодвойственной функции.\\
+    Если $f(x_1, \dots, x_n)$ - несамодвойственная функция, то $0, 1 \in [\{\bar x, f\}]$
+\end{lemma}
+\begin{Proof}
+    Пусть $f(x_1, \dots, x_n)$ - несамодвойственная функция. Тогда $\exists \bar \alpha = (\alpha_1, \dots, \alpha_n), f(\bar \alpha) = f(\bar \alpha_1, \dots, \bar \alpha_n) = f(\alpha_1, \dots, \alpha_n)$ .\\
+    Заменим $\alpha_i$ на $x \oplus \alpha_i$: $\begin{cases}
+        x, \text{если} ~ \alpha_i = 0,\\
+        \bar x, \text{если} ~ \alpha_i = 1; 
+    \end{cases}$\\
+    Получим функцию $h(x) \equiv f(x \oplus \alpha_1, \dots, x \oplus \alpha_n)$\\
+    $h(0) = f(\alpha_1, \dots, \alpha_n) = c, ~ c = const$\\
+    $h(1) = f(\bar \alpha_1, \dots, \bar \alpha_n) = c$\\
+    $h(x) = c \Rightarrow \bar c = \bar h(x) \Rightarrow 0, 1 \in [\{\bar x, f\}]$
+\end{Proof}
+
+
+    \end{document}
+    
