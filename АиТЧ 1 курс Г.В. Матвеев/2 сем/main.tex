@@ -409,7 +409,7 @@ $\varphi$ --- \textbf{проектирование векторов}, если $
 \section{Матрица линейного преобразования}
 Пусть $V$ --- векторное пространство с базисом $e_1, e_2, \dots, e_n$.
 $$x \in V, \quad x = x_1e_1+x_2e_2+\dots+x_ne_n$$
-$\bullet$ Пусть $\varphi: V \rightarrow V$ - \textbf{линейное преобразование} векторного пространства $V$.\\
+$\bullet$ Пусть $\varphi: V \rightarrow V$ --- \textbf{линейное преобразование} векторного пространства $V$.\\
 Подействуем этим преобразованием поочередно на все базисные векторы и полученные векторы выразим через базис:
 $$\begin{cases}
      \varphi(e_1)=\alpha_{11}e_1+\alpha_{21}e_2+\dots+\alpha_{n1}e_n\\  
@@ -429,9 +429,9 @@ $$\begin{cases}
 $\bullet$ Столбцами матрицы линейного преобразования являются координаты образов базисных векторов.\\\\
 Рассмотрим пример:\\
 На вектор $x = x_1e_1+x_2e_2+\dots+x_ne_n$ подействуем линейным преобразованием.
-$$\varphi(x) = x_1\varphi(e_1)+x_2\varphi(e_2)+\dots+x_n\varphi(e_n)$$
-$\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)$ --- столбцы матрицы $A$.\\
-Систему (1) можно переписать следующим образом:\\
+$$\varphi(x) = x_1\varphi(e_1)+x_2\varphi(e_2)+\ldots+x_n\varphi(e_n),$$
+где $\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)$ --- столбцы матрицы $A$.\\
+Тогда систему (1) можно переписать следующим образом:\\
 Пусть $e = (e_1, e_2, \dots, e_n)$, тогда
 $$(e_1, e_2, \dots, e_n)A=(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n))$$
 $$\varphi(e)=eA$$
@@ -446,7 +446,7 @@ x_n
 Тогда линейное преобразование вектора $x$ примет вид:
 $$\varphi(x)=\varphi(e)X$$
 $$\varphi(x)=eAX$$
-Это говорит о том, что $X \xrightarrow{\varphi} AX \sim \varphi(X)=AX$.\\
+Это говорит о том, что $X \xrightarrow{\varphi} AX \sim \varphi(X)=AX$.\\\\
 \textbf{Теорема.}
     \begin{enumerate}
         \item \textit{При сложении линейных преобразований их матрицы в данном базисе складываются.}
@@ -531,13 +531,13 @@ $B =
        \varphi(f(e_2))=\beta_{12}\alpha_{11}e_1+\beta_{12}\alpha_{21}e_2+\dots+\beta_{12}\alpha_{n1}e_n+\beta_{22}\alpha_{12}e_1+\beta_{22}\alpha_{22}e_2+\dots+\beta_{22}\alpha_{n2}e_n+\dots\\ 
         \varphi(f(e_n))=\beta_{1n}\alpha_{11}e_1+\beta_{1n}\alpha_{21}e_2+\dots+\beta_{1n}\alpha_{n1}e_n+\beta_{2n}\alpha_{12}e_1+\beta_{2n}\alpha_{22}e_2+\dots+\beta_{2n}\alpha_{n2}e_n+\dots\\ 
         \end{cases}$\\\\
-        Сгрупируем подобные слогаемые:\\\\
+        Сгрупируем подобные слагаемые:\\\\
         $\begin{cases}
         \varphi(f(e_1))=(\beta_{11}\alpha_{11}+\beta_{21}\alpha_{12}+\dots)e_1+(\beta_{11}\alpha_{21}+\beta_{21}\alpha_{22}+\dots)e_2+\dots\\  
        \varphi(f(e_2))=(\beta_{12}\alpha_{11}+\beta_{22}\alpha_{12}+\dots)e_1+(\beta_{12}\alpha_{21}+\beta_{22}\alpha_{22}+\dots)e_2+\dots\\ 
         \varphi(f(e_n))=(\beta_{1n}\alpha_{11}+\beta_{2n}\alpha_{12}+\dots)e_1+(\beta_{1n}\alpha_{21}+\beta_{2n}\alpha_{22}+\dots)e_2+\dots\\  
-        \end{cases}$\\
-        Запишем координаты векторов в матрицу линейного преобразования:\\
+        \end{cases}$\\\\
+        Запишем координаты векторов в матрицу линейного преобразования:\\\\
         $\begin{pmatrix}
         \beta_{11}\alpha_{11}+\beta_{21}\alpha_{12}+\dots & \beta_{12}\alpha_{11}+\beta_{22}\alpha_{12}+\dots & \dots & \beta_{1n}\alpha_{11}+\beta_{2n}\alpha_{12}+\dots\\
        \beta_{11}\alpha_{21}+\beta_{21}\alpha_{22}+\dots & \beta_{12}\alpha_{21}+\beta_{22}\alpha_{22}+\dots&\dots&
@@ -570,7 +570,7 @@ $B =
 \begin{Proof}
 $$\rank \varphi = \dim \varphi(V)$$
 Так как образ есть \textit{линейная оболочка} $L(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n))$, то
-$$\dim \varphi(V) = \dim L(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)) = rank(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)) = \rank A$$
+$$\dim \varphi(V) = \dim L(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)) = \rank(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)) = \rank A$$
 $$\rank \varphi = \rank A$$
 \end{Proof}\\
 \textbf{Пример 1}\\
@@ -615,7 +615,7 @@ $$\begin{cases}
     \end{pmatrix}$
     --- матрица угла поворота системы координат на угол $\alpha$.\\
     \end{center}
-    $\bullet$ Биективное (взаимооднозначное) линейное преобразование называется \textbf{автоморфизмом}.\\
+    $\bullet$ \textit{Биективное (взаимооднозначное) линейное преобразование называется \textbf{автоморфизмом}.}\\\\
     Если $\varphi: V \rightarrow V$ --- линейное преобразование, то $\varphi$ --- автоморфизм $\Leftrightarrow$ $\varphi$ --- биекция.
     \begin{theorem}
         Линейное преобразование $\varphi$ --- автоморфизм $\Leftrightarrow$ его матрица невырожденная.
