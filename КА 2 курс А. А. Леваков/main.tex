@@ -10,6 +10,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[normalem]{ulem}
+\usepackage{arcs}
 \usepackage{mathtext} % русские буквы в формулах
 \usepackage[left=2cm,right=2cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage[english,russian]{babel}
@@ -41,6 +42,8 @@
 \renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\Ln}{\operatorname{Ln}}
 \newcommand{\Arccos}{\operatorname{Arccos}}
+\newcommand{\intab}{\int\limits_a^b}
+\newcommand{\intl}{\int\limits_l}
 \newcommand{\Arcsin}{\operatorname{Arcsin}}
 \renewcommand{\varphi}{\upvarphi}
 \renewcommand{\tau}{\uptau}
@@ -289,7 +292,7 @@ $$\limdef : \forall n \geqslant \delta_2 (\epsilon)\Rightarrow |y_n - a_2| \leqs
 Тогда $$|z_n - a| = \sqrt{(x_n - a_1)^2 + (y_n-a_2)^2}\leqslant \sqrt{2}\epsilon,\quad \forall n \geqslant \max\{\delta _1(\epsilon), \delta_2(\epsilon)\},$$
 а это и есть $z_n \underset{n\to\infty}{\longrightarrow}a$ по $M$-лемме для последовательностей.
 \end{Proof}\\\\
-\textbf{Замечание.} Если члены последовательности записаны в экспоненциальной форме $z_n = \rho_n e^{i\varphi_n}$, то $z_n \underset{n\to\infty}{\longrightarrow} a = \rho e^{i\varphi_0} \not\Leftrightarrow \rho_n \underset{n\to\infty}{\longrightarrow}\rho$, $\varphi_n \underset{n\to\infty}{\longrightarrow}\varphi_0$, так как $\varphi_n$ определено неоднозначно. Выполняется только $$\rho_n \underset{n\to\infty}{\longrightarrow}\rho,\ \varphi_n \underset{n\to\infty}{\longrightarrow}\varphi_0 \Longrightarrow z_n \underset{n\to\infty}{\longrightarrow} a = \rho e^{i\varphi_0}.$$
+\textbf{Замечание.} \textit{Если члены последовательности записаны в экспоненциальной форме $z_n = \rho_n e^{i\varphi_n}$, то $z_n \underset{n\to\infty}{\longrightarrow} a = \rho e^{i\varphi_0} \not\Leftrightarrow \rho_n \underset{n\to\infty}{\longrightarrow}\rho$, $\varphi_n \underset{n\to\infty}{\longrightarrow}\varphi_0$, так как $\varphi_n$ определено неоднозначно. Выполняется только} $$\rho_n \underset{n\to\infty}{\longrightarrow}\rho,\ \varphi_n \underset{n\to\infty}{\longrightarrow}\varphi_0 \Longrightarrow z_n \underset{n\to\infty}{\longrightarrow} a = \rho e^{i\varphi_0}.$$
 Рассмотрим функцию $w = f(z)$, $z\in D\subseteq\Cm$. Любую функцию можно записать как $$w = f(z) = f(x+i\cdot y) = u(x,y) + i\cdot v(x,y),\quad u(x,y)\in \Re(f(z)), v(x,y)\in \Im(f(z)),$$ где $u(x,y)$ и $v(x,y)$ --- вещественные Ф2П.\\\\
 Пусть точка $z_0$ --- вутрення точка множества $D$.\\\\
 $\bullet$ \textit{Множество $D\backslash\{z_0\}$ называется \textbf{проколотой окрестностью} точки $z_0$.}\\\\
@@ -374,5 +377,180 @@ $$o(|\Delta z|) = \alpha (|\Delta z|) \Rightarrow \lim\limits_{\Delta z \to 0} \
 		\Delta f = \Big(\dfrac{\d u}{\d x}\Delta x+ i\cdot \dfrac{\d v}{\d x}\Delta x\Big) + \Big(-\dfrac{\d v}{\d x}\Delta y + i\cdot \dfrac{\d u}{\d x}\Delta y\Big) + \underbrace{o_1(\sqrt{(\Delta x)^2 + (\Delta y)^2}) + o_2(\sqrt{(\Delta x)^2 + (\Delta y)^2})}_{o(\Delta z)}=\\=\dfrac{\d u}{\d x}\underbrace{(\Delta x + i\cdot \Delta y)}_{\Delta z} + i\cdot \dfrac{\d v}{\d x}\underbrace{(\Delta x + i\cdot \Delta y)}_{\Delta z} + o(\Delta z) = \Big(\dfrac{\d u}{\d x} + i\cdot \dfrac{\d v}{\d x}\Big)\cdot \Delta z + o(\Delta z).
 	\end{multline*}
 Следовательно, $f(z)$ дифференцируема в точке $z_0$, а $$f'(z_0) = \dfrac{\d u}{\d x}\Big |_{(x_0,y_0)} + i\cdot \dfrac{\d v}{\d x}\Big |_{(x_0,y_0)}.$$
+\end{Proof}\\
+Все производные от комплексных функций определяются аналогично вещественным функциям.\\\\
+$\bullet$\textit{ Функция называется \textbf{дифференцируемой в области} $D$, если она дифференцируема в каждой точке этой области.}\\\\
+\textbf{\textit{Свойства производных комплексных функций:}}
+\begin{enumerate}
+	\item \textit{Пусть $f(z)$ и $g(z)$ --- функции дифференцируемые в точке $z_0$. Тогда }\begin{enumerate}
+		\item $(f(z)\pm g(z))' = f'(z) \pm g'(z)$;
+		\item $(f(g)\cdot g(z))' = f'(z)\cdot g(z) + f(z)\cdot g'(z)$;
+		\item $\Big(\dfrac{f(z)}{g(z)}\Big)' = \dfrac{f'(z)\cdot g(z) - f(z)\cdot g'(z)}{g^2(z)}$, если $g(z_0) \ne 0$.
+	\end{enumerate}
+	\textit{Все эти функции дифференцируемыe в точке $z_0$.}
+	\item \textit{Если функция $w = f(z)$ дифференцируема в точке $z_0$, а $z = h(\zeta)$ дифференцируема в точке $\zeta_0$, причем $h(\zeta_0) = z_0$, то }$$(f(h(\zeta)))'\Big|_{\zeta_0} = f'(z_0)\cdot h'(\zeta_0).$$
+\end{enumerate}
+Так как производная и первый критерий дифференцирования совпадают с соответствующими утверждениями для вещественных функций, то и доказательства данных свойств совпадают с доказательствами соответствующих свойств для вещественных функций.
+\section{Сопряженно-гармонические функции.}
+Рассмотрим соотношение для вещественной функции $u = u(x,y)$ $$\dfrac{\d ^2 u}{\d x ^2} + \dfrac{\d^2 u}{\d y} = 0.\eqno(1)$$
+$\bullet$ \textit{Уравнение $(1)$ называется \textbf{уравнением Лапласа} для функции $u(x,y)$.}\\\\
+$\bullet$ \textit{Любая функция определенная в некоторой области и удовлетворяющая уравнению Лапласа в этой области называется \textbf{гармонической} функцией.}\\\\
+Рассмотрим функцию $w = f(z)$ дифференцируемую в области $D$. Тогда $f(z) = u(x,y) + i\cdot v(x,y)$ и выполняются условия Коши-Римана $$\dfrac{\d u}{\d x} = \dfrac{\d v}{\d y},\quad \dfrac{\d u}{\d y} = -\dfrac{\d v}{\d x}.$$
+Позже будет показано, что дифференцируемая в области функция является дважды непрерывно дифференцируемой. Из этого вытекает, что функции $u(x,y)$ и $v(x,y)$ дважды непрерывно дифференцируемы в области $D$. Получим $$u''_{xy} = v''_{y^2},\quad u''_{yx} = -v''_{x^2}.$$
+По теореме о смешанных производных $u''_{xy} = u''_{yx}$. Следовательно, $$v''_{y^2} = - v''_{x^2} \Rightarrow v''_{x^2} + v''_{y^2} = 0,$$
+то есть функция $v(x,y)$ гармоническая. Аналогично получим, что функция $u(x,y)$ также является гармонической. То есть, если комплекнсая функция дифференцируема, то вещественная и мнимая части этой функции --- гармонические функции.\\\\
+$\bullet$ \textit{Пара гармонический функций $u(x,y)$ и $v(x,y)$ в области $D$ называется \textbf{сопряженно-гармонической}, если $u(x,y)$ и $v(x,y)$ --- вещественная и мнимая части дифференцируемой в области $D$ функции $f(z) = u(x,y) + i\cdot v(x,y)$.}\\\\
+Зная одну из двух сопряженно-гармонических функций, всегда можно найти вторую.\\\\ Используя теорему о независимости КРИ-2 от пути интегрирования, покажем, что выражение $$-\dfrac{\d u}{\d y}dx + \dfrac{\d u}{\d x} dy$$
+удовлетворяет условию Эйлера. Примем $P(x,y) = -u'_y$, $Q(x,y) = u'_x$. Тогда $$P'_{y} = -u''_{y^2},\quad Q'x = u''_{x^2}.$$
+А условие $$-u''_{y^2} = u''_{x^2}$$ выполняется, так как функция $u(x,y)$ удовлетворяет уравнению Лапласа. Следовательно, $\exists v (x,y) = -\dfrac{\d u}{\d y}dx + \dfrac{\d u}{\d x} dy$ такая, что $v'_x = -u'_y$, $v'_y = u'_x$.
+\section{Кривые.}
+Пусть задана непрерывная комплекснозначная функция $z = z(t)$, $t \in [a,b]$. Тогда можно выделить вещественную и мнимую части $$z(t) = x(t ) + i\cdot y(t).$$
+$\bullet$ \textit{Множество точек комплексной плоскости с координатами $z(t)$ при $t\in [a,b]$ называется \textbf{кривой}, а уравнение $z = z(t)$ называется \textbf{комплекснозначным параметрическим уравнением кривой}.}\\\\
+Рассмотрим луч, выходящий из начала координат.
+$$\includegraphics[scale=0.4]{images/017.png}$$
+Покажем, что это кривая  и найдем ее комплекснозначное параметрическое уравнение. Пусть $\varphi \in (0;\dfrac{\pi}{2})$ и параметрическое уравнение $$\begin{cases}
+	x = t,\\
+	y = \tg \varphi \cdot t;
+\end{cases}\quad t\in[0;+\infty)$$
+Тогда параметрическое комплекснозначное уравнение имеет вид $$z = t + i\cdot \tg \varphi \cdot t\quad \text{или}\quad z = t\cdot (\cos \varphi + i\cdot \sin \varphi),\quad  t\in [0;+\infty).$$
+Рассмотрим окружность радиуса $R$ с центром в начале координат.
+$$\includegraphics[scale=0.4]{images/018.png}$$ Ее параметрическое уравнение имеет вид $$\begin{cases}
+	x = R\cdot \cos\varphi,\\
+	y = R\cdot \sin\varphi;
+\end{cases}\quad \varphi\in [0;2\pi].$$
+Параметрическое комплекснозначное уравнение в таком случае имеет вид $$z(\varphi) = R\cdot (\cos\varphi + i \cdot \sin\varphi) = R\ef{\varphi},\quad \varphi\in [0;2\pi].$$
+$\bullet$ \textit{Кривая называется \textbf{гладкой}, если функция $z(t)$ непрерывно дифференцируема на $[a,b]$ и $|\dot{z}(t)|\ne 0$ $\forall t \in [a,b]$.}\\\\
+Кривую без точек самопересечения будем называть простой. Длина простой гладкой кривой определяется формулой $$\text{дл.} l = \int\limits_a^b|\dot{z}(t)|dt.$$ 
+\noindent
+\parbox[b][5cm][t]{10mm}{
+	\includegraphics[scale=0.45]{images/019.png}}
+\hfill
+\parbox[b][4.5cm][t]{110mm}{Пусть задана гладкая кривая $$l: z= z(t) = x(t) + i\cdot y(t),\ t\in[a,b].$$ И пусть эта кривая ориентирована. К этой кривой проведена касательная через точку $M_0$ и параллельный ей вектор $a$, причем, так как $\dot{z}(t) = \dot{x}(t) + i\cdot \dot{y}(t)$, его координаты $a(\dot{x}(t), \dot y(t))$. Тогда угол $\varphi = \arg \dot z (t)$ --- это угол между касательной (вектором $a$) и осью $x$.}
+\section{Интегрируемые функции комплексного переменного.}
+Пусть $l$ --- гладкая кривая, имеющая комплекснозначное параметрическое уравнение $$z= z(t) = x(t) + i\cdot y(t),\ t\in[a,b].$$
+И пусть на кривой $l$ задана функция однозначная $f(z)$.\\\\
+$\bullet$ \textit{Тогда интеграл от комплекснозначной функции $$\intab f(z(t))\cdot \dot z (t) dt := \int\limits_l f(z)dz$$ называется \textbf{интегралом от комплексной функции} $f(z) = u(x,y) + i \cdot v(x,y)$.}\\\\
+Следовательно, \begin{multline*}
+	\intab f(z(t))\cdot \dot z (t) dt = \intab\Big(u(x(t),y(t)) + i\cdot v(x(t,y(t)))\Big)\cdot \Big(\dot x(t) + i\cdot \dot y(t)\Big)dt =\\= \intab (u\dot x - v\dot y)dt + i\cdot \intab (u\dot y + v\dot x)dt= \int\limits_l udx - vdy + i\cdot \int\limits_l vdx + udy.
+\end{multline*}
+Отсюда $$\int\limits_l f(z)dz = \int\limits_l udx - vdy + i\cdot \int\limits_l vdx + udy.$$
+\textbf{\textit{Свойства интеграла комплексного переменного:}}\begin{enumerate}
+	\item \textit{Линейность.}
+	$$\int\limits_l (\alpha f(z) + \beta g(z))dz = \alpha \intl f(z)dz + \beta \intl g(z)dz.$$
+	\item \textit{Адиитивность.}\\\\
+	Есди кривая $l$ кусочно-гладкая состоящая из кривых $\buildrel\,\,\frown\over{l_{i-1}l_i}$, то по определению $$\intl f(z)dz := \sum\limits_i\int\limits_{\buildrel\,\,\frown\over{l_{i-1}l_i}}f(z)dz.$$
+	Если кривая $l$ состоит из кривых $\buildrel\,\,\frown\over{l_{j-1}l_j}$, $j = \overline{1,m}$, то по определению $$\intl f(z)dz := \sum\limits_i\int\limits_{\buildrel\,\,\frown\over{l_{j-1}l_j}}f(z)dz.$$
+	\item Рассмотрим кусочно-гладкий путь $l: z= z(t),\ t\in[a,b].$ Тогда будем обозначать его через $l^+$. В свою очередь, путь $l^-: z= z(a+b-t),\ t\in[a,b]$ будем называть противоположно ориентированным по отношению к исходному пути.\\\\
+	\textit{При замене ориентации пути на противоположную интеграл комплексного переменного меняет знак.}
+	$$\int\limits_{l^+}f(z)dz = -\int\limits_{l^-}f(z)dz.$$
+	\item \textit{Оценки интеграла комплексного переменного.}\begin{enumerate}
+		\item $\Big|\intl f(z)dz\Big|\leq \intl |f(z)|ds$ --- КРИ-1.
+		\begin{Proof}
+			\begin{multline*}
+				\Big|\intl f(z)dz\Big| = \Big|\intab f(z(t))\dot z (t)dz\Big|\leq \Big|\intab |f(z(t))|\cdot |\dot z (t)|dz\Big| =\\= \intab |u(x(t),y(t)) + i \cdot v(x(t),y(t))|\cdot \sqrt{\dot x^2 + \dot y^2}dt=\\ =\text{ [сведение КРИ-1 к определенному интегралу] } = \intl|f(z)|dz.
+			\end{multline*}
+		\end{Proof}
+	\item $\Big|\intl f(z)dz\Big|\leq M\cdot \text{дл.}l$, где $M=\underset{z\in l}{\sup}|f(z)|$.
+	\begin{Proof}
+		$\Big|\intl f(z)dz\Big|\leq M\cdot \intl ds = M\cdot \text{дл.}l$
+	\end{Proof}
+	\end{enumerate}
+\end{enumerate}
+\section{Геометрический смысл модуля и аргумента производкой комплексной функции.}
+Рассмотрим функцию $w = f(z)$ такую, что $f'(z_0) = \lim\limits_{\Delta z \to 0}\dfrac{\Delta f}{\Delta z}$. И рассмотрим гладкую кривую $l : z = z(t)$, $t\in [a,b]$. Образом этой кривой будет кривая $L: w=f(z(t))$, $t\in [a,b]$.
+$$\includegraphics[scale=0.6]{images/020.png}$$
+Обозначим $\varphi = \arg \dot z (t_0)$, где $t_0 \in [a,b]$, угол между касательной к кривой в точке $z_0 = z(t_0)$ и осью $x$. Найдем угол $\psi$ (угол между касательной к образу кривой в точке $w_0 = f(z(t_0))$). Так как
+$$\Big(f(z(t))\Big)'\Big|_{t=t_0} = f'(z_0)\cdot z'(t_0),$$
+то $$\psi = \arg(f'(z_0)\cdot z'(t_0)) = \arg z'(t_0)  + \arg f'(z_0) = \varphi + \arg f'(z_0).$$
+То есть $\psi$ --- это угол, на который повернулась касательная к кривой при переходе к образу (при условии, что $f'(z_0) \ne 0$).\\\\
+Если функция $f(z)$ дифференцируема в точке $z_0$ и $f'(z_0) \ne 0$, то при действии функции углы между кривыми сохраняются.\\\\
+Рассмотрим окружность $$\includegraphics[scale = 0.5]{images/021.png}$$ Причем $|z-z_0| =|\Delta z|$ --- точки, лежащие на окружности. Тогда $$\dfrac{\Delta f}{\Delta z} = f'(z_0) + o(1),\quad f'(z_0) = \lim\limits_{\Delta z \to 0} \dfrac{\Delta f}{\Delta z}.$$
+Тогда при действии функции $f(z)$ образом окружности будет замкнутая кривая, которая необязательно является окружностью.
+$$\includegraphics[scale = 0.6]{images/022.png}$$
+При этом
+$$|\Delta f|\approx |f'(z_0)|\cdot |\Delta z|.$$
+Тогда с точностью до $o(1)$ получится окружность радиуса $\rho\cdot |f'(z_0)|$, однако при действии функции окружность изменится.\\\\
+$\bullet$ \textit{Предел $\lim\limits_{\Delta z \to 0}\dfrac{|\Delta f|}{|\Delta z|}$ называется \textbf{коэффициентом растяжения} плоскости в точке $z_0$ при действии функции $w = f(z)$.}\\\\
+Следовательно, $|f'(z_0)|$ --- коэффициент растяжения плоскости в точке $z_0$ при действии функции $w = f(z)$.\\\\
+Пусть $D$ --- область в плоскости $z$, а $K$ --- образ этой области при действии функции $w = f(z) = u(x,y)+i\cdot v(x,y)$, $(x,y)\in D$.
+$$\includegraphics[scale = 0.6]{images/023.png}$$
+Предположим, что отображение $\begin{cases}
+	u = u(x,y),\\
+	v = v(x,y)
+\end{cases}$ --- диффеоморфное отображение области $D$ и области $K$. Тогда пл.$K = \iint\limits_D |\mathcal{I}|dxdy$, где $\mathcal{I}$ --- якобиан $$\mathcal{I} = \begin{vmatrix}
+u'_x & u'_y\\
+v'_x & v'_y
+\end{vmatrix}.$$
+Пусть $w = f(z)$ --- функция дифференцируема в некоторой области $D_1\supseteq D$ и $f'(z) \ne 0$ $\forall z \in D_1$. Так как функция дифференцируема, то выполняются условия Коши-Римана, то есть $u'_x = v'_y$, $u'_y = -v'_x$. Таким образом, $$\mathcal{I} = u'_xv'_y - u'_y v'_x = (u'_x)^2 + (v'_x)^2 = [f'(z) = u'_x + i\cdot v'_x] = |f'(z)|^2.$$
+Тогда $$\text{пл.}K = \iint\limits_D |f'(z)|^2dxdy.$$
+\section{Интегральная теорема Коши.}
+\begin{theorem}
+	Если функция $w = f(z)$ дифференцируема в односвязной области $D$, то $\forall$ замкнутой кусочно-гладкой кривой $l$ лежащей в области $D$ $$\intl f(z)dz = 0.$$ 
+\end{theorem}\begin{Proof}
+Если функция $f(z) = u(x,y) + i\cdot v(x,y)$ дифференцируема, то она непрерывно дифференцируема в области $D$ (доказательство этого утверждения приведем позже). То есть функции $u(x,y)$, $v(x,y)$ непрерывно дифференцируемы в области $D$. Тогда \begin{multline*}
+	\intl f(z)dz = \intl (udx + vdy) + i\cdot \intl (vdx + udy) =\\= \text{[по теореме о независимости КРИ-2 от пути интегрирования]} =0.
+\end{multline*}
+Проверим выполнение условий примененной теоремы:
+$$-\dfrac{\d v}{\d x} = \dfrac{\d u}{\d y},\quad \dfrac{\d v}{\d y} = \dfrac{\d u}{\d x},$$
+а это условия Коши-Римана. По второму критерию дифференцируемости они выполняются, следовательно, выполняется теорема о независимости КРИ-2 от пути интегрирования.
 \end{Proof}
+\section{Следствия из интегральной теоремы Коши.}
+\textbf{Следствия.}
+\begin{enumerate}
+	\item \textit{Если функция $w = f(z)$ дифференцируема в односвязной области $D$, то интеграл $\intl f(z)dz$ не зависит от формы кривой, лежащей в области $D$.}
+	$$\includegraphics[scale=0.25]{images/024.png}$$
+	Какую бы кривую мы не вызяли, интегралы по $l_1$ и по $l_2$ будут совпадать.
+	\item \textit{Если кривая $l_1$ получена из кривой $l_0$ путем непрерывной деформации, не выводящей из области $D$, и начало и конец этих кривых совпадают, а функция $w = f(z)$ дифференцируема в этой области, то $$\int\limits_{l_1} f(z)dz = \int\limits_{l_0}f(z)dz.$$
+	Причем область необязательно односвязная.}
+$$\includegraphics[scale=0.3]{images/025.png}$$
+\begin{Proof}
+	Всегда можно выбрать область $D_1$, которая односвязная и лежит в области $D$, такую, что $l_1$ и $l_0$ лежат в области $D_1$. Тогда получаем утверждение из следствия 1.
+	$$\includegraphics[scale=0.3]{images/026.png}$$
+\end{Proof}\\
+\noindent
+\parbox[b][5cm][t]{10mm}{
+	\includegraphics[scale=0.35]{images/027.png}}
+\hfill
+\parbox[b][4.5cm][t]{100mm}{$\bullet$ \textit{Неодносвязная область, ограниченная простой кусочно-гладкой кривой $l_0$ и простыми непересекающимися кусочно-гладкими кривыми $l_1$, $l_2$, $\ldots$, $l_k$, лежащими внутри кривой $l_0$ и ориентированными так, чтобы область оставалась слева, называется \textbf{стандартной многосвязной областью}.}}
+\item \textit{Если функция $w = f(z)$ дифференцируемая в некоторой области $D$, содержит стандартную многосвязную область, то} $$\int\limits_{l_0} f(z)dz + \sum_{i = 1}^{k}\int\limits_{l_i}f(z)dz= 0.$$\begin{Proof}
+	Проведем разрезы, соединяющие кривую $l_0$ с кривыми $l_1, l_2,\ldots, l_k$.\\\\
+	\noindent
+	\parbox[b][5cm][t]{10mm}{
+		\includegraphics[scale=0.35]{images/028.png}}
+	\hfill
+	\parbox[b][4cm][t]{100mm}{Рассмотрим кривую $\Gamma$, образовавшуюся из кривых $l_0, l_1, \gamma_{11}, \gamma_{21}, \ldots, l_k, \gamma_{k1}, \gamma_{k1}$, и область ограниченную кривой $\Gamma$. Эта область односвязная. Функция $w = f(z)$ будем дифференцируема в этой области. Тогда по интегральной теореме Коши}\begin{multline*}
+		\int\limits_{\Gamma} f(z)dz = 0 = \int\limits_{l_0} f(z)dz + \int\limits_{l_1} f(z)dz + \ldots + \int\limits_{l_k} f(z)dz + \underbrace{\int\limits_{\gamma_{11}} f(z)dz + \int\limits_{\gamma_{12}} f(z)dz}_{=0} +\\+ \ldots + \underbrace{\int\limits_{\gamma_{k1}} f(z)dz + \int\limits_{\gamma_{k2}} f(z)dz}_{=0} = \int\limits_{l_0} f(z)dz + \sum_{i = 1}^{k}\int\limits_{l_i}f(z)dz.
+	\end{multline*}
+\end{Proof}\\
+\textbf{Замечание.} \textit{Если в следствии 3 все кривые считать ориентированными так, что указанная область $D$, ограниченная этими кривыми, остается слева, то} $$\int\limits_{l_0} f(z)dz =\sum_{i = 1}^{k}\int\limits_{l_i}f(z)dz.$$
+$$\includegraphics[scale=0.35]{images/029.png}$$
+\item \textit{Если функция $w = f(z)$ дифференцируема в области $D$, а $l_0$ и $l_1$ --- две замкнутые кусочно-гладкие простые непересекающиеся кривые ориентированные так, что области ограниченные этими кривыми остаются слева, такие, что множество, лежащее между этими кривыми принадлежит области $D$, то} $$\int\limits_{l_0} f(z)dz = \int\limits_{l_1}f(z)dz.$$\begin{Proof}
+	Вытекает из замечания к следствию 3.
+	$$\includegraphics[scale=0.35]{images/030.png}$$
+\end{Proof}\\
+Также последнее следствие можно сформулировать следующим образом. Интеграл от дифференцируемой в области функции не меняется при деформации кривой, невыводящей кривую из области $D$.
+\end{enumerate}
+\section{Первообразная. Интеграл с переменным верхним пределом.}
+Пусть функция $w = f(z)$ задана в области $D \subseteq \Cm$.\\\\
+$\bullet$ \textit{Функция $F(z)$ заданная в области $D$ называется \textbf{первообразной} для функции $f(z)$, если $$F'(z) = f(z),\quad \forall z \in D.$$}
+Если функция $f(z)$ задана в области $D$ и интеграл $\intl f(z)dz$ не зависит от формы кривой, лежащей в области $D$, то можно построить однозначную функцию $F(z) = \int\limits_{z_0}^z f(\zeta)d\zeta$, где $z_0$ --- некоторая фиксированная точка из $D$, а $z$ --- произвольная точка из $D$ ($\int\limits_{z_0}^z f(\zeta)d\zeta$ --- интеграл по кривой, соединяющей точки $z_0$ и $z$).\\\\
+$\bullet$ \textit{Функция $$F(z) = \int\limits_{z_0}^z f(\zeta)d\zeta$$ называется \textbf{интегралом с переменным верхним пределом}.}\begin{theorem}
+	[о первообразной] Если функция $f(z)$ дифференцируема в односвязной области $D$, то функция $F(z) = \int\limits_{z_0}^z f(\zeta)d\zeta$ является первообразной в области $D$ для функции $f(z)$.
+\end{theorem}\begin{Proof}
+Возможность построения однозначной функции $F(z)$ вытекает из  следствия 1 интегральной теоремы Коши. Необходимо доказать, что $\forall z \in D$ $F'(z) = f(z)$. Возьмем точки $z$, $z + \Delta z \in D$. Тогда \begin{multline*}
+	F'(z) = \lim\limits_{\Delta z \to 0} \dfrac{\Delta F(z)}{\Delta z} = \lim\limits_{\Delta z \to 0} \dfrac{F(z + \Delta z) - F(z)}{\Delta z} = \lim\limits_{\Delta z \to 0} \dfrac{\int\limits_{z_0}^{z + \Delta z}f(\zeta)d\zeta - \int\limits_{z_0}^{z}f(\zeta)d\zeta}{\Delta z}=\\=\text{[из независимости от формы пути]} = \lim\limits_{\Delta z \to 0} \dfrac{\int\limits_{z}^{z + \Delta z}f(\zeta)d\zeta}{\Delta z}.
+\end{multline*}
+\begin{multline*}
+	F'(z) - f(z) = \lim\limits_{\Delta z \to 0}\Big(\dfrac{1}{\Delta z}\int\limits_{z}^{z + \Delta z}f(\zeta)d\zeta - f(z) \Big) = \lim\limits_{\Delta z \to 0}\Big(\dfrac{1}{\Delta z}\int\limits_{z}^{z + \Delta z}f(\zeta)d\zeta - \dfrac{f(z)}{\Delta z} \int\limits_{z}^{z + \Delta z}d\zeta \Big) = \\ =\lim\limits_{\Delta z \to 0} \dfrac{1}{\Delta z} \int\limits_{z}^{z + \Delta z} \Big( f(\zeta) - f(z)\Big)d\zeta = \Big[ \dfrac{1}{|\Delta z|}\cdot \Big|\int\limits_{z}^{z + \Delta z} \Big( f(\zeta) - f(z)\Big)d\zeta\Big|\leq \big[\\ \text{функция дифференцируема, следовательно, непрерывна в точке} z, \text{то есть} \\ \limdef \forall\zeta : |\zeta - z |\leq\delta (\epsilon) \Rightarrow |f(\zeta - f(z))|\leq \epsilon \big] \leq \dfrac{1}{\Delta z}\epsilon\cdot |\Delta z| = \epsilon\Big] = 0.
+\end{multline*}
+\end{Proof}\\
+\textbf{Замечание.} \textit{Если $F_1(z)$ и $F_2(z)$ --- две первообразные для функции $f(z)$ в односвязной области $D$, то $F_1(z) - F_2(z) = C\in \Cm$.}
+\begin{theorem}
+	[формула Ньютона-Лейбница]
+	Если $f(z)$ дифференцируема в односвязной области $D$, то $$\int\limits_{z_0}^{z_1}f(\zeta)d\zeta = G(z) \Big| _{z_0}^{z_1},$$ где $G(z)$ --- некоторая первообразная для функции $f(z)$.
+\end{theorem}\begin{Proof}
+Пусть $$\int\limits_{z_0}^{z}f(\zeta)d\zeta = F(z).$$
+Полагаем в этом равенстве $z = z_1$. Тогда $$\int\limits_{z_0}^{z_1}f(\zeta)d\zeta = F(z_1) = F(z_1) - F(z_0) =  G(z) \Big| _{z_0}^{z_1}.$$
+\end{Proof}\\
+\textbf{Формула интегрирования по частям.} \textit{Если $u(z)$, $v(z)$ --- две непрерывно дифференцируемые в односвязной области $D$ функции, то} $$\int\limits_{z_0}^{z_1}u(z)dv(z) = u(z)\cdot v(z)\Big| _{z_0}^{z_1} - \int\limits_{z_0}^{z_1}v(z)du(z).$$
 \end{document}

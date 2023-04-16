@@ -110,7 +110,7 @@ $$x=\alpha_1e_1+\alpha_2e_2+ ... + \alpha_ne_n$$
     \vdots & \vdots & \ddots & \vdots & \vline & \vdots\\
     a_{m1} & a_{m2} & \dots & a_{mn} & \vline & b_m
     \end{pmatrix} =
-    \widetilde{A} = (A/B)$ --- расширенная матрица.   
+    \widetilde{A} = (A|B)$ --- расширенная матрица.   
     \end{center}
     Система совместна $\Leftrightarrow \rank A=\rank\widetilde{A}$. \\
     $\Rightarrow$ Пусть система совместна с решением $(j_1,j_2, \dots, j_n)$\\
@@ -349,10 +349,12 @@ $\bullet$ \textit{Отображение $\varphi: V \rightarrow V$ (само в
 \end{enumerate}
 \section{Ранг и дефект линейного преобразования}
 Пусть $\varphi:V\rightarrow V$ --- линейное преобразование.\\\\
-$\bullet$ \textit{Множество $\ker \varphi = \{x\ |\ \varphi(x)=\vec 0\}$ --- \textbf{ядро (дефект)} линейного преобразования.}\\\\
-$\bullet$ \textit{Множество $\Im \varphi = \varphi(v)=\{\varphi(x)\ |\ x \in V\}$ --- \textbf{образ (ранг)} линейного преобразования.}\\\\
+$\bullet$ \textit{Множество $\ker \varphi = \{x\ |\ \varphi(x)=\vec 0\}$ --- \textbf{ядро} линейного преобразования.}\\
+$\dim \ker \varphi$ - \textbf{дефект} линейного преобразования (размерность ядра).\\\\
+$\bullet$ \textit{Множество $\Im \varphi = \varphi(v)=\{\varphi(x)\ |\ x \in V\}$ --- \textbf{образ} линейного преобразования.}\\
+$\dim \Im \varphi$ - \textbf{ранг} линейного преобразования (размерность образа).\\\\
 \textbf{Пример 1}\\
-Рассмотрим функцию $\sin(x)$. Функция синуса не является линейной, в чем легко убедиться ($\sin(a+b) \neq \sin a + \sin b$), однако для нее можно определить ядро и образ. Таким образомб
+Рассмотрим функцию $\sin(x)$. Функция синуса не является линейной, в чем легко убедиться ($\sin(a+b) \neq \sin a + \sin b$), однако для нее можно определить ядро и образ. Таким образом
 $$\ker (\sin) = {\pi n}$$
 $$\Im (\sin) = [-1,1]$$
 \textbf{Пример 2}\\
@@ -403,4 +405,226 @@ $\varphi$ --- \textbf{проектирование векторов}, если $
        $\varphi(x) = \vec 0, \quad \varphi(x) = \varphi(\alpha_1 l_1+\ldots+\alpha_r l_r) = \varphi(\alpha_1 l_1)+\varphi(\alpha_2 l_2)+\ldots+\varphi(\alpha_r l_r)=\alpha_1\varphi(l_1)+\alpha_2\varphi(l_2)+\ldots+\alpha_r\varphi(l_r) = \vec 0 \Rightarrow \alpha_1=\alpha_2=\ldots=\alpha_r=0 \Rightarrow x=\vec 0$
    \end{enumerate}
 \end{Proof}
+
+\section{Матрица линейного преобразования}
+Пусть $V$ --- векторное пространство с базисом $e_1, e_2, \dots, e_n$.
+$$x \in V, \quad x = x_1e_1+x_2e_2+\dots+x_ne_n$$
+$\bullet$ Пусть $\varphi: V \rightarrow V$ --- \textbf{линейное преобразование} векторного пространства $V$.\\
+Подействуем этим преобразованием поочередно на все базисные векторы и полученные векторы выразим через базис:
+$$\begin{cases}
+     \varphi(e_1)=\alpha_{11}e_1+\alpha_{21}e_2+\dots+\alpha_{n1}e_n\\  
+     \varphi(e_2)=\alpha_{12}e_1+\alpha_{22}e_2+\dots+\alpha_{n2}e_n\\ 
+     \dotfill\\
+     \varphi(e_n)=\alpha_{1n}e_1+\alpha_{2n}e_2+\dots+\alpha_{nn}e_n\\ 
+\end{cases}\eqno(1)$$
+\begin{center}
+Матрица $A = 
+    \begin{pmatrix}
+    \alpha_{11} & \alpha_{12} & \dots & \alpha_{1n}\\
+    \alpha_{21} & \alpha_{22} & \dots & \alpha_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    \alpha_{n1} & \alpha_{n2} & \dots & \alpha_{nn}
+    \end{pmatrix}$ --- матрица линейного преобразования $\varphi$.
+\end{center}
+$\bullet$ Столбцами матрицы линейного преобразования являются координаты образов базисных векторов.\\\\
+Рассмотрим пример:\\
+На вектор $x = x_1e_1+x_2e_2+\dots+x_ne_n$ подействуем линейным преобразованием.
+$$\varphi(x) = x_1\varphi(e_1)+x_2\varphi(e_2)+\ldots+x_n\varphi(e_n),$$
+где $\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)$ --- столбцы матрицы $A$.\\
+Тогда систему (1) можно переписать следующим образом:\\
+Пусть $e = (e_1, e_2, \dots, e_n)$, тогда
+$$(e_1, e_2, \dots, e_n)A=(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n))$$
+$$\varphi(e)=eA$$
+Вектор $x$ запишем как $x=eX$, где 
+$X=
+\begin{pmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_n
+\end{pmatrix}$.
+Тогда линейное преобразование вектора $x$ примет вид:
+$$\varphi(x)=\varphi(e)X$$
+$$\varphi(x)=eAX$$
+Это говорит о том, что $X \xrightarrow{\varphi} AX \sim \varphi(X)=AX$.\\\\
+\textbf{Теорема.}
+    \begin{enumerate}
+        \item \textit{При сложении линейных преобразований их матрицы в данном базисе складываются.}
+        \item \textit{При умножении линейных преобразований их матрицы в данном базисе умножаются.}
+        \item \textit{При умножении линейного преобразования на скаляр его матрица умножается на тот же скаляр.}
+    \end{enumerate}
+
+\begin{Proof}
+Пусть $V$ --- векторное пространство с базисом $e_1, e_2, \dots, e_n$.\\
+И пусть $f, \varphi$ --- линейные преобразования.\\
+Подействовав этими линейными преобразованиями на базис $V$ получим следующие системы:
+$$\begin{cases}
+     f(e_1)=\alpha_{11}e_1+\alpha_{21}e_2+\dots+\alpha_{n1}e_n\\  
+     f(e_2)=\alpha_{12}e_1+\alpha_{22}e_2+\dots+\alpha_{n2}e_n\\ 
+     \dotfill\\
+     f(e_n)=\alpha_{1n}e_1+\alpha_{2n}e_2+\dots+\alpha_{nn}e_n\\ 
+\end{cases}\eqno(1)$$
+
+$$\begin{cases}
+     \varphi(e_1)=\beta_{11}e_1+\beta_{21}e_2+\dots+\beta_{n1}e_n\\  
+     \varphi(e_2)=\beta_{12}e_1+\beta_{22}e_2+\dots+\beta_{n2}e_n\\ 
+     \dotfill\\
+     \varphi(e_n)=\beta_{1n}e_1+\beta_{2n}e_2+\dots+\beta_{nn}e_n\\ 
+\end{cases}\eqno(2)$$\\
+Запишем матрицы линейных преобразований для $f, \varphi$:\\
+\begin{center}
+$A = 
+\begin{pmatrix}
+\alpha_{11} & \alpha_{12} & \dots & \alpha_{1n}\\
+\alpha_{21} & \alpha_{22} & \dots & \alpha_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+\alpha_{n1} & \alpha_{n2} & \dots & \alpha_{nn}
+\end{pmatrix}$ --- матрица линейного преобразования $f$.
+\end{center}
+\begin{center}
+$B = 
+\begin{pmatrix}
+\beta_{11} & \beta_{12} & \dots & \beta_{1n}\\
+\beta_{21} & \beta_{22} & \dots & \beta_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+\beta_{n1} & \beta_{n2} & \dots & \beta_{nn}
+\end{pmatrix}$ --- матрица линейного преобразования $\varphi$.
+\end{center}
+   \begin{enumerate}
+       \item Сложим почленно строки систем (1) и (2).
+        $$\begin{cases}
+        f(e_1)+\varphi(e_1)=(\alpha_{11}+\beta_{11})e_1+(\alpha_{21}+\beta_{21})e_2+\dots+(\alpha_{n1}+\beta_{n1})e_n\\
+        f(e_2)+\varphi(e_2)=(\alpha_{12}+\beta_{12})e_1+(\alpha_{22}+\beta_{22})e_2+\dots+(\alpha_{n2}+\beta_{n2})e_n\\
+        \dotfill\\
+        f(e_n)+\varphi(e_n)=(\alpha_{1n}+\beta_{1n})e_1+(\alpha_{2n}+\beta_{2n})e_2+\dots+(\alpha_{nn}+\beta_{nn})e_n\\ 
+        \end{cases}$$
+        Отсюда получим матрицу линейного преобразования $f+\varphi$:\\
+        $$\begin{pmatrix}
+        \alpha_{11}+\beta_{11} & \alpha_{12}+\beta_{12} & \dots & \alpha_{1n}+\beta_{1n}\\
+        \alpha_{21}+\beta_{21} & \alpha_{22}+\beta_{22} & \dots & \alpha_{2n}+\beta_{2n}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        \alpha_{n1}+\beta_{n1} & \alpha_{n2}+\beta_{n2} & \dots & \alpha_{nn}+\beta_{nn}\\
+        \end{pmatrix} = A + B$$
+        \item Будем рассматривать умножение линейных преобразований как компзицию отображений $\varphi(f(e))$.
+        Подействуем линейным преобразованием $f$ на базисные векторы:
+        $$\begin{cases}
+        f(e_1)=\alpha_{11}e_1+\alpha_{21}e_2+\dots+\alpha_{n1}e_n\\  
+        f(e_2)=\alpha_{12}e_1+\alpha_{22}e_2+\dots+\alpha_{n2}e_n\\ 
+        \dotfill\\
+        f(e_n)=\alpha_{1n}e_1+\alpha_{2n}e_2+\dots+\alpha_{nn}e_n\\ 
+        \end{cases}\eqno(1)$$
+        На полученные векторы подействуем линейным преобразованием $\varphi$:
+        $$\begin{cases}
+        \varphi(f(e_1))=\beta_{11}f(e_1)+\beta_{21}f(e_2)+\dots+\beta_{n1}f(e_n)\\  
+        \varphi(f(e_2))=\beta_{12}f(e_2)+\beta_{22}f(e_2)+\dots+\beta_{n2}f(e_n)\\
+        \varphi(f(e_n))=\beta_{1n}f(e_1)+\beta_{2n}f(e_2)+\dots+\beta_{nn}f(e_n)\\
+        \end{cases}$$
+        Подставим в полученную систему уравнения системы (1):\\\\
+        $\begin{cases}
+        \varphi(f(e_1))=\beta_{11}(\alpha_{11}e_1+\alpha_{21}e_2+\dots+\alpha_{n1}e_n)+\beta_{21}(\alpha_{12}e_1+\alpha_{22}e_2+\dots+\alpha_{n2}e_n)+\dots\\  
+       \varphi(f(e_2))=\beta_{12}(\alpha_{11}e_1+\alpha_{21}e_2+\dots+\alpha_{n1}e_n)+\beta_{22}(\alpha_{12}e_1+\alpha_{22}e_2+\dots+\alpha_{n2}e_n)+\dots\\ 
+        \varphi(f(e_n))=\beta_{1n}(\alpha_{11}e_1+\alpha_{21}e_2+\dots+\alpha_{n1}e_n)+\beta_{2n}(\alpha_{12}e_1+\alpha_{22}e_2+\dots+\alpha_{n2}e_n)+\dots\\ 
+        \end{cases}$\\\\
+        Раскроем скобки:\\\\
+        $\begin{cases}
+        \varphi(f(e_1))=\beta_{11}\alpha_{11}e_1+\beta_{11}\alpha_{21}e_2+\dots+\beta_{11}\alpha_{n1}e_n+\beta_{21}\alpha_{12}e_1+\beta_{21}\alpha_{22}e_2+\dots+\beta_{21}\alpha_{n2}e_n+\dots\\  
+       \varphi(f(e_2))=\beta_{12}\alpha_{11}e_1+\beta_{12}\alpha_{21}e_2+\dots+\beta_{12}\alpha_{n1}e_n+\beta_{22}\alpha_{12}e_1+\beta_{22}\alpha_{22}e_2+\dots+\beta_{22}\alpha_{n2}e_n+\dots\\ 
+        \varphi(f(e_n))=\beta_{1n}\alpha_{11}e_1+\beta_{1n}\alpha_{21}e_2+\dots+\beta_{1n}\alpha_{n1}e_n+\beta_{2n}\alpha_{12}e_1+\beta_{2n}\alpha_{22}e_2+\dots+\beta_{2n}\alpha_{n2}e_n+\dots\\ 
+        \end{cases}$\\\\
+        Сгрупируем подобные слагаемые:\\\\
+        $\begin{cases}
+        \varphi(f(e_1))=(\beta_{11}\alpha_{11}+\beta_{21}\alpha_{12}+\dots)e_1+(\beta_{11}\alpha_{21}+\beta_{21}\alpha_{22}+\dots)e_2+\dots\\  
+       \varphi(f(e_2))=(\beta_{12}\alpha_{11}+\beta_{22}\alpha_{12}+\dots)e_1+(\beta_{12}\alpha_{21}+\beta_{22}\alpha_{22}+\dots)e_2+\dots\\ 
+        \varphi(f(e_n))=(\beta_{1n}\alpha_{11}+\beta_{2n}\alpha_{12}+\dots)e_1+(\beta_{1n}\alpha_{21}+\beta_{2n}\alpha_{22}+\dots)e_2+\dots\\  
+        \end{cases}$\\\\
+        Запишем координаты векторов в матрицу линейного преобразования:\\\\
+        $\begin{pmatrix}
+        \beta_{11}\alpha_{11}+\beta_{21}\alpha_{12}+\dots & \beta_{12}\alpha_{11}+\beta_{22}\alpha_{12}+\dots & \dots & \beta_{1n}\alpha_{11}+\beta_{2n}\alpha_{12}+\dots\\
+       \beta_{11}\alpha_{21}+\beta_{21}\alpha_{22}+\dots & \beta_{12}\alpha_{21}+\beta_{22}\alpha_{22}+\dots&\dots&
+       \beta_{2n}\alpha_{21}+\beta_{2n}\alpha_{22}+\dots\\
+        \vdots & \vdots & \ddots & \vdots\\
+        \beta_{11}\alpha_{n1}+\beta_{21}\alpha_{n2}+\dots & \beta_{12}\alpha_{n1}+\beta_{22}\alpha_{n2}+\dots & \dots&
+        \beta_{1n}\alpha_{n1}+\beta_{2n}\alpha_{n2}+\dots\\
+        \end{pmatrix}=A\cdot B$
+        \item Умножим каждую строку системы (1) на произвольный скаляр $\gamma$:
+        $$\begin{cases}
+        \gamma f(e_1)=\gamma\alpha_{11}e_1+\gamma \alpha_{21}e_2+\dots+\gamma \alpha_{n1}e_n\\  
+        \gamma f(e_2)=\gamma \alpha_{12}e_1+\gamma \alpha_{22}e_2+\dots+\gamma \alpha_{n2}e_n\\ 
+        \dotfill\\
+        \gamma f(e_n)=\gamma \alpha_{1n}e_1+\gamma \alpha_{2n}e_2+\dots+\gamma \alpha_{nn}e_n\\ 
+        \end{cases}$$
+        Получаем матрицу линейного преобразования $\gamma f$:
+        \begin{center}
+        $\begin{pmatrix}
+        \gamma \alpha_{11} & \gamma \alpha_{12} & \dots & \gamma \alpha_{1n}\\
+        \gamma \alpha_{21} & \gamma \alpha_{22} & \dots & \gamma \alpha_{2n}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        \gamma \alpha_{n1} & \gamma \alpha_{n2} & \dots & \gamma \alpha_{nn}
+        \end{pmatrix} = \gamma A$
+        \end{center}
+   \end{enumerate}
+\end{Proof}
+\begin{theorem}
+    Ранг линейного преобразования равен рангу его матрицы.
+\end{theorem}
+\begin{Proof}
+$$\rank \varphi = \dim \varphi(V)$$
+Так как образ есть \textit{линейная оболочка} $L(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n))$, то
+$$\dim \varphi(V) = \dim L(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)) = \rank(\varphi(e_1), \varphi(e_2), \dots, \varphi(e_n)) = \rank A$$
+$$\rank \varphi = \rank A$$
+\end{Proof}\\
+\textbf{Пример 1}\\
+$\varphi(x) = \vec 0, \quad \forall x$ --- нулевое преобразование.
+$$\begin{cases}
+     \varphi(e_1)=0e_1+0e_2+\dots+0e_n\\  
+     \varphi(e_2)=0e_1+0e_2+\dots+0e_n\\ 
+     \dotfill\\
+     \varphi(e_n)=0e_1+0e_2+\dots+0e_n\\ 
+\end{cases}$$
+\begin{center}
+    $A = \begin{pmatrix}
+    0 & 0 & \dots & 0\\
+    0 & 0 & \dots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \dots & 0
+    \end{pmatrix}$
+    --- матрица нулевого преобразования.\\
+    \end{center}
+\textbf{Пример 2}\\
+$\varphi(x) = x, \quad \forall x$ --- тождественное преобразование.
+$$\begin{cases}
+     \varphi(e_1)=1e_1+0e_2+\dots+0e_n\\  
+     \varphi(e_2)=0e_1+1e_2+\dots+0e_n\\ 
+     \dotfill\\
+     \varphi(e_n)=0e_1+0e_2+\dots+1e_n\\ 
+\end{cases}$$
+\begin{center}
+    $A = \begin{pmatrix}
+    1 & 0 & \dots & 0\\
+    0 & 1 & \dots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \dots & 1
+    \end{pmatrix}$
+    --- матрица тождественного преобразования.\\
+    \end{center}    
+\textbf{Пример 3}
+\begin{center}
+    $A = \begin{pmatrix}
+    \cos \alpha & -\sin \alpha\\
+    \sin \alpha & \cos \alpha\\
+    \end{pmatrix}$
+    --- матрица угла поворота системы координат на угол $\alpha$.\\
+    \end{center}
+    $\bullet$ \textit{Биективное (взаимооднозначное) линейное преобразование называется \textbf{автоморфизмом}.}\\\\
+    Если $\varphi: V \rightarrow V$ --- линейное преобразование, то $\varphi$ --- автоморфизм $\Leftrightarrow$ $\varphi$ --- биекция.
+    \begin{theorem}
+        Линейное преобразование $\varphi$ --- автоморфизм $\Leftrightarrow$ его матрица невырожденная.
+    \end{theorem}
+    \begin{Proof}
+    $$\varphi(X)=AX$$
+    $\Rightarrow$ Предположим, что $|A| = 0$ (т.е. матрица вырожденная).\\
+    Тогда $AX=0$ $\Rightarrow$ система уравнений линейного преобразования имеет несколько решений и ноль имеет несколько прообразов, чего быть не может.\\\\
+    $\Leftarrow$ Имеем, что $|A| \neq 0$ (т.е. матрица невырожденная).\\
+    Значит для $AX=B$ имеется только одно решение по правилу Крамера $\Rightarrow$ $\varphi$ --- биекция.
+    \end{Proof}
 \end{document}
