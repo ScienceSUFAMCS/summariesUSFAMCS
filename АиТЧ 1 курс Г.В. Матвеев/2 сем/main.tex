@@ -7,6 +7,7 @@
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{graphicx}
 
 \newtheorem*{theorem}{Теорема}
 \newtheorem*{corollary}{Следствие}
@@ -19,9 +20,13 @@
 
 %доп команды
 \newcommand{\rank}{\operatorname{rank}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\pr}{\operatorname{\text{пр}}}
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\ker}{\operatorname{ker}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
 
 %Красивые греческие буквы
 \usepackage{upgreek}
@@ -151,8 +156,8 @@ $$x=\alpha_1e_1+\alpha_2e_2+ ... + \alpha_ne_n$$
 
 \subsection*{Решение системы линейных алгебраических уравнений с помощью критерия}
 \begin{enumerate}
-    \item Нахождение базисного минора матрицы $A$ методом окаямления минора.
-    \item Проверяем условие $\rank A=\rank\widetilde{A}$ методом окаямления миноров.
+    \item Нахождение базисного минора матрицы $A$ методом окаймления минора.
+    \item Проверяем условие $\rank A=\rank\widetilde{A}$ методом окаймления миноров.
     \item Отбрасываем все небазисные строки.
     \item Базисные неизвестные оставляем слева, а свободные переносим вправо.
 \end{enumerate}
@@ -232,7 +237,7 @@ $$AX_1=0 \Rightarrow \lambda AX_1=0$$
     $$\begin{cases}
     a_{11}x_1+a_{12}x_2+ \ldots + a_{1r}x_r = b_1-a_{1, r+1}x_{r+1}- \ldots -a_{1n}x_n\\
     \dotfill\\
-    a_{n1}x_1+a_{n2}x_2+ \ldots + a_{nr}x_r = b_n-a_{n, r+1}x_{r+1}- \ldots -a_{nn}x_n
+    a_{m1}x_1+a_{m2}x_2+ \ldots + a_{mr}x_r = b_m-a_{m, r+1}x_{r+1}- \ldots -a_{mn}x_n
     \end{cases}\eqno(3)$$
 Базисный минор для этой системы $$M=
 \begin{vmatrix}
@@ -240,7 +245,7 @@ a_{11} & \dots & a_{1r}\\
 \dots & \ddots & \dots\\
 a_{r1} & \dots & a_{rr}
 \end{vmatrix} \neq 0$$
-Где неизвестные $x_1,\dots,x_n$ --- базисные, а
+Где неизвестные $x_1,\dots,x_r$ --- базисные, а
 $x_{r+1},\dots,x_n$ --- свободные.\\
 Выражаем базисные неизвестные через свободные по правилу Крамера или Гаусса:
 \begin{equation*}
@@ -252,9 +257,12 @@ $x_{r+1},\dots,x_n$ --- свободные.\\
 \end{equation*}
 Найдем базисные решения. Для этого
 передадим значения 
-$$c_1=(c_{11},c_{12},\dots,c_{1r},1,0,\dots,0)$$
-$$c_2=(c_{21},c_{22},\dots,c_{2r},0,1,\dots,0)$$
-$$c_{n-r}=(c_{n-r,1},c_{n-r,2},\dots,c_{n-r,r},0,0,\dots,1)$$
+$$\begin{cases}
+    c_1=(c_{11},c_{12},\dots,c_{1r},1,0,\dots,0)\\
+    c_2=(c_{21},c_{22},\dots,c_{2r},0,1,\dots,0)\\
+    \dotfill\\
+    c_{n-r}=(c_{n-r,1},c_{n-r,2},\dots,c_{n-r,r},0,0,\dots,1)
+\end{cases}$$
 Переменные, которым были переданы значения 0 и 1, являются базисными. Векторы являются линейно независимыми благодаря этим переменным.\\\\
 Докажем, что любое решение выражается через базис.
 $$(\gamma_1,\dots,\gamma_r,\gamma_{r+1},\dots,\gamma_n)-\gamma_{r+1}c_1-\ldots-\gamma_nc_{n-r}=(\gamma_1c_1,\gamma_2c_2,\dots,\gamma_nc_{n-r})$$
@@ -262,7 +270,7 @@ $$(\gamma_1,\dots,\gamma_r,\gamma_{r+1},\dots,\gamma_n)-\gamma_{r+1}c_1-\ldots-\
 \end{Proof}\\\\
 $\bullet$ \textit{Базисные решения ОСЛУ называются \textbf{фундаментальной системой решений}.}
 \subsection*{Решение неоднородной системы через однородную}
-Будем обозначать $AX=B$ --- \textbf{неоднородная система}, $AX=0$ --- \textbf{однородная система}.
+Будем обозначать $AX=B$ --- \textbf{неоднородная система}, $AY=0$ --- \textbf{однородная система}.
 $$\left.
   \begin{array}{ccc}
     AX=B \\
@@ -363,6 +371,11 @@ $$\ker( \varphi) = \vec 0$$
 $$\Im (\varphi) = V$$
 \textbf{Пример 3}\\
 Возьмем прямую $l$ и плоскость $P$, где $l \perp P$.
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[scale=0.8]{0st25sYXFU (1).png}
+    \end{center}
+    \end{figure}\\
 $$\varphi(\vec a)=\vec pr a$$
 $$\Im (\varphi) = l = V_1$$
 $$\ker (\varphi) = P = V_2$$
@@ -608,6 +621,11 @@ $$\begin{cases}
     --- матрица тождественного преобразования.\\
     \end{center}    
 \textbf{Пример 3}
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[scale=0.8]{2.png}
+    \end{center}
+    \end{figure}\\
 \begin{center}
     $A = \begin{pmatrix}
     \cos \alpha & -\sin \alpha\\
@@ -627,4 +645,346 @@ $$\begin{cases}
     $\Leftarrow$ Имеем, что $|A| \neq 0$ (т.е. матрица невырожденная).\\
     Значит для $AX=B$ имеется только одно решение по правилу Крамера $\Rightarrow$ $\varphi$ --- биекция.
     \end{Proof}
+    \section{Подобные матрицы}
+    Для определения подобия матриц рассмотрим задачу.\\\\
+    \textbf{Задача}\\
+    Пусть $u, v$ --- некоторые базисы, $\varphi$ --- линейное преобразование. Применим его к обоим базисам:
+    $$\varphi(u) = \varphi(u_1), \varphi(u_2), \dots, \varphi(u_n) = (u_1,u_2,\dots,u_n)A$$
+    Запишем полученные преобразования в матричном виде:
+    $$\varphi(u)=uA$$
+    $$\varphi(v)=vB$$
+    Пусть $S$ --- матрица перехода от базиса $u$ к базису $v$ ($|S| \neq 0$ --- матрица невырожденная), то есть $v=uS$.\\
+    \textit{Найти}: связь между матрицами $A$ и $B$.\\
+    \textit{Решение:}\\
+    Подействуем линейным преобразованием $\varphi$ на $v=uS$:
+    $$\varphi(v)=\varphi(u)S$$
+    Подставим в это равенство значение $\varphi(u)$, полученное выше:
+    $$\varphi(v)=uAS\eqno(1)$$
+    Так как $\varphi(v) = vB$ и $v=uS$, то, подставив значение $v$ в первое уравнение, получим:
+    $$\varphi(v)=uSB\eqno(2)$$
+    Приравняем правые части уравнений (1) и (2):
+    $$uAS=uSB$$
+    $$u(SB-AS)=(\vec0,\vec0,\dots,\vec0)$$
+    \textit{Так как векторы $u_1,u_2,\dots,u_n$ линейно независимы как базис и их линейные комбинации равны $\vec0$, то элементы матрицы $SB-AS$ равны 0 $\Rightarrow SB=AS \Rightarrow B=S^{-1}AS$.}\\\\
+    $\bullet$ Матрицы $A$ и $B$, связанные соотношением $B=S^{-1}AS$, называются \textbf{подобными}.\\\\
+    $\bullet$ Матрицы одного и того же преобразования в разных базисах \textbf{подобны}.\\\\
+    $\bullet$ Если для матриц $A$ и $B$ справедливо равенство $B=S^{-1}AS$, то можно найти линейное преобразование и базисы, которые будут иметь эти матрицы.
+    \begin{theorem}
+        Две квадратных матрицы одного и того же порядка являются матрицами одного и того же преобразования $\Leftrightarrow$ они подобны.
+    \end{theorem}
+    \textbf{Свойства подобных матриц}
+    \begin{enumerate}
+        \item \textit{Всякая матрица подобна самой себе:}
+        $$A=E^{-1}AE$$
+        \item \textit{Подобие матриц транзитивно:}\\
+        Возьмем матрицы $A, B, C$, связанные соотношением:
+        $$C=T^{-1}BT$$
+        $$B=S^{-1}AS$$
+        Подставим значение $B$:
+        $$C=T^{-1}S^{-1}AST$$
+        Используя свойство обратных матриц
+        $$T^{-1}S^{-1}=(ST)^{-1}$$
+        и подставя полученное значение в предыдущее равенство, получаем:
+        $$C=(ST)^{-1}A(ST)$$
+        \item \textit{Подобие матриц симметрично:}
+        $$A=T^{-1}BT \Leftrightarrow B=S^{-1}AS$$
+        Рассмотрим равенство $B=S^{-1}AS$. Домножим левую и правую часть на $S^{-1}$ и $S$:
+        $$A=SBS^{-1}$$
+        Пусть $T=S^{-1} \Rightarrow T^{-1}=S$. Подставим это в равенство и получим:
+        $$A=T^{-1}BT$$
+        То есть если матрица $B$ подобна матрице $A$, то мы можем найти такую матрицу $T$, чтобы матрица $A$ была подобна матрице $B$.
+        \item \textit{Определители подобных матриц равны:}
+        $$|B|=|S^{-1}AS|=|S^{-1}|\cdot|A|\cdot|S|=|A|\cdot|S|\cdot|S^{-1}|=|A|\cdot|SS^{-1}|=|A|\cdot|E|=|A|\cdot1=|A|$$
+        \item \textit{Ранги подобных матриц равны:}
+        $$B=S^{-1}AS \Rightarrow \rank A = \rank B = \rank f$$
+        Это объясняется тем, что ранг преобразования равен рангу матрицы:
+        $$\rank A = \rank f, \quad \rank B = \rank f \Rightarrow \rank A = \rank B$$
+    \end{enumerate}
+    \section{Инвариантные подпространства}
+    Пусть $\varphi: V \rightarrow V$ --- преобразование векторного пространства, $W$ -- подпространство.\\
+    $W$ называется \textbf{инвариантным}, если $\varphi(W) \subset W$.\\\\
+    \textbf{Примеры}
+    \begin{enumerate}
+        \item $\varphi(V) = V, \ \varphi = e$ --- все подпространства инвариантны.
+        \item $W = \vec0, \ \varphi(\vec0) = \vec0$ --- нулевое подпространство всегда инвариантно.
+        \item $W = V$ --- само пространство инвариантно.
+        \item $\varphi(W) = 0 \in W, \ \varphi = 0$ --- нулевое преобразование.\\
+        Все подпространства инвариантны.
+        \item $\varphi = \lambda e$ --- скалярное преобразование.\\
+        Все подпространства инвариантны.
+        \item Проектирование в 3-х мерном пространстве на прямую:
+        $$\varphi = \pr_l P$$
+        \begin{figure}[h]
+    \begin{center}
+    \includegraphics[scale=0.8]{0st25sYXFU (1).png}
+    \end{center}
+    \end{figure}\\
+        Инвариантные подпространства:
+        \begin{itemize}
+            \item Все векторы прямой;
+            \item Векторы, перпендикулярные плоскости.
+        \end{itemize}
+    \end{enumerate}
+    \begin{theorem}
+        Сумма и пересечение инвариантных пространств инвариантны.
+    \end{theorem}
+    \begin{Proof}
+    Пусть $x = W_1 \cap W_2$.\\
+    Так как $W_1$ --- инвариантно, то $\varphi(x) \in W_1$, аналогично для $W_2$.\\
+    Так как $\varphi(x) \in W_1$ и $\varphi(x) \in W_2$, то $\varphi(x) \in W_1 \cap W_2 \Rightarrow W_1 \cap W_2$ --- инвариантно.\\\\
+    Пусть $x \in W_1 + W_2 \Rightarrow x \in W_1$ или $x \in W_2$.\\
+    Так как $W_1$ и $W_2$ --- инвариантны, то $\varphi(x) \in W_1$ или $\varphi(x) \in W_2 \Rightarrow \varphi(x) \in W_1 + W_2 \Rightarrow W_1 + W_2$ --- инвариантно.
+    \end{Proof}\\\\\\
+    $\bullet$ Матрица называется \textbf{полураспавшейся}, если она имеет вид
+    \begin{figure}[h]
+    \begin{center}
+    \includegraphics[scale=0.15]{1.png}
+    \end{center}
+    \end{figure}\\
+    где $k_1 + k_2 = n, \ k_1, k_2 > 0$.
+    \begin{theorem}
+        У данного преобразования имеется нетривиальное инвариантное подпространство $\Leftrightarrow$ его матрица в некотором базисе \textbf{полураспавшаяся}.
+    \end{theorem}
+    \begin{Proof}
+    Пусть линейное преобразование $\varphi$ имеет имеет инвариантное подпространство: $$\varphi(W) \subset W$$
+    $\Rightarrow$ Возьмем базис подпространства $w_1, w_2, \dots, w_{k1}$ и дополним его до базиса пространства: $$w_1,w_2, \dots, w_{k1}, v_1, v_2, \dots, v_{k2}$$
+    Посчитаем матрицу линейного преобразования в новом базисе:
+    $$\varphi(w_1) \in W, \ \varphi(w_1)=\alpha_{11}w_1+\alpha_{21}w_2+\dots+\alpha_{k+1 \ 1}w_{k1}+0v_1+\dots+0v_{k2} \eqno(1)$$\\\\
+    $\Leftarrow$ Если для линейного преобразования существует полураспавшаяся матрица, то выполнется разложение (1). А значит
+    $$\begin{cases}
+           \varphi(w_1) \in L(w_1, w_2, \dots, w_{k1})\\
+           \varphi(w_2) \in L(w_1, w_2, \dots, w_{k1})\\
+           \dotfill \\
+           \varphi(w_{k1}) \in L(w_1, w_2, \dots, w_{k1})
+    \end{cases}$$
+    Отсюда следует, что $L$ --- инвариантно.\\\\
+    Рассмотрим произвольный вектор $w$:
+    $$w = \alpha_1w_1+\alpha_2w_2+\dots+\alpha_{k1}w_{k1}$$
+    $$\varphi(w)=\alpha_1\varphi(w_1)+\alpha_2\varphi(w_2)+\dots+\alpha_{k1}\varphi(w_{k1})$$
+    Так как $\varphi(w_i) \in L$ то и $\varphi(w) \in L$.
+    \end{Proof}\\\\
+    \textbf{Замечание}. Инвариантность подпространства достаточно проверять только на базисных векторах.
+    \section{Характеристическая матрица и характеристический многочлен}
+    Пусть $A$ --- квадратная матрица.\\
+    $\bullet$ Характеристическая матрица матрицы $A$ имеет вид:
+    $$xE-A$$
+    $\bullet$ Характеристическим многочленом называется определитель характеристической матрицы:
+    $$|xE-A|$$
+    \textbf{Примеры.}
+    \begin{enumerate}
+        \item $A=E$ --- единичная матрица.\\
+        $$(xE-E) = 
+        \begin{pmatrix}
+        x-1 & 0 & \dots & 0\\
+        0 & x-1 & \dots & 0\\
+        \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \dots & x - 1
+        \end{pmatrix}, \quad
+        |xE-E| = (x-1)^n$$
+        \item $A = 0$ --- нулевая матрица.\\
+        $$xE-0=xE= 
+        \begin{pmatrix}
+        x & 0 & \dots & 0\\
+        0 & x & \dots & 0\\
+        \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \dots & x
+        \end{pmatrix}, \quad |xE-0| = x^n$$
+    \end{enumerate}
+    $\bullet$ \textbf{Следом} линейного преобразования называется выражение
+    $$\tr \varphi = \tr A = \sum^n_{i=1}a_{ii}$$
+    где $A = (a_{ij})$ --- матрица линейного преобразования $\varphi$.\\\\
+    \textbf{Свойства характеристических матрицы и многочлена:}
+    \begin{enumerate}
+        \item \begin{itemize}
+            \item \textit{Характеристическая матрица всегда невырожденная.}
+            \item \textit{Характеристический многочлен всегда $\neq 0$.}
+            \item \textit{Степень многочлена равна $n$ --- порядок матрицы.}
+        \end{itemize}
+        \item $f(x) = 
+        \begin{vmatrix}
+        x-a_{11} & -a_{12} & \dots & -a_{1n}\\
+        -a_{21} & x-a_{22} & \dots & -a_{2n}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        -a_{n1} & a_{n2} & \dots & x-a_{nn}
+        \end{vmatrix}
+        = x^n - (a_{11} + a_{22} + \dots + a_{nn})x^{n-1} + \dots$
+        \item $f(0) = (-1)^n \cdot |A|$ --- свободный член.
+        \item \textit{Матрица будет вырожденной $\Leftrightarrow 0 $ является корнем ее многочлена.}
+        \begin{Proof}
+        $f(0) = |-A| = 0$
+        \end{Proof}
+        \item \textit{Характеристические многочлены подобных матриц равны.}
+        \begin{Proof}
+        Пусть $B = S^{-1}AS$\\
+        $|xE-B| = |xE - S^{-1}AS| = |S^{-1}xES - S^{-1}AS| = |S^{-1}(xE-A)S| = |S^{-1}| \cdot |xE-A| \cdot |S| = |S^{-1}| \cdot |S| \cdot |xE-A| = |S \cdot S^{-1}| \cdot |xE - A| = |E| \cdot |xE - A| = |xE - A|$
+        \end{Proof}
+        \item \textit{Характеристический многочлен полураспавшейся (распавшейся) матрицы равен произведению характеристических многочленов ее диагональных блоков.}
+        $$\begin{pmatrix}
+        A_1 & C\\
+        0 & A_2
+        \end{pmatrix}, \quad 
+        \begin{vmatrix}
+        xE_{n1}-A_1 & -C\\
+        0 & xE_{n2}-A_2
+        \end{vmatrix} = |xE_{n1}-A_1|\cdot|xE_{n2}-A_2|$$
+    \end{enumerate}
+    \section{Собственные векторы и собственные значения линейного преобразования}
+    Пусть $\varphi$ --- линейное преобразование пространства $V_n$.\\
+    $\bullet$ $\vec x \neq 0$ --- \textbf{собственный вектор} линейного преобразования $\varphi$, отвечающий собственному значению $\lambda$:
+    $$\varphi(x) = \lambda x$$
+    \textbf{Примеры}
+    \begin{enumerate}
+        \item $\varphi(v) = v$ --- тождественное преобразование.\\
+        Все векторы собственные, отвечают значению 1.
+        $$\varphi(v) = 1 \cdot v$$
+        \item $\varphi(v) = \vec 0$ --- нулевое преобразование.\\
+        Все векторы собственные, отвечают значению 0.
+        $$\varphi(v) = \vec 0 = 0 \cdot v$$
+        \item Проектирование\\
+        Векторы прямой: $\varphi(\vec a) = 1 \cdot \vec a$ --- отвечают значению 1.\\
+        Векторы перпендикулярной плоскости: $\varphi(\vec a) = \vec 0 = 0 \cdot \vec a$ --- отвечают значению 0.
+    \end{enumerate}
+    $$X \stackrel{\varphi}{\rightarrow} AX$$
+    $$AX = \lambda X$$
+    $$AX = \lambda EA$$
+    $$(A - \lambda E)X = 0 \sim (A-\lambda E|0)$$
+    То есть решения ОСЛУ образуют векторное пространство.
+    $$\varphi(x)=\lambda x \sim (\varphi - \lambda e)x = \vec 0$$
+    Образует инвариантное подпространство.
+    \begin{theorem}
+        Собственные значения линейного преобразования --- это корни характеристического многочлена (характеристические числа, принадлежащие основному полю).
+    \end{theorem}
+    \begin{Proof}
+    По определению $\varphi(x)=\lambda x$. Запишем условие существования собственного вектора в виде:
+    $$(\varphi-\lambda E)x = \vec 0$$
+    Так как $\vec x \neq 0$ по определению, то преобразование $\varphi - \lambda e$ должно быть вырожденным:
+    $$\det (\varphi - \lambda e) = 0 \eqno (1)$$
+    Пусть в каком-нибудь базисе преобразование $\varphi$ имеет матрицу $A$, тогда преобразование $\varphi - \lambda e$ будет иметь матрицу $A - \lambda E$.\\
+    Тогда условие (1) можно записать в следующем виде:
+    $$\det (A - \lambda E) = 
+    \begin{vmatrix}
+    a_{11}-\lambda & a_{12} & \dots & a_{1n}\\
+    a_{21} & a_{22} - \lambda & \dots & a_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    a_{n1} & a_{n2} & \dots & a_{nn} - \lambda
+    \end{vmatrix} = 0$$
+    А $\det(A - \lambda E)$ --- характеристический многочлен, корнями которого являются собственные значения $\lambda$.
+    \end{Proof}
+    Собственные векторы, отвечающие найденным собственным значениям, и нулевой вектор образуют инвариантное подпространство $\ker (\varphi - \lambda e)$, и их можно найти, решая ОСЛУ $(A - \lambda E|0)$ и отбрасывая 0.
+    \begin{theorem}
+        Собственные векторы, отвечающие попарно различным собственным значениям, линейно независимы.
+    \end{theorem}
+    \begin{Proof}
+    Пусть $\lambda_1, \lambda_2, \dots, \lambda_k, \ \lambda_i \neq \lambda_j, \ i \neq j$ --- некоторые собственные значения.\\
+    $\varphi(x_i) = \lambda_i x_i, \ i = 1, 2, \dots, k$ --- собственные векторы.
+    Докажем теорему методом от противного.\\
+    Предположим, что векторы линейно зависимы. Следовательно, один вектор линейно выражается через все остальные, которые будут линейно независимы:
+    $$x_k = \alpha_1x_1+\alpha_2x_2+\dots+\alpha_{k-1}x_{k-1} \eqno(2)$$
+    где $x_1, x_2, \dots, x_{k-1}$ --- линейно независимы.
+    Подействуем на обе части уравнения (2) линейным преобразованием $\varphi$:
+    $$\lambda_kx_k = \alpha_1\lambda_1x_1+\alpha_2\lambda_2x_2+\dots+\alpha_{k-1}\lambda_{k-1}x_{k-1} \eqno(3)$$
+    Умножим обе части уравнения (2) на $\lambda_k$:
+    $$\lambda_kx_k = \alpha_1\lambda_kx_1+\alpha_2\lambda_kx_2+\dots+\alpha_{k-1}\lambda_kx_{k-1} \eqno(4)$$
+    Вычтем из уравнения (3) уравнение (4):
+    $$\alpha_1(\lambda_1-\lambda_k)x_1+\alpha_2(\lambda_2-\lambda_k)x_2+\dots+\alpha_{k-1}(\lambda_{k-1}-\lambda_k)x_{k-1} = \vec 0$$
+    Так как векторы $x_i$ линейно независимы, то $\alpha_i(\lambda_i-\lambda_k) = 0, \ i = 1, 2, \dots, k-1$.\\
+    Так как вектор $x_k \neq 0$, то $\alpha_i \neq 0$ одновременно. Положим, что $\alpha_1 \neq 0$.\\
+    Так как $\alpha_1 \neq 0, \ \lambda_k \neq \lambda_i \Rightarrow \alpha_i(\lambda_1-\lambda_k) \neq 0$.\\
+    Полученное противоречие доказывает наше утверждение.
+    \end{Proof}
+    \begin{theorem}
+        Если у преобразования $\varphi$ пространства $V_n$ имеется $n$ попарно различных собственных значений, то для него существует базис, состоящий из собственных векторов, отвечающих этим значениям, и его матрица в этом базисе будет диагональной.
+    \end{theorem}
+    \begin{Proof}
+    Пусть $\lambda_1, \lambda_2, \dots, \lambda_n, \ \lambda_i \neq \lambda_j, \ i \neq j$ --- собственные значения.\\
+    $v_1, v_2, \dots, v_n$ --- векторы, отвечающие данным значениям.\\
+    Разложим эти векторы:
+    $$\begin{cases}
+           \varphi(v_1)=\lambda_1v_1+0v_2+\dots+0v_n\\
+           \varphi(v_2)=0v_1+\lambda_2v_2+\dots+0v_n\\
+           \dotfill\\
+           \varphi(v_n)=0v_1+0v_2+\dots+\lambda_nv_n\\
+    \end{cases}$$
+    Тогда матрица преобразования имеет вид:
+    $$\begin{pmatrix}
+    \lambda_1 & 0 & \dots & 0\\
+    0 & \lambda_2 & \dots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \dots & \lambda_n
+    \end{pmatrix}$$
+    \end{Proof}\\
+    \textbf{Следствие.} \textit{Если у квадратной матрицы имеется $n$ попарно различных характеристических чисел, то эта матрица подобна диагональной.}
+    \section{Основные свойства делимости в кольце целых чисел}
+    $\N = \{ 1, 2, \dots \}$\\
+    $\Z = \{ 0, \pm 1, \pm 2, \dots \}$\\\\
+    $\bullet$ Говорят, что $a$ делит $b \ (a | b)$, когда $a \neq 0$ и $\exists q: \ b=aq$.\\\\
+    \textbf{Свойства делимости:}
+    \begin{enumerate}
+        \item $b|a, \ b|c \Rightarrow b|a\pm c$
+        \begin{Proof}
+        $a=bq_1$\\
+        $c=bq_2$\\
+        $a \pm c = b(q_1 \pm q_2)$
+        \end{Proof}
+        \item $b | a \Rightarrow b |ac$
+        \begin{Proof}
+        $a=bq_1$\\
+        $ac=bq_1c$
+        \end{Proof}
+        \item $a|b, \ b|a \Leftrightarrow a= \pm b$
+        \begin{Proof}
+        $b=aq_1$\\
+        $a=bq_2$\\
+        $b=bq_2q_1$\\
+        $1=q_1q_2 \Leftrightarrow \left[ 
+        \begin{gathered}
+            q_2=q_1=-1\\
+            q_2=q_1=1
+        \end{gathered} \right.$
+        \end{Proof}
+        \item $b |a \Rightarrow (a,b)=b$
+    \end{enumerate}
+    \begin{theorem}
+        Всякое число $a$ представимо единственным образом через положительное $b$ в виде
+        $$a=bq+r, \quad 0 \leq r < b$$
+    \end{theorem}
+    \begin{Proof}
+    Возьмем наибольшее $q$ с условием, что $bq \leq a$.\\
+    Тогда $r=a-bq \ \Rightarrow r$ удовлетворяет условию  $0 \leq r < b$.\\
+    Покажем однозначность:\\
+    $$a=bq+r$$
+    $$a=bq_1+r_1$$
+    Вычтем из одного равенства другое:
+    $$b(q-q_1)=r_1-r$$
+    Очевидно, что $r_1-r < b$. Пусть тогда $r_1>r$. Тогда $q-q_1>0 \ \Rightarrow$ равенство невозможно $\Rightarrow \ r=r_1 \Rightarrow \ r_1-r=0$.\\
+    А так как $b \neq 0$, то $q-q_1=0 \ \Rightarrow q=q_1$.
+    \end{Proof}
+    \subsection{НОД}
+    $\bullet$ \textbf{НОД} --- наибольший общий делитель 2 чисел, обозначается $(a, b)$.\\\\
+    \textbf{Свойства НОДа:}
+    \begin{enumerate}
+        \item Для $(0, 0)$ НОД не существует.
+        \item $(a, 0) = a, \ a \neq 0$.
+        \item Знак не влияет на делимость.
+        \item $a=bq+r \ \Rightarrow (a,b)=(b,r)$
+        \begin{Proof}
+        Если $d|a$ и $d|b \ \Rightarrow \ d|r$.\\
+        Если $d|r$ и $d|b \ \Rightarrow \ d|a$.
+        \end{Proof}
+    \end{enumerate}
+    \subsection{Алгоритм Евклида}
+    \begin{enumerate}
+        \item \textit{Большее из чисел поделить с остатком на меньшее:}
+        $$a=bq_1+r_1$$
+        \item \textit{Делитель делим с остатком на остаток $r_1$:}
+        $$b=r_1q_2+r_2$$
+        \item \textit{Продолжаем до тех пор, пока не получим первый нулевой остаток. Последний, отличный от 0 остаток, будет НОДом.}
+        $$r_1=r_2q_3+r_3$$
+        $$r_{n-1}=r_nq_{n+1}+r_{n+1}$$
+        $$r_n=r_{n+1}q_{n+2}$$
+        $$(a,b)=r_{n+1}$$
+        \begin{Proof}
+        $$(a,b)=(b,r_1)=(r_1,r_2)=\dots=r_{n+1}$$
+        \end{Proof}
+    \end{enumerate}
 \end{document}
