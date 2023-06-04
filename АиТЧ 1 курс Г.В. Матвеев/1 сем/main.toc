@@ -1,0 +1,3 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Операции над комплексными числами}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Геометрическая интерпретация комплексных чисел}{4}{subsection.1.1}%
