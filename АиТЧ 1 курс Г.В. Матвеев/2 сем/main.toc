@@ -1,0 +1,15 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Прямая сумма подпространств}{3}{section.1}%
+\contentsline {section}{\numberline {2}Критерий совместности системы линейных уравнений}{4}{section.2}%
+\contentsline {section}{\numberline {3}Однородные системы линейных уравнений}{5}{section.3}%
+\contentsline {section}{\numberline {4}Линейные преобразования векторных пространств}{7}{section.4}%
+\contentsline {section}{\numberline {5}Операции над линейными преобразованиями}{8}{section.5}%
+\contentsline {section}{\numberline {6}Ранг и дефект линейного преобразования}{9}{section.6}%
+\contentsline {section}{\numberline {7}Матрица линейного преобразования}{10}{section.7}%
+\contentsline {section}{\numberline {8}Подобные матрицы}{15}{section.8}%
+\contentsline {section}{\numberline {9}Инвариантные подпространства}{17}{section.9}%
+\contentsline {section}{\numberline {10}Характеристическая матрица и характеристический многочлен}{19}{section.10}%
+\contentsline {section}{\numberline {11}Собственные векторы и собственные значения линейного преобразования}{20}{section.11}%
+\contentsline {section}{\numberline {12}Основные свойства делимости в кольце целых чисел}{22}{section.12}%
+\contentsline {subsection}{\numberline {12.1}НОД}{23}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Алгоритм Евклида}{23}{subsection.12.2}%

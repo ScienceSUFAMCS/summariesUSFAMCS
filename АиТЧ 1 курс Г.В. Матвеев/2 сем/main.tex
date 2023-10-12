@@ -19,6 +19,7 @@
 \usepackage[unicode]{hyperref}
 
 %доп команды
+\renewcommand{\mod}{\operatorname{mod}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\tr}{\operatorname{tr}}
 \newcommand{\pr}{\operatorname{\text{пр}}}
@@ -346,7 +347,7 @@ $\bullet$ \textit{Отображение $\varphi: V \rightarrow V$ (само в
     \begin{Proof}
     	$(f+\varphi)(\lambda_1 x_1 + \lambda_2 x_2)=f(\lambda_1 x_1 + \lambda_2 x_2) + \varphi(\lambda_1 x_1 + \lambda_2 x_2)=f(\lambda_1 x_1) + f(\lambda_2 x_2) + \varphi(\lambda_1 x_1) + \varphi(\lambda_2 x_2) = \lambda_1f(x_1)+\lambda_2f(x_2)+\lambda_1\varphi(x_1)+\lambda_2\varphi(x_2)=\lambda_1(f(x_1)+\varphi(x_1))+\lambda_2(f(x_2)+\varphi(x_2))=\lambda_1(f+\varphi)(x_1)+\lambda_2(f+\varphi)(x_2)$.
     \end{Proof} 
-    \item \textbf{Произведение на скаляр линейного преобразования:} $$(\lambda f)(x) =  \lambda f(x),\ \forall x \in V.$$
+    \item \textbf{Умножение на скаляр линейного преобразования:} $$(\lambda f)(x) =  \lambda f(x),\ \forall x \in V.$$
     \begin{Proof}
     	$(\lambda f)(\lambda_1 x_1 + \lambda_2 x_2)=(\lambda f)(\lambda_1 x_1)+(\lambda f)(\lambda_2 x_2)=\lambda f(\lambda_1 x_1)+\lambda f(\lambda_2 x_2)=\lambda(f(\lambda_1 x_1)+\lambda(f(\lambda_2 x_2))=\lambda f(\lambda_1x_1+\lambda_2x_2)$.
     \end{Proof} 
@@ -355,7 +356,7 @@ $\bullet$ \textit{Отображение $\varphi: V \rightarrow V$ (само в
     	$(f\varphi)(\lambda_1x_1+\lambda_2x_2)=f(\varphi(\lambda_1x_1+\lambda_2x_2))=f(\varphi(\lambda_1x_1)+\varphi(\lambda_2x_2))=f)\lambda_1\varphi(x_1)+\lambda_2\varphi(x_2))=\lambda_1f(\varphi(x_1))+\lambda_2f(\varphi(x_2))=\lambda_1(f\varphi)(x_1)+\lambda_2(f\varphi)(x_2)$.
     \end{Proof} 
 \end{enumerate}
-\section{Ранг и дефект линейного преобразования}
+\section{Ядро и образ линейного преобразования}
 Пусть $\varphi:V\rightarrow V$ --- линейное преобразование.\\\\
 $\bullet$ \textit{Множество $\ker \varphi = \{x\ |\ \varphi(x)=\vec 0\}$ --- \textbf{ядро} линейного преобразования.}\\
 $\dim \ker \varphi$ - \textbf{дефект} линейного преобразования (размерность ядра).\\\\
@@ -987,4 +988,399 @@ $$\begin{cases}
         $$(a,b)=(b,r_1)=(r_1,r_2)=\dots=r_{n+1}$$
         \end{Proof}
     \end{enumerate}
+    \subsection{Расширенный алгоритм Евклида}
+    Под расширенным алгоритмом Евклида, или линейным разложением НОДа, понимается представление НОДа в виде:
+    $$d=au+bv$$
+    \section{Взаимно простые числа}
+    $\bullet$ Числа $a, b$ называются \textbf{взаимно простыми}, если их НОД равен 1, то есть
+    $$(a,b)=1$$
+    \begin{theorem}
+        \textbf{Критерий взаимной простоты}
+        $$(a,b)=1 \Leftrightarrow \exists u, v \ au+bv=1$$.
+    \end{theorem}
+    \begin{Proof}
+    $\Rightarrow$ По расширенному алгоритму Евклида $d=au+bv$.\\
+    Так как $(a,b)=1$, то $1=au+bv$.\\\\
+    $\Leftarrow$ Всякий делитель $a$ и $b$ будет делителем 1.
+    \end{Proof}\\\\
+    \textbf{Свойства взаимно простых чисел}
+    \begin{enumerate}
+        \item $a|bc$, $(a,b)=1 \Rightarrow a|c$ 
+        \begin{Proof}
+        $$au+bv=1$$
+        Умножим обе части равенства на $c$.
+        $$acu+bcv=c$$
+        Так как $a|acu$, $a|bcv$ ($a|bc$ по условию), то $a|c$.
+        \end{Proof}
+        \item $a,b|c, \ (a,b)=1 \ \Rightarrow \ ab|c$
+        \begin{Proof}
+        $$au+bv=1$$
+        Умножим обе части равенства на $c$.
+        $$acu+bcv=c$$
+        Так как $ab|acu$, $ab|bcv$, то $ab|c$.
+        \end{Proof}
+        \item $(a,c)=(b,c)=1 \Rightarrow (ab,c)=1$
+    \end{enumerate}
+    \section{НОК}
+    Под наименьшим общим кратным понимается наименьшее число, которое делят и $a$, и $b$.
+    \begin{theorem}
+        $$a|M, \ b|M \ \Rightarrow [a,b]|M$$
+    \end{theorem}
+    \begin{Proof}
+    $$M=[a,b]q+r$$
+    $$a|M, \ a|[a,b] \Rightarrow a|r$$
+    $$b|M, \ b|[a,b] \Rightarrow b|r$$
+    $$a,b|r, \ r<[a,b] \Rightarrow r=0$$
+    \end{Proof}
+    \begin{theorem}
+        $$ab=(a,b)[a,b]$$
+    \end{theorem}
+    $\bullet$ $[ak, bk] = [a,b]k$\\\\
+    НОД и НОК можно вычислять последовательно:
+    $$(a,b,c)=((a,b),c)$$
+    $$[a,b,c,d]=[[a,b,c],d]=[[a,b],c],d]$$
+    \section{Простые числа}
+    Число $p>1, \ p \in \N$ называется простым, если $1|p$ и $p|p$, других делителей нет.\\\\
+    $\bullet$ Либо $(p,a)=1$ --- $p$ взаимно простое с $a$, либо $p|a$.
+    \begin{theorem}
+        Простых чисел бесконечно много.
+    \end{theorem}
+    \begin{Proof}
+    Если число простых чисел конечно, то их можно перечислить и перемножить:
+    $$2\cdot3\cdot \ \dots \ \cdot p$$
+    Добавим 1:
+    $$2\cdot3\cdot \ \dots \ \cdot p +1$$
+    Полученное число не может быть простым, так как простые числа мы перечислили в произведении. Значит оно составное.\\
+    Если это число составное, то оно должно раскладываться на простые делители, при этом $q \neq 2,3,\dots \ \Rightarrow$ число должно иметь другие простые числа, которые его делят, или само быть простым.\\
+    Так как оба условия невозможны, то получаем противоречие.
+    \end{Proof}\\
+    \begin{theorem}
+        Любое число представимо в виде степеней попарно простых чисел:
+        $$m=p_1^{k_1}\cdot p_2^{k_2}\cdot \ \dots \ \cdot p_r^{k_r}$$
+    \end{theorem}
+    \begin{Proof}
+    \textbf{Возможность}\\
+    $m=m_1 \cdot p_1$, где $p_1$ --- наименьший простой делитель.\\
+    Если $m_1>1$, то $m=m_2 \cdot p_1 \cdot p_2$ и т.д., пока $p_i \neq 1$.
+    В конечном итоге получим разложение:
+    $$m=p_1\cdot p_2\cdot p_3\cdot \ \dots \ \cdot p_i$$
+    где $p_i = 1$.\\
+    С учетом кратности простых чисел в полученном разложении, его можно переписать в виде:
+    $$m=p_1^{k_1}\cdot p_2^{k_2}\cdot \ \dots \ \cdot p_r^{k_r}$$
+    \textbf{Единственность}\\
+    Пусть $m=p_1\cdot p_2 \cdot \ \dots \ \cdot p_l$ и $m=q_1 \cdot q_2 \cdot \ \dots \ \cdot q_s$.\\
+    Следовательно $p_1\cdot p_2 \cdot \ \dots \ \cdot p_l=q_1 \cdot q_2 \cdot \ \dots \ \cdot q_s$.\\
+    Так как левая часть делится на $p_1$, то и правая часть тоже. Значит среди множителей правой части есть хотя бы один, который делится на $p_1$.\\
+    А так как все они простые, то какой-то из множителей равен $p_1$ (пусть это $q_1$), значит на него можно сократить.\\
+    Продолжая алгоритм до конца, приходим к выводу, что все множители обеих частей попарно равны.
+    \end{Proof}
+    \section{Сравнения}
+    Возьмем $m \in \N, \ m>1$.\\\\
+    $a$ и $b$ \textbf{сравнимы по модулю $m$}, если у $a$ и $b$ одинаковый остаток при делении на $m$.\\
+    $\bullet$ $a \equiv b \ (\mod m), \ m|a-b$\\\\
+    \textbf{Пример}\\
+    $10 \equiv 12 \ (\mod 2)$,
+    так как $10 \mod 2 = 12 \mod 2 = 0$.\\\\
+    \textbf{Свойства сравнений}
+    \begin{enumerate}
+        \item $a \equiv a \ (\mod m)$ --- \textit{рефлексивность.}
+        \item $a \equiv b \ (\mod m) \Rightarrow b \equiv a \ (\mod m)$ --- \textit{симметричность.}
+        \item $a \equiv b \ (\mod m), \ b \equiv c \ (\mod m) \Rightarrow a \equiv c \ (\mod m)$ --- \textit{транзитивность.}
+        \item  $a \equiv b \ (\mod m) \Rightarrow a+c \equiv b+c \ (\mod m)$\\\\
+        $m|(a+c)-(b+c)=a-b$
+        \item \textit{Сравнения по одному и тому же модулю можно почленно складывать}\\
+        $$a \equiv b \ (\mod m)$$
+        $$a^\prime \equiv b^\prime \ (\mod m)$$
+        $$a+a^\prime \equiv b+b^\prime \ (\mod m)$$
+        $$m|(a+a^\prime-(b+b^\prime))=(a-b)+(a^\prime+b^\prime)$$
+        \item \textit{Сравнения по одному и тому же модулю можно почленно умножать}
+        $$a\cdot a^\prime \equiv b \cdot b^\prime \ (\mod m)$$
+        $$a=mq_1+r_1$$
+        $$a^\prime=mq_2+r_2$$
+        $$a\cdot a^\prime = mQ_1+r_1r_2$$
+        $$b=mq_3+r_1$$
+        $$b^\prime=mq_4+r_2$$
+        $$b\cdot b^\prime = mQ_2+r_1r_2$$
+        $$m|aa^\prime-bb^\prime=m(Q_1-Q_2)$$
+        \item \textit{Обе части сравнения можно умножить на одно и то же число}
+        $$a \equiv b \ (\mod m)$$
+        $$ak \equiv bk \ (\mod m)$$
+        $$m|k(a-b)$$
+        \item \textit{Обе части сравнения и модуль можно умножать на одно и то же число}
+        $$a \equiv b \ (\mod m)$$
+        $$ak \equiv bk \ (\mod mk)$$
+        $$mk|k(a-b)$$
+        \item \textit{Обе части сравнения и модуль можно сокращать на одно и то же число}
+        $$ak \equiv bk \ (\mod mk) \Rightarrow a \equiv b \ (\mod m)$$
+        $$\dfrac{(a-b)k}{mk}=\dfrac{a-b}{m}$$
+        \item \textit{Обе части сравнения можно сокращать на число, взаимно простое с модулем.}
+        $$ak \equiv bk \ (\mod m) \Rightarrow a \equiv b \ (\mod m), \ (k,m)=1$$
+        $$m|k(a-b)$$
+        \item $a \equiv b \ (\mod m) \Rightarrow (a,m)=(b,m)$\\
+        $a=b+km$
+    \end{enumerate}
+    \section{Классы вычетов}
+    $\bullet$ В класс вычетов входят все числа с данным остатком.\\
+    $\bullet$ Класс вычетов определяет бинарное отношение эквивалентности.\\\\
+    \textbf{Пример}\\
+    $$m = 3: \ 3\Z, \ 3\Z+1, \ 3\Z+2$$
+    $\bullet$ \textbf{Вычет} --- любой элемент класса.\\
+    $\bullet$ $\bar{a}$ --- класс, в который входят элементы с таким же остатком, как у $a$.\\\\
+    \textbf{Пример}
+    $$\bar{1}=\{2k+1\}, \ m=2$$
+    $\bullet$ $\bar{a} = \bar{b}$ --- классы совпадают $\Leftrightarrow \ a \equiv b \ (\mod m)$\\
+    $\bullet$ $\bar{a} = \bar{b}$ либо $\bar{a} \cap \bar{b} = \varnothing$\\
+    $\bullet$ \textbf{Полной системой вычетов} называется система представителей всех классов вычетов.
+    \begin{theorem}
+        Пусть $(a,m)=1$, $x$ пробегает полную систему вычетов $\Rightarrow \ ax+b$ пробегает полную систему вычетов.
+    \end{theorem}
+    \begin{Proof}
+    Рассмотрим вычеты $x_1$ и $x_2$, которые относятся к разным классам (1).\\
+    Предположим, что $ax_1+b \equiv ax_2+b \ (\mod m)$.\\
+    Тогда по свойству \textbf{4} мы можем отнять число $b$. А так как по условию $(a,m)=1$, то по свойству \textbf{10} можно сократить на число $a$.\\
+    Таким образом получим $$x_1 \equiv x_2 \ (\mod m)$$
+    что противоречит условию (1).
+    \end{Proof}\\
+    $\bullet$ Полная система вычетов: $m: 0,1,2, \dots, m-1$.\\
+    $\bullet$ Приведенная система вычетов: взаимно простые с модулем числа.\\
+    $\bullet$ Если один представитель класса взаимно простой с модулем, то все элементы класса взаимно простые с модулем.
+    \begin{theorem}
+        Пусть $(a,m)=1$. Тогда $x$ и $ax$ одноименно пробегают приведенную систему вычетов или нет.
+    \end{theorem}
+    \begin{Proof}
+    $ax_1 \equiv ax_2 \ (\mod m) \Leftrightarrow x_1 \equiv x_2 \ (\mod m)$
+    \end{Proof}
+    \section{Функция Эйлера}
+    Определяется для любого натурального $m$.\\
+    $\bullet$ $\varphi(m)$ --- число классов вычетов, взаимно простых с модулем.\\\\
+    \textbf{Пример}\\
+    $\varphi(1)=1$\\
+    $\varphi(2)=1$ --- классы вычетов $(0,1)$, но $0$ не взаимно простой с $2$.\\
+    $\varphi(3) = 2$  --- классы вычетов $(0,1,2)$, но $0$ не взаимно простой с $3$.\\
+    $\varphi(4) = 2$\\
+    $\varphi(5) = 4$
+    \begin{theorem}
+        $\varphi(p)=p-1$, где $p$ --- простое число.
+    \end{theorem}
+    \begin{Proof}
+    Полная система вычетов для $p$: $0,1,2,\dots,p-1$.\\
+    Так как $p$ --- простое число, то все вычеты с ним взаимно простые.
+    \end{Proof}
+    \begin{theorem}
+        $\varphi(p^n)=p^n-p^{n-1}$
+    \end{theorem}
+    \begin{Proof}
+    $$1,2,\dots,p,\dots,2p,\dots,p^n-1,p^n$$
+    В этом ряду каждое $p$-ое число делится на $p$, остальные взаимно простые, следовательно
+    $$p^n-\dfrac{p_n}{p}=p^n-p^{n-1}$$
+    \end{Proof}
+    \begin{theorem}
+        $(a,b)=1 \Rightarrow \varphi(ab)=\varphi(a)\varphi(b)$
+    \end{theorem}
+    \begin{Proof}
+    Запишем матрицу
+    $$\begin{pmatrix}
+    1 & 2 & 3 & \dots & a\\
+    a+1 & a+2 & a+3 & \dots & 2a\\
+    \vdots & \vdots & \vdots & \ddots & \vdots\\
+    (b-1)a+1 & (b-1)a+2 & (b-1)a+3 & \dots & ab
+    \end{pmatrix}$$
+    Найдем числа такие, что $(x,ab)=1$.
+    $$(x,ab)=1 \Leftrightarrow (x,a)=(x,b)=1$$
+    Вначале ищем $x$ взаимно простые с $a$. Эти числа могут быть только в столбцах с номерами, взаимно простыми с $a$. А таких столбцов $\varphi(a)$.\\
+    Более того, все числа таких столбцов взаимно простые с $a$ и этот столбец --- полная система вычетов по модулю $b$.\\
+    Значит чисел взаимно простых с $b$ --- $\varphi(b)$.\\
+    Тогда $\varphi(ab)=\varphi(a)\varphi(b)$.
+    \end{Proof}
+    \begin{theorem}
+        \textbf{Эйлера}\\
+        $(a,m)=1 \Rightarrow a^{\varphi(m)} \equiv 1 \ (\mod m)$
+    \end{theorem}
+    \begin{Proof}
+    Возьмем такое $a$, что $(a,m)=1$.\\
+    Пусть $l=\varphi(m)$.\\
+    И возьмем приведенную систему вычетов $\varepsilon_1,\varepsilon_2,\dots,\varepsilon_l$.\\
+    Рассмотрим сравнение $$(a\varepsilon_1)\cdot(a\varepsilon_2)\cdot \ \dots \ (a\varepsilon_l) \equiv \varepsilon_1\cdot\varepsilon_2\cdot \ \dots \ \varepsilon_l \ (\mod m)$$ 
+    Так как мы взяли приведенную систему вычетов, то $\varepsilon_i$ взаимно простое с $m$, значит мы можем сократить на все $\varepsilon$ обе части.\\
+    В конце получим
+    $$a^{\varphi(m)} \equiv 1 \ (\mod m)$$
+    \end{Proof}
+    \begin{theorem}
+        \textbf{Ферма}\\
+        $(a,p)=1 \Rightarrow a^{p-1} \equiv 1 \ (\mod m)$
+    \end{theorem}
+    \begin{Proof}
+    Доказательство следует из предыдущей теоремы.\\
+    Используем лемму о том, что $\varphi(p)=p-1$ и подставим это значение в $a^{\varphi(m)} \equiv 1 \ (\mod m)$.\\
+    Получаем
+    $$a^{p-1} \equiv 1 \ (\mod m)$$
+    \end{Proof}
+    \section{RSA-криптосистема}
+    $\bullet$ С помощью теоремы Эйлера появилась первая система цифровой подписи и первая криптосистема с открытым ключом.\\
+    Рассмотрим факторизацию числа $N$:
+    $$N=pq$$
+    Найдем значение функции Эйлера:
+    $$\varphi(N)=(p-1)(q-1)$$
+    Далее подбираются числа $e$ и $d$ такие, что
+    $$ed \equiv 1 \ (\mod c), \ c=\varphi(N)$$
+    $e$ --- \textbf{открытый} ключ.\\
+    $d$ --- \textbf{закрытый} ключ.\\\\
+    \textbf{Шифрование}\\
+    Берем число $x$ такое, что $(x,N)=1$.
+    $$x \rightarrow x^e \mod N$$
+    \textbf{Дешифрование}
+    $$x^e = (x^e)^d \mod N$$
+    \begin{Proof}
+    $x^{ed} = x^{1+ke} = (x^e)^k\cdot x \equiv x \ (\mod N)$\\
+    Так как $(x,N)=1$, можно сократить на $x$:
+    $$(x^e)^k \equiv 1 \ (\mod N)$$
+    \end{Proof}
+    \section{Сравнения первой степени}
+    $$ax \equiv b \ (\mod m)$$
+    \begin{theorem}
+        Сравнение разрешимо $\Leftrightarrow \ d|b$. В случае разрешимости оно имеет единственное решение по модулю $m^\prime$ и $d$ решений по модулю $m$: $$x \equiv x_0, x_0 + \dfrac{m}{d}, x_0+2\dfrac{m}{d}, \dots, (d-1)\dfrac{m}{d}$$
+    \end{theorem}
+    \begin{Proof}
+        $(a,m) = d | b$ --- необходимое условие разрешимости.
+        $$\dfrac{ax-b}{m} \in \Z$$
+        $d | ax$  и $d | m$ (так как $d = (a, m) )\ \Rightarrow d | b$.\\
+        Поделим обе части сравнения и модуль на $d$.
+        $$\dfrac{a}{d}x \equiv \dfrac{b}{d} \ (\mod \dfrac{m}{d})$$
+        Обозначим как $$a^\prime x \equiv b^\prime \ (\mod m^\prime), \ (a^\prime, m^\prime)=1$$
+        И тогда это сравнение имеет единственное решение по модулю $m^\prime$ по 2 лемме о пробегании.\\
+        Таким образом условие $(a,m) = d | b$ является и достаточным.
+    \end{Proof}\\\\
+    \textbf{Способы решения}
+    \begin{enumerate}
+        \item \textit{Подбор (при маленьком модуле)}
+        $$5x \equiv 1 \ (\mod 7)$$
+        Проверяем полную систему вычетов по модулю $7$:
+        $$0, 1, 2, 3, 4, 5, 6$$
+        $$x \equiv 3 \ (\mod 7)$$
+        \item \textit{Способ Эйлера}\\
+        Проверяем условие разрешимости по теореме.\\
+        Если решения есть, то домножим обе части сравнения на $a^{\varphi(m)-1}$:
+        $$a^{\varphi(m)-1}ax \equiv ba^{\varphi(m)-1} \ (\mod m)$$
+        По теореме Эйлера $$a^{\varphi(m)} \equiv 1 \ (\mod m) \Rightarrow \ x \equiv ba^{\varphi(m)-1} \ (\mod m)$$
+        \item \textit{Расширенный алгоритм Евклида}\\
+        Нужно найти такие $u$ и $v$, что 
+        $$au+mv=1$$
+        Домножим обе части сравнения на $u$:
+        $$aux \equiv bu \ (\mod m)$$
+        $$(1-mv)x \equiv bu \ (\mod m)$$
+        $$mv \equiv 0 \ (\mod m) \Rightarrow \ x \equiv bu \ (\mod m)$$
+    \end{enumerate}
+\section{Системы сравнений}
+    $\begin{cases}
+           a_1x \equiv b_1 \ (\mod m_1)\\
+           a_2x \equiv b_2 \ (\mod m_2)\\
+           \dotfill\\
+           a_sx \equiv b_s \ (\mod m_s)
+    \end{cases}$ сводится к \
+    $\begin{cases}
+           x \equiv c_1 \ (\mod m_1)\\
+           x \equiv c_2 \ (\mod m_2)\\
+           \dotfill\\
+           x \equiv c_s \ (\mod m_s)\\
+    \end{cases}$\\\\
+    \textbf{Способ 1}\\
+    Выражаем $x$ из первого cравнения
+    $$x = c_1 + m_1t\eqno(1)$$
+    и подставляем во второе.\\
+    Находим оттуда $t$ и подставляем в уравнение (1):
+    $$m_1t \equiv (c_2-c_1) \ (\mod m_2), \ (m_1, m_2) | c_2-c_1$$
+    $$t=t_0+\dfrac{m_2}{(m_1, m_2)}k, \ k \in \Z$$
+    Подставляя $t$ в уравнение (1), получаем:
+    $$x = c_1 + m_1t_0 + \dfrac{m_1m_2}{(m_1, m_2)}k \Rightarrow \ x = x_0+[m_1, m_2]k$$
+    где $x_0 = c_1 + m_1t$.\\
+    Тогда вместо первых двух сравнений в систему запишем
+    $$x \equiv x_0 \ (\mod [m_1, m_2])$$
+    Этот алгоритм либо установит неразрешимость системы, либо найдет одно решение по модулю $[m_1, m_2, \dots, m_s]$.\\\\
+    \textbf{CRT (Китайская теорема об остатках)}\\
+    Предназначена для решения систем вида:
+    $\begin{cases}
+           x \equiv c_1 \ (\mod m_1)\\
+           x \equiv c_2 \ (\mod m_2)\\
+           \dotfill\\
+           x \equiv c_s \ (\mod m_s)
+    \end{cases} \ (m_i, m_j) = 1, \ i \neq j$\\
+    Домножим каждое сравнение на модули других сравнений (имеем право, так как модули попарно взаимно простые):
+    $$\begin{cases}
+           x_1m_2m_3\dots m_s \equiv 1 \ (\mod m_1)\\
+           x_2m_21m_3\dots m_s \equiv 1 \ (\mod m_2)\\
+           \dotfill\\
+           x_sm_1m_2\dots m_{s-1} \equiv 1 \ (\mod m_s)
+    \end{cases}$$
+    Все они разрешимы по критерию разрешимости: $(a, m) = 1 | 1$.\\
+    Составляем решение:
+    $$X = c_1x_1m_2m_3\dots m_s + c_2x_2m_1m_3\dots m_s + \dots + c_sx_sm_1m_2\dots m_{s-1}$$
+    Так как все модули попарно взаимно простые, то их НОК = $m_1m_2\dots m_s$.\\
+    \begin{theorem}
+        Система сравнений с попарно взаимно простыми модулями разрешима и имеет единственное решение
+        $$x \equiv c \ (\mod m_1m_2 \dots m_s)$$
+    \end{theorem}
+\section{Показатели}
+$$a^{\varphi(m)} \equiv 1 \ (\mod m), \ (a, m) = 1$$
+$\bullet$ $a \sim \delta$, если $a^\delta \equiv 1 \ (\mod m), \delta \in \N, \delta - min$.\\\\
+\textbf{Свойства показателя}
+\begin{enumerate}
+    \item $a^k \equiv 1 \ (\mod m) \Rightarrow \delta | k$
+    \begin{Proof}
+        $$k = \delta q + r, \ 0 \leq r \leq \delta$$
+        $$a^k = a^{\delta q} \cdot a^r$$
+        $$a^{\delta q} \equiv 1 \ (\mod m) \Rightarrow a^k \equiv a^r \equiv 1 (\mod m)$$
+        Так как $0 \leq r \leq \delta$ и $a^r \equiv 1 \ (\mod m)$, то $r = 0$. 
+    \end{Proof}
+    \item $a^{\varphi(m)} \equiv 1 \ (\mod m) \Rightarrow \delta | \varphi(m)$
+    \item $a^0 = 1, a^1, \dots, a^{\delta -1 }$ --- в этом ряду все числа попарно не сравнимы по модулю $m$.
+    \begin{Proof}
+        $$a^i \equiv a^j \ (\mod m), \ i < j$$
+        где $i > 0, \ j \leq \delta -1$.\\
+        Сократим обе части сравнения на $a^j$:
+        $$a^{i-j} \equiv 1 \ (\mod m), \ i - j < \delta$$
+        Однако $\delta - min \ \Rightarrow$ противоречие.
+    \end{Proof}
+    \item $a \sim \delta_1, \ b \sim \delta_2, \ (\delta_1, \delta_2) = 1 \Rightarrow \ ab \sim \delta_1\delta_2$
+    \begin{Proof}
+        Пусть $ab \sim \delta, \ \delta \leq \delta_1\delta_2$, так как $(ab)^{\delta_1\delta_2} \equiv 1 \ (\mod m)$.\\
+        $1 \equiv ((ab)^{\delta_1})^{\delta_2} \equiv a^\delta b^{\delta_1\delta_2} \equiv  a^\delta \ (\mod m) \Rightarrow \ \delta_1 | \delta, \ \delta_2 | \delta \Rightarrow \delta_1\delta_2 | \delta \ ((\delta_1, \delta_2)=1) \Rightarrow \delta_1\delta_2=\delta$.
+    \end{Proof}
+    \item $a \sim \delta \Rightarrow \ a^k \sim \dfrac{\delta}{(k, \delta)}$
+    \begin{Proof}
+        $(a^k)^l$\\
+        Так как $a^m \equiv 1 \Rightarrow \delta | m$, то необходимо найти при каком минимальном значении $l$ дробь $\dfrac{kl}{\delta}$ целая.
+        $$\dfrac{kl}{\delta} = \dfrac{k/(\delta, k)l}{\delta/(\delta, k)} \Rightarrow l = \dfrac{\delta}{(\delta, k)}$$
+    \end{Proof}
+\end{enumerate}
+\section{Первообразные корни}
+$$a^\delta \equiv 1 \ (\mod m)$$
+$\bullet$ Первообразный корень по модулю $m$ --- число $g$ такое, что $g \sim \delta = \varphi(m)$.
+\begin{theorem}
+    Первообразный корень может быть только при $m=2, 4, p, p^k, 2p^k$.
+\end{theorem}
+\begin{Proof}
+    Рассмотрим $2^k$.\\
+    Пусть $k=1$. Тогда $2^k = 2, \ \varphi(2) = 1$. Первообразным корнем по модулю $2$ будет $1 \equiv -1 \ (\mod 2)$.\\
+    Пусть $k=2$. Тогда $2^k = 4, \ \varphi(2) = 2$. Первообразным корнем по модулю $4$ будет $3 \equiv -1 \ (\mod 4)$.\\
+    Пусть $k \geq 3$. Тогда $2^k \geq 8, \ \varphi(k)=2^{k-1}$.
+    Первообразных корней в таком случае нет, так как для нечетного числа $a=2^kt+1$ показатель по модулю $2^\alpha$ не будет превосходить $2^{\alpha-2}=\dfrac{1}{2}\varphi(2^\alpha)$:
+    $$a^3 = 1 + 8t \equiv 1 \ (\mod 8)$$
+    $$a^4 = 1 + 16t \equiv 1 \ (\mod 16)$$
+    $$...........................................$$
+    $$a^{2^k-2} = 1 + 2^k \equiv 1 \ (\mod 2^k)$$
+    Рассмотрим случай $m=p$:\\
+    Возьмем приведенную систему вычетов $1, 2,\dots, p-1$, где каждое число принадлежит показателям $\delta_1,\delta_2,\dots,\delta_{p-1}$ соответственно, то есть $\exists g \sim \delta, \ \delta = [\delta_1,\delta_2,\dots,\delta_{p-1}]$.\\
+    Если $g \sim \delta = \varphi(p) = p-1$ выполняется, то $g$ --- первообразный корень.\\
+    Предположим $\delta < p-1$.\\
+    Тогда $\forall a (a, p) = 1 \Rightarrow \ a^\delta \equiv 1 \ (\mod p)$.\\
+    Все ненулевые элементы поля вычетов являются корнями многочлена $x^\delta-1$. Это уравнение имеет $p$ корней.\\
+    $\delta < p-1, \ \delta+1<p$, то есть степень многочлена меньше, чем количество корней --- противоречие.\\\\
+    Покажем, что для других чисел корней нет.\\
+    $m \neq 2, 4, p, p^k, 2p^k$.\\
+    Это такие числа, для которых выполняется $m=m_1m_2, \ (m_1,m_2)=1, \ \varphi(m_1) \equiv \varphi(m_2) \equiv 0 \ (\mod 2)$.\\
+    Возьмем такое $a$, что $(a, m) = 1$.
+    $$a^{\frac{\varphi(m)}{2}} = (a^{\varphi(m_1)})^{\varphi(m_2)/2} \equiv 1 \ (\mod m_1), \ a^{\varphi(m_1)} \equiv 1 \ (\mod m_1)$$
+    Аналогично для $m_2$. Следовательно $$a^{\frac{\varphi(m)}{2}} \equiv 1 \ (\mod m)\Rightarrow \delta \neq \varphi(m)$$
+    что противоречит определению первообразного корня.
+\end{Proof}
 \end{document}
