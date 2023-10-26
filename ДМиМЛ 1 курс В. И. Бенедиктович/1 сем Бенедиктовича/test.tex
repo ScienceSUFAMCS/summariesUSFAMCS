@@ -1,0 +1,218 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[T2A]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools, tipa}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{ upgreek, mathrsfs, cancel}
+\usepackage[unicode]{hyperref}
+\usepackage{tikz}
+\usepackage{colortbl}
+
+\newcommand{\RomanNumeralCaps}[1]
+    {\MakeUppercase{\romannumeral #1}}
+
+\newenvironment{Proof} % имя окружения для доказательства
+{\par\noindent{$\blacklozenge$}} % символ рядом с \begin
+{\hfill$\scriptstyle\boxtimes$} % символ рядом с \end
+
+\newenvironment{example} % имя окружения для примеров
+{\par\noindent{\textsc{\textbf{Пример}}}} % символ рядом с \begin
+%{\hfill$\scriptstyle\Box$} % символ рядом с \end
+
+\newenvironment{exercise}
+{\par\noindent{\textsc{\textbf{Упражнение}.}}}
+{\hfill}
+
+\newtheorem*{theorem}{Теорема} % окружение для теорем
+\newtheorem*{corollary}{Следствия} % окружение для следствий
+\newtheorem*{lemma}{Лемма} % окружение для лемм
+
+\newcommand{\Rm}{\mathbb{R}}
+\newcommand{\Cm}{\mathbb{C}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+% команды для множеств 
+
+
+\title{\textbf{\Huge{Дискретная математика и математическая логика}}\\Конспект по 1 семестру 
+	специальностей «экономическая кибернетика» и «компьютерная безопасность»\\(лектор В. И. Бенедиктович)} % оформление титульного листа
+\date{} % отключение даты в титульнике
+\begin{document}
+	\maketitle % отображение титульного листа в документе
+	\tableofcontents{}
+\chapter{Высказывания} % новая глава
+\section*{Высказывания, операции над нами. Формулы логики высказываний (ФЛВ). Равносильные формулы, тавтологии, противоречия. Теорема о подстановке формулы вместо переменной. Теорема о замене подформулы равносильной ей формулой}
+\subsection*{Высказывания}
+$\bullet$ \textbf{Высказывание} - повествовательное предложение, относительно которого можно сделать вывод, что его содержание истинно или ложно (далее \textbf{И} - истинно, \textbf{Л} - ложно).\\\\
+Свойства высказываний:
+\begin{enumerate}
+	\item \textbf{Закон исключения третьего}\\
+	Всякое высказывание является либо истинным, либо ложным.
+	\item \textbf{Закон непротиворечивости}\\
+	Никакое высказывание не может быть одновременно быть истинным и ложным.
+\end{enumerate}
+
+\begin{example}
+	\begin{enumerate}
+		\item Сейчас дождь (Л);
+		\item $2 + 3 = 5$ (И);
+		\item $2 + 3 > 5$ (Л);
+		\item Закройте дверь (не высказывание);
+		\item Идёт ли дождь? (не высказывание);
+	\end{enumerate}
+\end{example}
+Обозначаем высказывания большими латинскими буквами ($A, B,\dotso, Z$).
+\subsection*{Логические операции}
+Из имеющихся высказываний можно получить другие спомощью логических операций\\
+\textbf{Логические операции}:
+\begin{enumerate}
+	\item \textbf{Отрицание}\\
+	$A$ - некоторое высказывание\\
+	Высказывание типа: «неверно, что $A$» ($\bar A$/ $\neg A$)\\\\
+	Таблица истинности:~~
+	\begin{tabular}{|c|c|}
+		\hline
+		$A$  & $\overline{A}$ \\
+		\hline
+		И & Л\\
+		Л & И\\
+		\hline
+	\end{tabular}
+	\item \textbf{Конъюнкция}\\
+	Пусть $A$ и $B$ - некоторые высказывания\\
+	Конъюнкцией высказываний $A$ и $B$ называется высказывание, которое обозначается $A \wedge B$ или $A \cdot B$ и которое принимает значение истинности тогда и только тогда, когда оба значения ($A$ и $B$) принимают значение «истинно».\\\\
+	Таблица истинности:~~
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$A$  & $B$ & $A \wedge B$ \\
+		\hline
+		И & И & И\\
+		И & Л & Л\\
+		Л & И & Л\\
+		Л & Л & Л\\
+		\hline
+	\end{tabular}
+	\item \textbf{Дизъюнкция}\\
+	Пусть $A$ и $B$ - некоторые высказывания\\
+	Дизъюнкцией этих высказываний, которое обозначается $A \vee B$, называется высказывание, которое принимает значение «истинно» тогда и только тогда, когда хотя бы одно из высказываний истинно\\\\
+	Таблица истинности:~~ 
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$A$  & $B$ & $A \vee B$ \\
+		\hline
+		И & И & И\\
+		И & Л & И\\
+		Л & И & И\\
+		Л & Л & Л\\
+		\hline
+	\end{tabular}
+	\item \textbf{Импликация}\\
+	Пусть $A$ и $B$ - некоторые высказывания\\
+	Импликация - высказывание, обозначается $A \Rightarrow B$, типа «если $A$, то $B$», которое принимает значение «ложь», когда высказывание $A$ - истинно, а $B$ - ложно.\\
+	
+	Также $A$ - посылка, $B$ - заключение.\\\\
+	Если импликация является истинной, то $B$ - необходимое условие для $A$, либо $A$ является достаточным условием для $B$ , либо $A$ влечёт $B$.
+	Если импликация является ложной, то из $A$ не следует $B$ ($A \nRightarrow B$)\\\\
+	Таблица истинности:~~ 
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$A$  & $B$ & $A \Rightarrow B$ \\
+		\hline
+		И & И & И\\
+		И & Л & Л\\
+		Л & И & И\\
+		Л & Л & И\\
+		\hline
+	\end{tabular}
+	\begin{center}
+		\textbf{Свойства импликации:}
+	\end{center}
+	\begin{enumerate}
+		\item транзитивность:\\
+		$D = ((A \Rightarrow B) \wedge (B \Rightarrow C)) \Rightarrow (A \Rightarrow C)$ - принимает значение \textbf{И} при любых наборах $A, B, C$
+	
+		
+		
+	\end{enumerate}
+	\item Эквивалентность
+	Высказывание $ A $ называют эквивалентным высказыванию $ B $ ,если выполняется
+	 $ A $ необходимое и достаточное условие для $ B $.\\\\
+	Таблица истинности:~~ 
+\begin{tabular}{|c|c|c|}
+	\hline
+	$A$  & $B$ & $A \Leftrightarrow B$ \\
+	\hline
+	И & И & И\\
+	И & Л & Л\\
+	Л & И & Л\\
+	Л & Л & И\\
+	\hline
+\end{tabular}
+	
+\end{enumerate}
+
+
+\begin{center}
+Соглашение о приоритетах логических операций
+\end{center}
+1)	Отприцание приоритетнее всех остальных операций\\
+2)	Конъюнкция приоритетнее 3)\\
+3)	Дизъюнкция приоритетнее 4-5)\\
+4)	Импликация приоритетнее 5)\\
+5)	Эквивалентность\\\\
+\begin{center}
+	\textbf{Понятие пропозициональной формулы }
+\end{center}    
+- выражение, построенное из пропозициональных букв $ A, B, C, \dotso $ по следующим правилам:
+\begin{enumerate}
+	\item Все буквы пропозициональны и является пропозициональной формулой
+\item  Если $ A, B, C $ – пропозициональные формулы, то и выражения с логическими операциями тоже являются пропозициональными формулами
+\item Других формул нет 
+\end{enumerate}
+обозначение пропозициональной формулы: \\
+Пропозициональная формула определяется на множестве всех возможных наборов значений переменных функции принимающие аргументы И Л\\
+Такая функция может быть задана с помощью конечной таблицы истинности, содержащей $2^n$ строк.
+Формулы, выражающие одну и ту же формулу, принимают дно и то же значение, называют эквивалентными (одна и та же таблица истинности).
+
+Примеры эквивалентных формул:\\
+\begin{enumerate}
+	\item $ \neg (\neg X) = X$ (закон двойного отрицания);
+	\item $X\vee Y=Y\vee X$ (коммутативность дизъюнкции);
+	\item $X\wedge Y = Y\wedge X$ (коммутативность конъюнкции);
+	\item $(X\vee Y)\vee Z= X\vee(Y\vee Z)$ (ассоциативность дизъюнкции);
+	\item $(X\wedge Y) \wedge Z= X\wedge (Y\wedge Z)$ (ассоциативность конъюнкции);
+	\item $X\wedge (Y\vee Z)=(X \wedge Y)\vee(X\wedge Z)$ (дистрибутивность конъюнкции относительно дизъюнкции);
+	\item $X\vee(Y\wedge Z)=(X\vee Y)\wedge (X\vee Z)$ (дистрибутивность дизъюнкции относительно конъюнкции);
+	\item $X\vee X= X$ (закон идемпотентности дизъюнкции);
+	\item $X\wedge X = X$ (законы идемпотентности конъюнкции);
+	\item $X\vee \text{Л} = Ч$;
+	\item $X \wedge \text{Л} = \text{Л }$;
+	\item $\text{И} \wedge X=X$;
+	
+	
+		\item $X\vee \top = \top$;
+		\item $X\vee(\neg X)=\top$;
+		\item $X (\neg X)=\text{Л}$;
+		\item $\neg(X\wedge Y)=(\neg X)\vee(\neg Y)$;
+		\item $\neg(X\vee Y)=(\neg X) (\neg Y)$ (законы двойственности, или де Моргана);
+		\item $(X\Rightarrow Y)= (\neg X)\vee Y$;
+		\item $(X\Leftrightarrow Y)=(x\Rightarrow Y) (Y\Rightarrow X)= (\neg X \vee Y) \wedge (X\Rightarrow Y)$;
+		\item $(X\Rightarrow Y)= (\neg Y\Rightarrow \neg X)$ (закон обращения, или контрапозиции).
+		\item $X\vee (X\wedge Y)= X$ (закон поглощения относительно дизъюнкции);
+		\item $X (X\vee Y) = X$ (закон поглощения относительно конъюнкции);
+		\item $X\Rightarrow (Y \Rightarrow Z) = (X\wedge Y) \Rightarrow Z$ (закон объединения посылок);
+		\item $X\Rightarrow (Y \Rightarrow Z) = Y \Rightarrow (X\Rightarrow Z)$ (закон перестановки посылок);
+		\item $(A \wedge X)\vee (A \wedge \neg X)= $ (элементарное склеивание);
+		\item $(A \wedge X)\vee (B \wedge \neg X)=(A \wedge X)\vee (B \wedge (\neg X))\vee (A \wedge B)$ (обобщенное склеивание).
+	
+	
+	
+\end{enumerate}
+
+
+
+
+\end{document}
